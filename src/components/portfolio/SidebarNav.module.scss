@@ -1,0 +1,46 @@
+.Menu {
+  text-align: center;
+  padding: 40px 50px 10px;
+
+  @media (min-width: 1300px) {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 50px 10px 70px;
+    align-items: center;
+  }
+}
+
+.Menu__title {
+  font-size: 3rem;
+  line-height: 3rem;
+
+  @media (min-width: 1300px) {
+    font-size: 2.5rem;
+    line-height: inherit;
+  }
+}
+
+.Menu__list {
+  margin: 25px;
+
+  a {
+    transition: 0.2s;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 6px 20px;
+    font-size: 1rem;
+    border: 1px solid #003c50;
+    margin: 0 7px;
+    color: #003c50;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-color: #8ecbdf;
+    padding: 6px 20px;
+    font-size: 1rem;
+    border: 1px solid #003c50;
+    margin: 0 7px;
+    color: #003c50;
+  }
+}

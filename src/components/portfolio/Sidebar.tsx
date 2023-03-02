@@ -22,7 +22,7 @@ export const Sidebar: FunctionComponent = () => {
   });
 
   const { mutate } = useMutation({
-    mutationFn: async (updatedSkills) => {
+    mutationFn: async (updatedSkills: string[]) => {
       setIsEditing(false);
       const response = await axios.post('/api/portfolio/skills', updatedSkills);
       return response.data;
@@ -36,7 +36,7 @@ export const Sidebar: FunctionComponent = () => {
     event: React.MouseEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    mutate({ skillsList });
+    mutate(skillsList);
   };
 
   const toggleIsEditingHandler = () => {

@@ -8,7 +8,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 
 export const Sidebar: FunctionComponent = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [skillsList, setSkillsList] = useState([]);
+  const [skillsList, setSkillsList] = useState<string[]>([]);
 
   const getSkillsQuery = useQuery({
     queryKey: ['skills'],
@@ -32,9 +32,7 @@ export const Sidebar: FunctionComponent = () => {
     },
   });
 
-  const formSubmitHandler = async (
-    event: React.MouseEvent<HTMLInputElement>
-  ) => {
+  const formSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     mutate(skillsList);
   };
@@ -44,7 +42,7 @@ export const Sidebar: FunctionComponent = () => {
   };
 
   const handleInputChange = (
-    event: React.MouseEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
     const element = event.target as HTMLInputElement;

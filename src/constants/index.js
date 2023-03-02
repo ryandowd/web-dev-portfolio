@@ -1,1 +1,1 @@
-export const MONGODB_URL = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.hlsuk1v.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+export const MONGODB_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTERNAME}.hlsuk1v.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`;

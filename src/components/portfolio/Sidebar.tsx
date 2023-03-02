@@ -24,10 +24,13 @@ export const Sidebar: FunctionComponent = () => {
   const { mutate } = useMutation({
     mutationFn: async (updatedSkills: string[]) => {
       setIsEditing(false);
-      const response = await axios.post('/api/portfolio/skills', updatedSkills);
+      const response = await axios.post('/api/portfolio/skills', {
+        skillsList: updatedSkills,
+      });
       return response.data;
     },
     onSuccess: (data) => {
+      console.log('data', data);
       setSkillsList(data.skillsList);
     },
   });
@@ -43,7 +46,7 @@ export const Sidebar: FunctionComponent = () => {
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    index: number
+    index?: number
   ) => {
     const element = event.target as HTMLInputElement;
 
@@ -69,17 +72,28 @@ export const Sidebar: FunctionComponent = () => {
             <h1>Blah Blah</h1>
             <form onSubmit={formSubmitHandler}>
               <ul>
-                {skillsList.map((skillItem: string, index: number) => {
-                  return (
-                    <li key={index}>
-                      <label>{index}</label>
+                {skillsList.length > 0 ? (
+                  skillsList.map((skillItem: string, index: number) => {
+                    return (
+                      <li key={index}>
+                        <label>{index}</label>
+                        <input
+                          value={skillItem || skillItem}
+                          onChange={(event) => handleInputChange(event, index)}
+                        />
+                      </li>
+                    );
+                  })
+                ) : (
+                  <ul>
+                    <li>
                       <input
-                        value={skillItem || skillItem}
-                        onChange={(event) => handleInputChange(event, index)}
+                        defaultValue='Please enter a skill'
+                        onChange={(event) => handleInputChange(event)}
                       />
                     </li>
-                  );
-                })}
+                  </ul>
+                )}
               </ul>
               <button type='submit'>Update skills</button>
             </form>

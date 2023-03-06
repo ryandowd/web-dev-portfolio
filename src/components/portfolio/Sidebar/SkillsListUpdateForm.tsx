@@ -46,7 +46,7 @@ export const SkillsListUpdateForm = (props: SkillsListUpdateFormProps) => {
           );
         })}
       </ul>
-      <button type='submit'>Update skills</button>
+      <button type='submit'>Save skills</button>
       <button type='button' onClick={addNewSkillHandler}>
         Add new skill
       </button>

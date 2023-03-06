@@ -1,9 +1,7 @@
-import { connectDatabase, insertOneDocument } from '../../../helpers/db-util';
+import { connectDatabase, insertOneDocument } from '@/helpers/db-util';
 
 export default async function handler(req, res) {
-  console.log('req.method', req.method);
   if (req.method === 'POST') {
-    console.log('req', req.body);
     const skillsList = req.body.skillsList;
     const client = await connectDatabase();
     const db = client.db();
@@ -16,8 +14,6 @@ export default async function handler(req, res) {
         },
       }
     );
-
-    console.log('client', result);
 
     // try {
     //   const result = await insertOneDocument(client, 'skills', { skill });

@@ -1,12 +1,27 @@
+import { connectDatabase } from '../helpers/db-util';
+
 import Head from 'next/head';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-import { Sidebar } from '@/components/portfolio/Sidebar';
+import { Sidebar } from '@/components/portfolio/Sidebar/Sidebar';
+import { useEffect } from 'react';
+import { useSidebar } from '@/components/portfolio/Sidebar/use-sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+interface HomeProps {
+  staticSkillsList: string[];
+}
+
+export default function Home(props: HomeProps) {
+  const { staticSkillsList } = props;
+  const { skillsList, setSkillsList, handleInputChange } = useSidebar();
+
+  useEffect(() => {
+    setSkillsList(staticSkillsList);
+  }, []);
+
   return (
     <>
       <Head>
@@ -16,8 +31,26 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <Sidebar />
+        <Sidebar
+          skillsList={skillsList}
+          setSkillsList={setSkillsList}
+          handleInputChange={handleInputChange}
+        />
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const client = await connectDatabase();
+  const db = client.db();
+  const result = await db.collection('skills').find().toArray();
+  client.close();
+
+  return {
+    props: {
+      staticSkillsList: result[0].skillsList,
+    },
+    revalidate: 1800,
+  };
 }

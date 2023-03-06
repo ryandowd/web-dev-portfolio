@@ -45,14 +45,13 @@ export async function getStaticProps() {
   const client = await connectDatabase();
   const db = client.db();
   const result = await db.collection('skills').find().toArray();
-
-  console.log('result', JSON.stringify(result));
+  const skillsList = result[0]?.skillsList;
 
   client.close();
 
   return {
     props: {
-      staticSkillsList: result[0].skillsList,
+      staticSkillsList: skillsList ? skillsList : [],
     },
     revalidate: 1800,
   };

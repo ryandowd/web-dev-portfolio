@@ -22,17 +22,26 @@ export const SkillsListUpdateForm = (props: SkillsListUpdateFormProps) => {
     });
   }
 
+  function removeSkillHandler(index: number) {
+    setSkillsList((prevState: string[]) => {
+      const newState = prevState.filter((_, itemIndex) => itemIndex !== index);
+      return newState;
+    });
+  }
+
   return (
     <form onSubmit={(event) => formSubmitHandler(event, skillsList)}>
       <ul>
         {skillsList.map((skillItem: string, index: number) => {
           return (
             <li key={index}>
-              <label>{index}</label>
               <input
                 value={skillItem}
                 onChange={(event) => handleInputChange(event, index)}
               />
+              <button type='button' onClick={() => removeSkillHandler(index)}>
+                X
+              </button>
             </li>
           );
         })}

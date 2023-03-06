@@ -41,13 +41,11 @@ export default function Home(props: HomeProps) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await connectDatabase();
   const db = client.db();
   const result = await db.collection('skills').find().toArray();
   const skillsList = result[0]?.skillsList;
-
-  console.log('skillsList', skillsList);
 
   client.close();
 
@@ -55,6 +53,5 @@ export async function getStaticProps() {
     props: {
       staticSkillsList: skillsList ? skillsList : [],
     },
-    revalidate: 1800,
   };
 }

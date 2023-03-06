@@ -45,6 +45,9 @@ export async function getStaticProps() {
   const client = await connectDatabase();
   const db = client.db();
   const result = await db.collection('skills').find().toArray();
+
+  console.log('result', JSON.stringify(result));
+
   client.close();
 
   return {

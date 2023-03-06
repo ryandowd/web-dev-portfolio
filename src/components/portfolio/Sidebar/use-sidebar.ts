@@ -7,8 +7,6 @@ export const useSidebar = () => {
   const [skillsList, setSkillsList] = useState<string[]>([]);
   const { setIsEditing } = useContext(AuthContext);
 
-  console.log('from useSidebar = ', skillsList);
-
   const { mutate } = useMutation({
     mutationFn: async (updatedSkills: string[]) => {
       setIsEditing(false);

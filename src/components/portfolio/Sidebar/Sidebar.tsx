@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { SidebarNav } from './SidebarNav';
-import { SidebarIntro } from './SidebarIntro';
+// import { SidebarIntro } from './SidebarIntro';
 import { AuthContext } from '@/global/providers/use-auth';
 
 import { useSidebar } from './use-sidebar';
 
 import classes from './Sidebar.module.scss';
-import { SkillsListUpdateForm } from './SkillsListUpdateForm';
+import { SkillsForm } from './SkillsForm';
 import { SkillsList } from './SkillsList';
 
 interface SidebarProps {
@@ -35,7 +35,7 @@ export const Sidebar = (props: SidebarProps) => {
       {skillsList && !isEditing && <SkillsList skillsList={skillsList} />}
 
       {isEditing && (
-        <SkillsListUpdateForm
+        <SkillsForm
           skillsList={skillsList}
           setSkillsList={setSkillsList}
           formSubmitHandler={formSubmitHandler}

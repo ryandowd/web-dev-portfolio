@@ -1,4 +1,6 @@
-interface SkillsListUpdateFormProps {
+import { SkillsFormInput } from './SkillsFormInput';
+
+interface SkillsFormProps {
   skillsList: string[];
   setSkillsList: React.Dispatch<React.SetStateAction<string[]>>;
   formSubmitHandler: (
@@ -11,7 +13,7 @@ interface SkillsListUpdateFormProps {
   ) => void;
 }
 
-export const SkillsListUpdateForm = (props: SkillsListUpdateFormProps) => {
+export const SkillsForm = (props: SkillsFormProps) => {
   const { skillsList, setSkillsList, formSubmitHandler, handleInputChange } =
     props;
 
@@ -29,23 +31,22 @@ export const SkillsListUpdateForm = (props: SkillsListUpdateFormProps) => {
     });
   }
 
+  const skillsListForm = skillsList.map((skillItem: string, index: number) => {
+    return (
+      <ul>
+        <SkillsFormInput
+          index={index}
+          skillItem={skillItem}
+          handleInputChange={handleInputChange}
+          removeSkillHandler={removeSkillHandler}
+        />
+      </ul>
+    );
+  });
+
   return (
     <form onSubmit={(event) => formSubmitHandler(event, skillsList)}>
-      <ul>
-        {skillsList.map((skillItem: string, index: number) => {
-          return (
-            <li key={index}>
-              <input
-                value={skillItem}
-                onChange={(event) => handleInputChange(event, index)}
-              />
-              <button type='button' onClick={() => removeSkillHandler(index)}>
-                X
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      {skillsList.length ? skillsListForm : <p>No skills added</p>}
       <button type='submit'>Save skills</button>
       <button type='button' onClick={addNewSkillHandler}>
         Add new skill

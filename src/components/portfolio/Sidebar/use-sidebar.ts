@@ -7,19 +7,6 @@ export const useSidebar = () => {
   const [skillsList, setSkillsList] = useState<string[]>([]);
   const { setIsEditing } = useContext(AuthContext);
 
-  // const getSkillsQuery = useQuery({
-  //   queryKey: ['skills'],
-  //   queryFn: async () => {
-  //     console.log('THIS IS RUNNING');
-  //     const response = await axios.get('/api/portfolio/skills');
-  //     return response.data;
-  //   },
-  //   onSuccess: (data) => {
-  //     setSkillsList(data.skillsList);
-  //   },
-  //   refetchOnWindowFocus: false,
-  // });
-
   const { mutate } = useMutation({
     mutationFn: async (updatedSkills: string[]) => {
       setIsEditing(false);

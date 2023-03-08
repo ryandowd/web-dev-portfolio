@@ -11,6 +11,7 @@ import Link from 'next/link';
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log('providers', providers);
   return (
     <>
       <Link href={'/'}>Home</Link>

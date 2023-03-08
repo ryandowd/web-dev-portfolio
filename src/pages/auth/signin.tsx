@@ -22,7 +22,13 @@ export default function SignIn({
         } else {
           return (
             <div key={provider.name}>
-              <button onClick={() => signIn(provider.id)}>
+              <button
+                onClick={() =>
+                  signIn(provider.id, {
+                    callbackUrl: `${window.location.origin}`,
+                  })
+                }
+              >
                 Sign in with {provider.name}
               </button>
             </div>

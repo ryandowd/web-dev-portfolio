@@ -5,7 +5,7 @@ import classes from './Form.module.scss';
 interface SignInFormProps {
   nextAuthSignIn: (
     providerName: string,
-    credentialsObj: { username: string; password: string }
+    credentialsObj: { callbackUrl: string; username: string; password: string }
   ) => void;
 }
 
@@ -28,6 +28,7 @@ export const SignInForm = (props: SignInFormProps) => {
     // Create User
     if (username && password) {
       nextAuthSignIn('credentials', {
+        callbackUrl: `${window.location.origin}`,
         username,
         password,
       });

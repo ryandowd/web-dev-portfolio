@@ -63,13 +63,13 @@ export const authOptions: NextAuthOptions = {
 
         client.close();
 
-        return user;
+        return user as any;
       },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    } as any),
   ],
   pages: {
     signIn: '/auth/signin',

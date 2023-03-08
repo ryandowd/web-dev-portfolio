@@ -1,7 +1,7 @@
 import { hashPassword } from '@/lib/auth-util';
 import { connectToDatabase } from '@/lib/db-util';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return;
   }

@@ -33,20 +33,19 @@ export const SkillsForm = (props: SkillsFormProps) => {
 
   const skillsListForm = skillsList.map((skillItem: string, index: number) => {
     return (
-      <ul>
-        <SkillsFormInput
-          index={index}
-          skillItem={skillItem}
-          handleInputChange={handleInputChange}
-          removeSkillHandler={removeSkillHandler}
-        />
-      </ul>
+      <SkillsFormInput
+        key={index}
+        index={index}
+        skillItem={skillItem}
+        handleInputChange={handleInputChange}
+        removeSkillHandler={removeSkillHandler}
+      />
     );
   });
 
   return (
     <form onSubmit={(event) => formSubmitHandler(event, skillsList)}>
-      {skillsList.length ? skillsListForm : <p>No skills added</p>}
+      {skillsList.length ? <ul>{skillsListForm}</ul> : <p>No skills added</p>}
       <button type='submit'>Save skills</button>
       <button type='button' onClick={addNewSkillHandler}>
         Add new skill

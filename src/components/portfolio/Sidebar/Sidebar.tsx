@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { SidebarNav } from './SidebarNav';
+import { useSession } from 'next-auth/react';
 // import { SidebarIntro } from './SidebarIntro';
 import { AuthContext } from '@/global/providers/use-auth';
 
@@ -19,6 +20,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: SidebarProps) => {
+  const { data: session, status } = useSession();
   const { skillsList, setSkillsList, handleInputChange } = props;
   const { isEditing, toggleIsEditingHandler } = useContext(AuthContext);
 
@@ -27,9 +29,11 @@ export const Sidebar = (props: SidebarProps) => {
   return (
     <div className={classes.sidebar}>
       <SidebarNav />
-      <button onClick={toggleIsEditingHandler}>
-        {isEditing ? 'Finish editing' : 'Go to edit mode'}
-      </button>
+      {session && (
+        <button onClick={toggleIsEditingHandler}>
+          {isEditing ? 'Finish editing' : 'Go to edit mode'}
+        </button>
+      )}
       {/* <SidebarIntro /> */}
 
       {skillsList && !isEditing && <SkillsList skillsList={skillsList} />}

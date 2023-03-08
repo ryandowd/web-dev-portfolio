@@ -1,9 +1,9 @@
-import { connectDatabase, insertOneDocument } from '@/helpers/db-util';
+import { connectToDatabase, insertOneDocument } from '@/lib/db-util';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const skillsList = req.body.skillsList;
-    const client = await connectDatabase();
+    const client = await connectToDatabase();
     const db = client.db();
 
     const result = await db.collection('skills').updateOne(
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    const client = await connectDatabase();
+    const client = await connectToDatabase();
     const db = client.db();
     const result = await db.collection('skills').find().toArray();
     res.status(200).json({ skillsList: result[0].skillsList });

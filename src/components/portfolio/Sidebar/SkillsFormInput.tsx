@@ -11,7 +11,7 @@ interface SkillsFormInputProps {
 export const SkillsFormInput = (props: SkillsFormInputProps) => {
   const { index, skillItem, handleInputChange, removeSkillHandler } = props;
   return (
-    <li key={index}>
+    <li>
       <input
         value={skillItem}
         onChange={(event) => handleInputChange(event, index)}

@@ -1,0 +1,25 @@
+.form {
+  border: 2px solid black;
+  padding: 20px;
+  position: absolute;
+  background: white;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.control {
+  margin: 20px;
+
+  input {
+    height: 50px;
+    padding: 20px;
+  }
+}
+
+.button {
+  width: 100%;
+  padding: 20px;
+  background: grey;
+  cursor: pointer;
+}

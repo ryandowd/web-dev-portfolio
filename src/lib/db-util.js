@@ -11,3 +11,11 @@ export async function insertDocument(client, collection, document) {
   const result = await db.collection(collection).insertOne(document);
   return result;
 }
+
+export async function getEvent(eventId, client) {
+  const db = client.db();
+  const collection = await db.collection('events');
+  const document = await collection.findOne({ eventId });
+  client.close();
+  return document;
+}

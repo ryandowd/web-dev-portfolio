@@ -1,5 +1,11 @@
-import { SignUpForm } from '@/components/login/SignUpForm';
+import { SignUpForm } from '@/components/Login/SignUpForm';
+import Link from 'next/link';
 
 export default function SignupUserForm() {
-  return <SignUpForm />;
+  return (
+    <>
+      <Link href='/'>Back to home</Link>
+      <SignUpForm />
+    </>
+  );
 }

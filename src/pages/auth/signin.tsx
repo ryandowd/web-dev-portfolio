@@ -5,16 +5,15 @@ import type {
 import { getProviders, signIn } from 'next-auth/react';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../api/auth/[...nextauth]';
-import { SignInForm } from '@/components/login/SignInForm';
+import { SignInForm } from '@/components/Login/SignInForm';
 import Link from 'next/link';
 
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  console.log('providers', providers);
   return (
     <>
-      <Link href={'/'}>Home</Link>
+      <Link href={'/portfolio'}>Back to home</Link>
       <Link href={'/auth/signup'}>Sign up</Link>
       {Object.values(providers).map((provider) => {
         if (provider.id === 'credentials') {

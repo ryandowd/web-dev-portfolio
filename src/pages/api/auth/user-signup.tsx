@@ -20,8 +20,7 @@ export default async function handler(req: any, res: any) {
   const userAlreadyExists = await db.collection('users').findOne({ username });
 
   if (userAlreadyExists) {
-    console.log('User already exists!');
-    res.status(422).json({ message: 'user exists already' });
+    res.status(422).json({ message: 'This user already exists' });
     client.close();
     return;
   } else {
@@ -34,7 +33,7 @@ export default async function handler(req: any, res: any) {
 
     console.log('client', client);
 
-    res.status(201).json({ message: 'Created user!' });
+    res.status(201).json({ message: 'Created user!', username, password });
     // client.close();
     return;
   }

@@ -3,8 +3,8 @@ import { createContext, useState } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
-  const [isEditing, setIsEditing] = useState(false);
   const { children } = props;
+  const [isEditing, setIsEditing] = useState(false);
 
   function toggleIsEditingHandler() {
     setIsEditing(!isEditing);

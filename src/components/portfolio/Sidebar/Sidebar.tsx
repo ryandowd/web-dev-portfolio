@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { SidebarNav } from './SidebarNav';
 import { useSession } from 'next-auth/react';
-// import { SidebarIntro } from './SidebarIntro';
-import { AuthContext } from '@/global/providers/use-auth';
+import { AuthContext } from '@/global/providers/use-auth-provider';
 
 import { useSidebar } from './use-sidebar';
 
 import classes from './Sidebar.module.scss';
-import { SkillsForm } from './SkillsForm';
+import { SkillsListForm } from './SkillsListForm';
 import { SkillsList } from './SkillsList';
+import { Button, Grid, Typography } from '@mui/material';
+import Link from 'next/link';
 
 interface SidebarProps {
   skillsList: string[];
@@ -20,7 +21,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: SidebarProps) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const { skillsList, setSkillsList, handleInputChange } = props;
   const { isEditing, toggleIsEditingHandler } = useContext(AuthContext);
 
@@ -29,17 +30,28 @@ export const Sidebar = (props: SidebarProps) => {
   return (
     <div className={classes.sidebar}>
       <SidebarNav />
-      {session && (
-        <button onClick={toggleIsEditingHandler}>
-          {isEditing ? 'Finish editing' : 'Go to edit mode'}
-        </button>
+
+      <Typography paragraph sx={{ fontSize: 24, fontWeight: 500 }}>
+        I'm a web developer with over ten years experience building websites,
+        widgets and web applications. I love developing intuitive interfaces.
+      </Typography>
+
+      {session && !isEditing && (
+        <Button
+          type='button'
+          fullWidth
+          variant='contained'
+          sx={{ mt: 3, mb: 2 }}
+          onClick={toggleIsEditingHandler}
+        >
+          Edit skills list
+        </Button>
       )}
-      {/* <SidebarIntro /> */}
 
       {skillsList && !isEditing && <SkillsList skillsList={skillsList} />}
 
       {isEditing && (
-        <SkillsForm
+        <SkillsListForm
           skillsList={skillsList}
           setSkillsList={setSkillsList}
           formSubmitHandler={formSubmitHandler}

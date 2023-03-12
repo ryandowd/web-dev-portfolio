@@ -1,56 +1,28 @@
-import type {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from 'next';
-import { getProviders, signIn } from 'next-auth/react';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../api/auth/[...nextauth]';
-import { SignInForm } from '@/components/Login/SignInForm';
-import Link from 'next/link';
+import { Container, Link, Box, Divider } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { SignInFormCredentials } from '@/components/Login/SignInFormCredentials';
+import { SignInFormGoogle } from '@/components/Login/SignInFormGoogle';
+import { GlobalNav } from '@/components/UI/GlobalNav';
 
-export default function SignIn({
-  providers,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function SignInPage() {
   return (
     <>
-      <Link href={'/portfolio'}>Back to home</Link>
-      <Link href={'/auth/signup'}>Sign up</Link>
-      {Object.values(providers).map((provider) => {
-        if (provider.id === 'credentials') {
-          return <SignInForm nextAuthSignIn={signIn} key={provider.name} />;
-        } else {
-          return (
-            <div key={provider.name}>
-              <button
-                onClick={() =>
-                  signIn(provider.id, {
-                    callbackUrl: `${window.location.origin}`,
-                  })
-                }
-              >
-                Sign in with {provider.name}
-              </button>
-            </div>
-          );
-        }
-      })}
+      <GlobalNav>
+        <Link
+          href={'/portfolio'}
+          sx={{ display: 'flex', color: '#fff', textDecoration: 'none' }}
+        >
+          <ArrowBackIcon sx={{ mr: 1 }} />
+          Back to home
+        </Link>
+      </GlobalNav>
+      <Container component='main' maxWidth='xs'>
+        <SignInFormCredentials />
+        <Divider sx={{ mt: 4, mb: 2 }} />
+        <Box sx={{ textAlign: 'center' }}>OR</Box>
+        <SignInFormGoogle />
+        <Box sx={{ mb: 10 }} />
+      </Container>
     </>
   );
-}
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // const session = await getServerSession(context.req, context.res, authOptions);
-
-  // // If the user is already logged in, redirect.
-  // // Note: Make sure not to redirect to the same page
-  // // To avoid an infinite loop!
-  // if (session) {
-  //   return { redirect: { destination: '/' } };
-  // }
-
-  const providers = await getProviders();
-
-  return {
-    props: { providers: providers ?? [] },
-  };
 }

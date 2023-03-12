@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { AuthContext } from '@/global/providers/use-auth';
+import { AuthContext } from '@/global/providers/use-auth-provider';
 
 export const useSidebar = () => {
   const [skillsList, setSkillsList] = useState<string[]>([]);

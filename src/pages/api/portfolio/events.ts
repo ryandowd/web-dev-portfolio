@@ -1,4 +1,4 @@
-import { connectToDatabase } from '@/lib/db-util';
+import { connectToDatabase } from '@/utils/db-util';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -29,7 +29,6 @@ export default async function handler(req, res) {
       const updatedEvent = {
         ...event,
         id: event._id.toString(),
-        title: 'From GET',
       };
 
       delete updatedEvent._id;

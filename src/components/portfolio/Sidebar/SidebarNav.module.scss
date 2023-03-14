@@ -3,11 +3,21 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  flex-direction: column;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+  }
 }
 
 .sidebar__logo {
   font-size: 40px;
   font-weight: 600;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 1200px) {
+    line-height: 1em;
+  }
 }
 
 .sidebar__links {

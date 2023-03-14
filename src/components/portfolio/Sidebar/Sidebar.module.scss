@@ -1,8 +1,9 @@
 .sidebar {
   background-color: var(--blue);
+  padding: 60px 50px 40px;
 
-  @media (min-width: 600px) {
-    padding: 20px 50px 40px 70px;
+  @media (min-width: 1200px) {
+    padding: 60px 50px 40px 70px;
   }
 
   @media (min-width: 900px) {

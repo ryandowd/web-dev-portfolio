@@ -12,7 +12,7 @@ export const SkillsList = (props: SkillsListProps) => {
       <List sx={{ fontSize: 18, fontWeight: 400 }}>
         {skillsList.map((skillItem: string, index: number) => {
           return (
-            <ListItem key={index} sx={{ p: 0 }}>
+            <ListItem key={index} sx={{ p: 0, wordBreak: 'break-word' }}>
               <ListItemIcon sx={{ minWidth: 30 }}>
                 <ChevronRightIcon color='primary' />
               </ListItemIcon>

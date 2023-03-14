@@ -4,11 +4,11 @@ import { createTheme } from '@mui/material/styles';
 import {
   EventProps,
   useTimeline,
-} from '@/components/Portfolio/Timeline/use-timeline';
-import { useSidebar } from '@/components/Portfolio/Sidebar/use-sidebar';
+} from '@/components/portfolio/Timeline/use-timeline';
+import { useSidebar } from '@/components/portfolio/Sidebar/use-sidebar';
 
-import { Sidebar } from '@/components/Portfolio/Sidebar/Sidebar';
-import { Timeline } from '@/components/Portfolio/Timeline/Timeline';
+import { Sidebar } from '@/components/portfolio/Sidebar/Sidebar';
+import { Timeline } from '@/components/portfolio/Timeline/Timeline';
 import { Box } from '@mui/material';
 
 interface PortfolioProps {
@@ -29,12 +29,18 @@ export const PortfolioPage = (props: PortfolioProps) => {
     eventsList = staticEvents;
   }
 
+  const boxStyles = {
+    display: 'flex',
+    flexDirection: { sm: 'column', md: 'row' },
+    textAlign: { xs: 'center', sm: 'left' },
+  };
+
   useEffect(() => {
     setSkillsList(staticSkillsList);
   }, []);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={boxStyles} component='main'>
       <Sidebar
         skillsList={skillsList}
         setSkillsList={setSkillsList}

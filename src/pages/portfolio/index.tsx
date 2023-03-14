@@ -1,7 +1,7 @@
-import { connectToDatabase } from '@/lib/db-util';
+import { connectToDatabase } from '@/utils/db-util';
 import Head from 'next/head';
-import { EventProps } from '@/components/Portfolio/Timeline/use-timeline';
-import { PortfolioPage } from '@/components/Pages/PortfolioPage';
+import { EventProps } from 'src/types';
+import { PortfolioPage } from '@/components/pages/PortfolioPage';
 
 interface PortfolioProps {
   staticSkillsList: string[];
@@ -41,8 +41,6 @@ export async function getServerSideProps() {
   const eventsList = resultEvents.map((event: any) => {
     const updatedEvent = {
       ...event,
-      id: event._id.toString(),
-      title: 'From server',
     };
 
     delete updatedEvent._id;

@@ -1,0 +1,37 @@
+.card-joiner {
+  width: 7px;
+  height: 100px;
+  background-color: #000;
+  margin: 0 auto 0;
+  transition: all 1s;
+}
+
+.card-joiner__date {
+  font-size: 1rem;
+  margin-left: 25px;
+  width: max-content;
+  padding: 40px 10px;
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 3px;
+    width: 30px;
+    background-color: #000;
+    display: block;
+    position: absolute;
+    margin-top: 7px;
+    left: -25px;
+  }
+
+  &:after {
+    content: '';
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    background-color: #000;
+    border-radius: 15px;
+    position: absolute;
+    left: -30px;
+  }
+}

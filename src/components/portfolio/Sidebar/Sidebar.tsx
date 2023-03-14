@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { SidebarNav } from './SidebarNav';
 import { useSession } from 'next-auth/react';
-import { AuthContext } from '@/global/providers/use-auth-provider';
+import { AuthContext } from '@/global/context/use-auth-provider';
 
 import { useSidebar } from './use-sidebar';
 
@@ -15,7 +15,7 @@ interface SidebarProps {
   skillsList: string[];
   setSkillsList: React.Dispatch<React.SetStateAction<string[]>>;
   handleInputChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLTextAreaElement> | undefined,
     index?: number
   ) => void;
 }
@@ -31,7 +31,15 @@ export const Sidebar = (props: SidebarProps) => {
     <div className={classes.sidebar}>
       <SidebarNav />
 
-      <Typography paragraph sx={{ fontSize: 24, fontWeight: 500 }}>
+      <Typography
+        paragraph
+        sx={{
+          fontSize: 24,
+          fontWeight: 500,
+          lineHeight: 1.3,
+          textAlign: { sm: 'center', md: 'center', lg: 'left' },
+        }}
+      >
         I'm a web developer with over ten years experience building websites,
         widgets and web applications. I love developing intuitive interfaces.
       </Typography>

@@ -3,15 +3,6 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 
-export interface EventProps {
-  eventId: string;
-  title: string;
-  date: string;
-  location: string;
-  skills: string;
-  description: string;
-}
-
 export const useTimeline = () => {
   const [events, setEvents] = useState<EventProps[]>([]);
   const router = useRouter();

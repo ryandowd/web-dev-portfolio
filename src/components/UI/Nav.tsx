@@ -1,5 +1,5 @@
 import { useSession, signOut } from 'next-auth/react';
-import { LinkStyled } from '@/components/UI/LinkStyled';
+import { LinkStyled } from '@/components/ui/LinkStyled';
 import Link from 'next/link';
 
 import classes from './Nav.module.scss';

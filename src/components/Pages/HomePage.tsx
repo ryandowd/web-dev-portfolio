@@ -1,17 +1,15 @@
-// import { Nav } from '@/components/UI/Nav';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import {
   Link,
-  Grid,
-  Item,
   Card,
   CardActionArea,
   CardMedia,
   CardContent,
   Typography,
+  Button,
 } from '@mui/material';
 import NextLink from 'next/link';
-import { GlobalNav } from '@/components/UI/GlobalNav';
+import { GlobalNav } from '@/components/ui/GlobalNav';
 import { Container } from '@mui/system';
 
 export const HomePage = () => {
@@ -66,12 +64,21 @@ export const HomePage = () => {
   return (
     <>
       <GlobalNav>
-        <Link
-          href='/auth/signin'
-          sx={{ color: '#fff', textDecoration: 'none' }}
-        >
-          Sign In
-        </Link>
+        {!session ? (
+          <Link
+            href='/auth/signin'
+            sx={{ color: '#fff', textDecoration: 'none' }}
+          >
+            Sign In
+          </Link>
+        ) : (
+          <Link
+            onClick={() => signOut()}
+            sx={{ color: '#fff', textDecoration: 'none' }}
+          >
+            Sign Out
+          </Link>
+        )}
       </GlobalNav>
 
       <Container

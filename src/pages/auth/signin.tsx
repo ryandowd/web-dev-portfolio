@@ -1,8 +1,8 @@
 import { Container, Link, Box, Divider } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { SignInFormCredentials } from '@/components/Login/SignInFormCredentials';
-import { SignInFormGoogle } from '@/components/Login/SignInFormGoogle';
-import { GlobalNav } from '@/components/UI/GlobalNav';
+import { SignInFormCredentials } from '@/components/login/SignInFormCredentials';
+import { SignInFormGoogle } from '@/components/login/SignInFormGoogle';
+import { GlobalNav } from '@/components/ui/GlobalNav';
 
 export default function SignInPage() {
   return (

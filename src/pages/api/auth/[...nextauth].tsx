@@ -2,8 +2,8 @@ import type { NextAuthOptions } from 'next-auth';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
-import { verifyPassword } from '@/lib/auth-util';
-import { connectToDatabase } from '@/lib/db-util';
+import { verifyPassword } from '@/utils/auth-util';
+import { connectToDatabase } from '@/utils/db-util';
 
 export const authOptions: NextAuthOptions = {
   session: {

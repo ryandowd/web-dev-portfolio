@@ -9,7 +9,7 @@ interface SkillsListFormProps {
     updatedSkillsList: string[]
   ) => void;
   handleInputChange: (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
+    event: React.ChangeEvent<HTMLTextAreaElement> | undefined,
     index?: number
   ) => void;
 }
@@ -28,25 +28,25 @@ export const SkillsListForm = (props: SkillsListFormProps) => {
     );
   }
 
-  const skillsListForm = skillsList.map((skillItem: string, index: number) => {
-    return (
-      <SkillsFormInput
-        key={index}
-        index={index}
-        skillItem={skillItem}
-        handleInputChange={handleInputChange}
-        removeSkillHandler={removeSkillHandler}
-      />
-    );
-  });
-
   return (
     <Container
       component='form'
       onSubmit={(event) => formSubmitHandler(event, skillsList)}
     >
       {skillsList.length ? (
-        <List>{skillsListForm}</List>
+        <List sx={{ fontSize: 18, fontWeight: 400 }}>
+          {skillsList.map((skillItem: string, index: number) => {
+            return (
+              <SkillsFormInput
+                key={index}
+                index={index}
+                skillItem={skillItem}
+                handleInputChange={handleInputChange}
+                removeSkillHandler={removeSkillHandler}
+              />
+            );
+          })}
+        </List>
       ) : (
         <p>No skills added</p>
       )}

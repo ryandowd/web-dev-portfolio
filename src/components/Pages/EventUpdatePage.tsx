@@ -4,7 +4,6 @@ import { EventProps } from '@/types';
 import { Container } from '@mui/system';
 import { Button, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { MutableRefObject } from 'react';
-// import { GlobalNav } from '@/components/ui/GlobalNav';
 import Link from 'next/link';
 import { ArrowBack } from '@mui/icons-material';
 
@@ -67,12 +66,6 @@ export const EventUpdatePage = (props: EventUpdatePageProps) => {
 
   return (
     <>
-      {/* <GlobalNav>
-        <Link style={{ color: 'white', display: 'flex' }} href='/portfolio'>
-          <ArrowBack sx={{ mr: 1 }} />
-          Back to Timeline
-        </Link>
-      </GlobalNav> */}
       <Container component='main' maxWidth='md' sx={{ my: 5 }}>
         <Container
           component='form'

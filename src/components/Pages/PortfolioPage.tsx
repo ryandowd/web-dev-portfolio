@@ -18,8 +18,16 @@ interface PortfolioProps {
 
 export const PortfolioPage = (props: PortfolioProps) => {
   const { skillsList, setSkillsList, handleInputChange } = useSidebar();
-  const { events, setEvents, deleteEventHandler, createEventFormHandler } =
-    useTimeline();
+  const {
+    events,
+    setEvents,
+    deleteEventHandler,
+    createEventFormHandler,
+    isLoadingMutate,
+    isSuccessMutate,
+    // eventQuerySuccess,
+    // setEventQuerySuccess,
+  } = useTimeline();
 
   const { staticSkillsList, staticEvents } = props;
 
@@ -51,6 +59,10 @@ export const PortfolioPage = (props: PortfolioProps) => {
         setEvents={setEvents}
         deleteEventHandler={deleteEventHandler}
         createEventFormHandler={createEventFormHandler}
+        isLoadingMutate={isLoadingMutate}
+        isSuccessMutate={isSuccessMutate}
+        // eventQuerySuccess={eventQuerySuccess}
+        // setEventQuerySuccess={setEventQuerySuccess}
       />
     </Box>
   );

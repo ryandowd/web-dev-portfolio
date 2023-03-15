@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { EventProps } from 'src/types';
 import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
   IconButton,
   TextareaAutosize,
@@ -16,13 +17,21 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 interface TimelineAddEventFormProps {
   createEventFormHandler: (newEvent: EventProps) => void;
+  isLoadingMutate: boolean;
+  isSuccessMutate: boolean;
 }
 
 export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
   const [hideForm, setHideForm] = useState<boolean>(true);
   const [formError, setFormError] = useState<string | null>(null);
   const theme = useTheme();
-  const { createEventFormHandler } = props;
+  const { createEventFormHandler, isLoadingMutate, isSuccessMutate } = props;
+
+  useEffect(() => {
+    if (isSuccessMutate) {
+      setHideForm(true);
+    }
+  }, [isSuccessMutate]);
 
   const titleRef = useRef<HTMLInputElement | null>(null);
   const startDateRef = useRef<HTMLInputElement | null>(null);
@@ -31,7 +40,7 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
   const skillsRef = useRef<HTMLInputElement | null>(null);
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
-  function submitFormHandler(event: React.FormEvent<HTMLFormElement>) {
+  async function submitFormHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setFormError(null);
@@ -53,7 +62,6 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
         skills,
         description,
       };
-
       createEventFormHandler(newEvent);
     } else {
       setFormError('Please fill out all fields');
@@ -70,6 +78,10 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
         Add new event
       </Button>
     );
+  }
+
+  if (isLoadingMutate) {
+    return <CircularProgress />;
   }
 
   return (

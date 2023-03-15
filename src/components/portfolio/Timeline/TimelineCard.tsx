@@ -1,24 +1,39 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTheme } from '@mui/material';
 import { Box, Container } from '@mui/system';
-// import classes from './TimelineCard.module.scss';
+import classes from './TimelineCard.module.scss';
 import VisibilitySensor from 'react-visibility-sensor';
 import { EventProps } from '@/types';
 import { TimelineCardContent } from '@/components/portfolio/Timeline/TimelineCardContent';
 import { TimelineCardJoiner } from './TimelineCardJoiner';
+import { useDetectClickOutside } from '@/global/hooks/use-detect-click-outside';
 
 interface TimelineCardProps {
   event: EventProps;
   addJoinerLine: boolean;
+  cardExpanded: boolean;
+  cardIsVisible: boolean;
   removeEventHandler: (eventId: string) => void;
 }
 
 export const TimelineCard = (props: TimelineCardProps) => {
-  const theme = useTheme();
   const [cardIsVisible, setCardVisible] = useState<boolean>(false);
-  const { event, addJoinerLine, removeEventHandler } = props;
 
-  console.log('cardIsVisible', cardIsVisible);
+  const theme = useTheme();
+  const { event, addJoinerLine, cardExpanded, removeEventHandler } = props;
+
+  // function cardExpandHandler() {
+  //   console.log('log here');
+  //   setCardExpanded((prevState) => !prevState);
+  // }
+
+  // const cardCloseHandler = useCallback(() => {
+  //   if (cardExpanded) {
+  //     setCardExpanded(false);
+  //   }
+  // }, [cardExpanded]);
+
+  // const ref = useDetectClickOutside(cardCloseHandler);
 
   return (
     <VisibilitySensor
@@ -27,29 +42,43 @@ export const TimelineCard = (props: TimelineCardProps) => {
       offset={{ bottom: 100 }}
       active={!cardIsVisible}
     >
-      <Box
-        component={'article'}
-        sx={{
-          opacity: cardIsVisible ? 1 : 0,
-          transition: 'opacity 0.3s',
-          cursor: 'pointer',
-        }}
-      >
+      <Box>
         {addJoinerLine && <TimelineCardJoiner endDate={event.endDate} />}
         <Box
+          component='article'
+          className={`${classes['timeline-card']} ${
+            cardExpanded ? classes['timeline-card--expanded'] : ''
+          }`}
           sx={{
             opacity: cardIsVisible ? 1 : 0,
-            transition: 'opacity 0.3s',
-            border: `1px solid ${theme.palette.secondary.main}`,
-            padding: 3,
           }}
+          // onClick={cardExpandHandler}
+          // ref={ref}
         >
-          <TimelineCardContent
-            event={event}
-            removeEventHandler={removeEventHandler}
-            // cardIsVisible={cardIsVisible}
-            // addJoinerLine={addJoinerLine}
-          />
+          <Box
+            className={classes['timeline-card__foreground']}
+            sx={{
+              opacity: cardIsVisible ? 1 : 0,
+              border: `1px solid ${theme.palette.secondary.main}`,
+              // transition: 'opacity 0.3s',
+              // padding: 3,
+            }}
+          >
+            <TimelineCardContent
+              event={event}
+              removeEventHandler={removeEventHandler}
+              // cardIsVisible={cardIsVisible}
+              // addJoinerLine={addJoinerLine}
+            />
+          </Box>
+          {/* <Box
+            className={classes['timeline-card__background']}
+            sx={{
+              border: `1px solid ${theme.palette.secondary.main}`,
+            }}
+          >
+            Hello
+          </Box> */}
         </Box>
       </Box>
     </VisibilitySensor>

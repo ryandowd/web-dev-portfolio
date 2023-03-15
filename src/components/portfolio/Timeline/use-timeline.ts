@@ -2,12 +2,18 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { EventProps } from '@/types';
 
 export const useTimeline = () => {
   const [events, setEvents] = useState<EventProps[]>([]);
+  // const [eventQuerySuccess, setEventQuerySuccess] = useState(false);
   const router = useRouter();
 
-  const addNewEventMutation = useMutation({
+  const {
+    mutate,
+    isLoading: isLoadingMutate,
+    isSuccess: isSuccessMutate,
+  } = useMutation({
     mutationFn: async (newEvent: EventProps) => {
       const response = await axios.post('/api/portfolio/events', {
         newEvent,
@@ -17,6 +23,7 @@ export const useTimeline = () => {
     onSuccess: (data) => {
       console.log('data', data);
       //   setSkillsList(data.skillsList);
+      // setEventQuerySuccess(true);
     },
   });
 
@@ -68,7 +75,8 @@ export const useTimeline = () => {
   });
 
   function createEventFormHandler(newEvent: EventProps) {
-    addNewEventMutation.mutate(newEvent);
+    mutate(newEvent);
+
     setEvents((prevState) => {
       return [newEvent, ...prevState];
     });
@@ -89,5 +97,7 @@ export const useTimeline = () => {
     createEventFormHandler,
     deleteEventHandler,
     updateEventFormHandler,
+    isLoadingMutate,
+    isSuccessMutate,
   };
 };

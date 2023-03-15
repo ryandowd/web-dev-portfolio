@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
 // import { useSession } from 'next-auth/react';
 import { createTheme } from '@mui/material/styles';
-import {
-  EventProps,
-  useTimeline,
-} from '@/components/portfolio/Timeline/use-timeline';
+import { useTimeline } from '@/components/portfolio/Timeline/use-timeline';
 import { useSidebar } from '@/components/portfolio/Sidebar/use-sidebar';
 
 import { Sidebar } from '@/components/portfolio/Sidebar/Sidebar';
 import { Timeline } from '@/components/portfolio/Timeline/Timeline';
+
+import { EventProps } from '@/types';
 import { Box } from '@mui/material';
 
 interface PortfolioProps {
@@ -45,7 +44,7 @@ export const PortfolioPage = (props: PortfolioProps) => {
 
   useEffect(() => {
     setSkillsList(staticSkillsList);
-  }, []);
+  }, [staticSkillsList]);
 
   return (
     <Box sx={boxStyles} component='main'>

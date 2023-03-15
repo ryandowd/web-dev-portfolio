@@ -48,6 +48,7 @@ export const Timeline = (props: TimelineProps) => {
             const addJoinerLine = index !== 0;
             return (
               <TimelineCard
+                key={index}
                 event={event}
                 deleteEventHandler={deleteEventHandler}
                 addJoinerLine={addJoinerLine}

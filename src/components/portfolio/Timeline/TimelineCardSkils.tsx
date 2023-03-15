@@ -14,6 +14,7 @@ export const TimelineCardSkills = (props: TimelineCardSkillsProps) => {
       {skillsArray.map((skill) => {
         return (
           <Image
+            key={skill}
             src={`/assets/images/tech-${skill}.png`}
             alt={skill}
             width={50}

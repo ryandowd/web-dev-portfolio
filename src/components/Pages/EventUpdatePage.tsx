@@ -83,6 +83,7 @@ export const EventUpdatePage = (props: EventUpdatePageProps) => {
           </Typography>
           {textFieldArray.map((field) => (
             <TextField
+              key={eventDetail[field.name]}
               InputLabelProps={{ shrink: !!eventDetail[field.name] }}
               defaultValue={eventDetail[field.name]}
               margin='normal'

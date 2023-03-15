@@ -6,7 +6,6 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { EventProps } from '@/types';
 import { TimelineCardContent } from '@/components/portfolio/Timeline/TimelineCardContent';
 import { TimelineCardJoiner } from './TimelineCardJoiner';
-import { useDetectClickOutside } from '@/global/hooks/use-detect-click-outside';
 
 interface TimelineCardProps {
   event: EventProps;

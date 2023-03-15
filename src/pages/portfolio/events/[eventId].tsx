@@ -1,7 +1,12 @@
 import { EventUpdatePage } from '@/components/pages/EventUpdatePage';
 import { getEvent, connectToDatabase } from '@/utils/db-util';
+import { EventProps } from '@/types';
 
-export default function EventPage(props) {
+interface EventPageProps {
+  eventDetail: EventProps;
+}
+
+export default function EventPage(props: EventPageProps) {
   return <EventUpdatePage {...props} />;
 }
 

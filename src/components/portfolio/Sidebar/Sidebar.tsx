@@ -15,7 +15,7 @@ interface SidebarProps {
   skillsList: string[];
   setSkillsList: React.Dispatch<React.SetStateAction<string[]>>;
   handleInputChange: (
-    event: React.ChangeEvent<HTMLTextAreaElement> | undefined,
+    event: React.ChangeEvent<HTMLTextAreaElement>,
     index?: number
   ) => void;
 }

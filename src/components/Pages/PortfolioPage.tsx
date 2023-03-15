@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-// import { useSession } from 'next-auth/react';
-import { createTheme } from '@mui/material/styles';
 import { useTimeline } from '@/components/portfolio/Timeline/use-timeline';
 import { useSidebar } from '@/components/portfolio/Sidebar/use-sidebar';
 
@@ -9,6 +6,7 @@ import { Timeline } from '@/components/portfolio/Timeline/Timeline';
 
 import { EventProps } from '@/types';
 import { Box } from '@mui/material';
+import { useEffect } from 'react';
 
 interface PortfolioProps {
   staticSkillsList: string[];
@@ -30,6 +28,12 @@ export const PortfolioPage = (props: PortfolioProps) => {
 
   const { staticSkillsList, staticEvents } = props;
 
+  useEffect(() => {
+    if (staticSkillsList) {
+      setSkillsList(staticSkillsList);
+    }
+  }, [staticSkillsList, setSkillsList]);
+
   let eventsList = events;
 
   if (events.length === 0) {
@@ -41,10 +45,6 @@ export const PortfolioPage = (props: PortfolioProps) => {
     flexDirection: { sm: 'column', md: 'row' },
     textAlign: { xs: 'center', sm: 'left' },
   };
-
-  useEffect(() => {
-    setSkillsList(staticSkillsList);
-  }, [staticSkillsList]);
 
   return (
     <Box sx={boxStyles} component='main'>

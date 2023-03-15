@@ -4,20 +4,16 @@ import Link from 'next/link';
 import { Box, Button, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
-import { TimelineCardJoiner } from './TimelineCardJoiner';
-import { TimelineCardSkills } from './TimelineCardSkils';
 
 interface TimelineCardContentProps {
   event: EventProps;
-  // cardIsVisible: boolean;
-  // addJoinerLine: boolean;
-  removeEventHandler: (eventId: string) => void;
+  deleteEventHandler: (eventId: string) => void;
 }
 
 export const TimelineCardContent = (props: TimelineCardContentProps) => {
   const theme = useTheme();
   const { data: session } = useSession();
-  const { event, removeEventHandler } = props;
+  const { event, deleteEventHandler } = props;
   const { skills } = event;
   return (
     <>
@@ -49,7 +45,7 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
         <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
           <Button
             variant='outlined'
-            onClick={() => removeEventHandler(event.eventId)}
+            onClick={() => deleteEventHandler(event.eventId)}
           >
             Delete event
           </Button>

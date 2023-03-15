@@ -1,12 +1,12 @@
 import { connectToDatabase } from '@/utils/db-util';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     const newEvent = req.body.newEvent;
     const client = await connectToDatabase();
     const db = client.db();
 
-    const result = await db.collection('events').insertOne({ ...newEvent });
+    await db.collection('events').insertOne({ ...newEvent });
 
     client.close();
 
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       .sort({ _id: -1 })
       .toArray();
 
-    const eventsList = result.map((event) => {
+    const eventsList = result.map((event: any) => {
       const updatedEvent = {
         ...event,
         id: event._id.toString(),

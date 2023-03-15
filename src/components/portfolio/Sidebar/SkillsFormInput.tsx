@@ -11,7 +11,7 @@ interface SkillsFormInputProps {
   index: number;
   skillItem: string;
   handleInputChange: (
-    event: React.ChangeEvent<HTMLTextAreaElement> | undefined,
+    event: React.ChangeEvent<HTMLTextAreaElement>,
     index?: number
   ) => void;
   removeSkillHandler: (index: number) => void;

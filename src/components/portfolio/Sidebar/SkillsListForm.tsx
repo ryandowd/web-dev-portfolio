@@ -9,7 +9,7 @@ interface SkillsListFormProps {
     updatedSkillsList: string[]
   ) => void;
   handleInputChange: (
-    event: React.ChangeEvent<HTMLTextAreaElement> | undefined,
+    event: React.ChangeEvent<HTMLTextAreaElement>,
     index?: number
   ) => void;
 }

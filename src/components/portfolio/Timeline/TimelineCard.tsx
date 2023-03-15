@@ -11,15 +11,14 @@ interface TimelineCardProps {
   event: EventProps;
   addJoinerLine: boolean;
   cardExpanded: boolean;
-  cardIsVisible: boolean;
-  removeEventHandler: (eventId: string) => void;
+  deleteEventHandler: (eventId: string) => void;
 }
 
 export const TimelineCard = (props: TimelineCardProps) => {
   const [cardIsVisible, setCardVisible] = useState<boolean>(false);
 
   const theme = useTheme();
-  const { event, addJoinerLine, cardExpanded, removeEventHandler } = props;
+  const { event, addJoinerLine, cardExpanded, deleteEventHandler } = props;
 
   // function cardExpandHandler() {
   //   console.log('log here');
@@ -65,7 +64,7 @@ export const TimelineCard = (props: TimelineCardProps) => {
           >
             <TimelineCardContent
               event={event}
-              removeEventHandler={removeEventHandler}
+              deleteEventHandler={deleteEventHandler}
               // cardIsVisible={cardIsVisible}
               // addJoinerLine={addJoinerLine}
             />

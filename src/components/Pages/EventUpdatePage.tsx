@@ -4,6 +4,7 @@ import { EventProps } from '@/types';
 import { Container } from '@mui/system';
 import { Button, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { MutableRefObject } from 'react';
+import { GlobalNav } from '@/components/ui/GlobalNav';
 import Link from 'next/link';
 import { ArrowBack } from '@mui/icons-material';
 
@@ -66,46 +67,61 @@ export const EventUpdatePage = (props: EventUpdatePageProps) => {
 
   return (
     <>
+      <GlobalNav>
+        <Link style={{ color: 'white', display: 'flex' }} href='/portfolio'>
+          <ArrowBack sx={{ mr: 1 }} />
+          Back to Timeline
+        </Link>
+      </GlobalNav>
       <Container component='main' maxWidth='md' sx={{ my: 5 }}>
         <Container
           component='form'
           onSubmit={(event) => submitFormHandler(event)}
         >
-          <Typography variant='h5' sx={{ mb: 1 }}>
-            Update event for '{eventDetail.title}'
-          </Typography>
-          {textFieldArray.map((field) => (
-            <TextField
-              key={eventDetail[field.name]}
-              InputLabelProps={{ shrink: !!eventDetail[field.name] }}
-              defaultValue={eventDetail[field.name]}
-              margin='normal'
+          <>
+            <Typography variant='h5' sx={{ mb: 1 }}>
+              Update event for '{eventDetail.title}'
+            </Typography>
+            {textFieldArray.map((field) => {
+              // @ts-ignore:next-line
+              const eventDetailField = eventDetail[field.name];
+
+              return (
+                <TextField
+                  key={eventDetailField.eventId}
+                  InputLabelProps={{
+                    shrink: !!eventDetailField.value,
+                  }}
+                  defaultValue={eventDetailField.description}
+                  margin='normal'
+                  required
+                  fullWidth
+                  id={field.name}
+                  label={field.label}
+                  name={field.name}
+                  autoComplete={field.name}
+                  autoFocus
+                  inputRef={field.ref}
+                />
+              );
+            })}
+            <TextareaAutosize
               required
-              fullWidth
-              id={field.name}
-              label={field.label}
-              name={field.name}
-              autoComplete={field.name}
+              defaultValue={eventDetail.description}
+              minRows={7}
+              id='description'
+              placeholder='Description'
+              name='description'
+              autoComplete='description'
               autoFocus
-              inputRef={field.ref}
+              ref={descriptionRef}
+              style={{ margin: '15px 0 5px', width: '100%', padding: '15px' }}
             />
-          ))}
-          <TextareaAutosize
-            required
-            defaultValue={eventDetail.description}
-            minRows={7}
-            id='description'
-            placeholder='Description'
-            name='description'
-            autoComplete='description'
-            autoFocus
-            ref={descriptionRef}
-            style={{ margin: '15px 0 5px', width: '100%', padding: '15px' }}
-          />
-          {formError && <Typography variant='body1'>{formError}</Typography>}
-          <Button type='submit' variant='contained' fullWidth sx={{ mt: 2 }}>
-            Update Event
-          </Button>
+            {formError && <Typography variant='body1'>{formError}</Typography>}
+            <Button type='submit' variant='contained' fullWidth sx={{ mt: 2 }}>
+              Update Event
+            </Button>
+          </>
         </Container>
       </Container>
     </>

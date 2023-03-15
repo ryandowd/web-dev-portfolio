@@ -1,6 +1,6 @@
 import { connectToDatabase } from '@/utils/db-util';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   if (req.method === 'DELETE') {
     const eventId = req.body.eventId;
     const client = await connectToDatabase();

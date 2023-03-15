@@ -29,10 +29,10 @@ export const useSidebar = () => {
   }
 
   function handleInputChange(
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLTextAreaElement>,
     index?: number
   ) {
-    const element = event.target as HTMLInputElement;
+    const element = event.target;
 
     setSkillsList((prevState) => {
       return prevState.map((skillItem, itemIndex) => {

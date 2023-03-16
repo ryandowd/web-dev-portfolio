@@ -11,19 +11,24 @@ export default function EventPage(props: EventPageProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  const { params } = context;
+  const { params, res } = context;
 
-  console.log('params', params);
-  const eventId = params.eventId;
-  const client = await connectToDatabase();
+  let client;
+  let event;
 
-  console.log('client', client);
+  try {
+    client = await connectToDatabase();
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
 
-  const event = await getEvent(eventId, client);
-
-  console.log('event', event);
-
-  delete event._id;
+  try {
+    const eventId = params.eventId;
+    event = await getEvent(eventId, client);
+    delete event._id;
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
 
   return {
     props: {

@@ -1,10 +1,10 @@
 import { Container } from '@mui/material';
 
-interface NewNavProps {
+interface GlobalNavProps {
   children: React.ReactNode;
 }
 
-export const GlobalNav = (props: NewNavProps) => {
+export const GlobalNav = (props: GlobalNavProps) => {
   const { children } = props;
   return (
     <Container

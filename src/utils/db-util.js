@@ -12,6 +12,14 @@ export async function insertDocument(client, collection, document) {
   return result;
 }
 
+export async function getAllEvents(client) {
+  const db = client.db();
+  const collection = await db.collection('events');
+  const documents = await collection.find().toArray();
+  client.close();
+  return documents;
+}
+
 export async function getEvent(eventId, client) {
   const db = client.db();
   const collection = await db.collection('events');

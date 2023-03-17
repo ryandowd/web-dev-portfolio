@@ -15,15 +15,17 @@ interface TimelineProps {
 }
 
 export const Timeline = (props: TimelineProps) => {
+  const { data: session } = useSession();
   const [cardExpanded, setCardExpanded] = useState<boolean>(false);
+
   const {
     events,
+    setEvents,
     deleteEventHandler,
     createEventFormHandler,
     isLoadingMutate,
     isSuccessMutate,
   } = props;
-  const { data: session } = useSession();
 
   return (
     <Box
@@ -32,7 +34,8 @@ export const Timeline = (props: TimelineProps) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: { lg: '55%' },
+        width: { md: '55%' },
+        backgroundColor: '#f9f9f9',
       }}
     >
       {session && (
@@ -40,15 +43,24 @@ export const Timeline = (props: TimelineProps) => {
           createEventFormHandler={createEventFormHandler}
           isLoadingMutate={isLoadingMutate}
           isSuccessMutate={isSuccessMutate}
+          setEvents={setEvents}
         />
       )}
-      <Box sx={{ width: '50%', mt: 5 }}>
+      <Box
+        sx={{
+          width: {
+            md: '60%',
+            lg: '53%',
+          },
+          mt: 5,
+        }}
+      >
         {events &&
           events.map((event: EventProps, index: number) => {
             const addJoinerLine = index !== 0;
             return (
               <TimelineCard
-                key={index}
+                key={event.eventId}
                 event={event}
                 deleteEventHandler={deleteEventHandler}
                 addJoinerLine={addJoinerLine}

@@ -7,6 +7,8 @@ import { Timeline } from '@/components/portfolio/Timeline/Timeline';
 import { EventProps } from '@/types';
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 interface PortfolioProps {
   staticSkillsList: string[];
@@ -14,7 +16,7 @@ interface PortfolioProps {
 }
 
 export const PortfolioPage = (props: PortfolioProps) => {
-  const { skillsList, setSkillsList, handleInputChange } = useSidebar();
+  const { skills, setSkills, handleInputChange } = useSidebar();
   const {
     events,
     setEvents,
@@ -22,46 +24,42 @@ export const PortfolioPage = (props: PortfolioProps) => {
     createEventFormHandler,
     isLoadingMutate,
     isSuccessMutate,
-    // eventQuerySuccess,
-    // setEventQuerySuccess,
   } = useTimeline();
 
   const { staticSkillsList, staticEvents } = props;
 
   useEffect(() => {
     if (staticSkillsList) {
-      setSkillsList(staticSkillsList);
+      setSkills(staticSkillsList);
     }
-  }, [staticSkillsList, setSkillsList]);
+  }, [staticSkillsList, setSkills]);
 
-  let eventsList = events;
-
-  if (events.length === 0) {
-    eventsList = staticEvents;
-  }
+  useEffect(() => {
+    if (staticEvents) {
+      setEvents(staticEvents);
+    }
+  }, [staticEvents, setEvents]);
 
   const boxStyles = {
     display: 'flex',
-    flexDirection: { sm: 'column', md: 'row' },
+    flexDirection: { xs: 'column', md: 'row' },
     textAlign: { xs: 'center', sm: 'left' },
   };
 
   return (
     <Box sx={boxStyles} component='main'>
       <Sidebar
-        skillsList={skillsList}
-        setSkillsList={setSkillsList}
+        skillsList={skills}
+        setSkillsList={setSkills}
         handleInputChange={handleInputChange}
       />
       <Timeline
-        events={eventsList}
+        events={events}
         setEvents={setEvents}
         deleteEventHandler={deleteEventHandler}
         createEventFormHandler={createEventFormHandler}
         isLoadingMutate={isLoadingMutate}
         isSuccessMutate={isSuccessMutate}
-        // eventQuerySuccess={eventQuerySuccess}
-        // setEventQuerySuccess={setEventQuerySuccess}
       />
     </Box>
   );

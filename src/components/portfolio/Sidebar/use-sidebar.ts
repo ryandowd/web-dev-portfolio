@@ -1,10 +1,10 @@
 import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { AuthContext } from '@/global/context/use-auth-provider';
 
 export const useSidebar = () => {
-  const [skillsList, setSkillsList] = useState<string[]>([]);
+  const [skills, setSkills] = useState<string[]>([]);
   const { setIsEditing } = useContext(AuthContext);
 
   const { mutate } = useMutation({
@@ -16,7 +16,7 @@ export const useSidebar = () => {
       return response.data;
     },
     onSuccess: (data) => {
-      setSkillsList(data.skillsList);
+      setSkills(data.skillsList);
     },
   });
 
@@ -34,7 +34,7 @@ export const useSidebar = () => {
   ) {
     const element = event.target;
 
-    setSkillsList((prevState) => {
+    setSkills((prevState) => {
       return prevState.map((skillItem, itemIndex) => {
         return itemIndex === index ? element.value : skillItem;
       });
@@ -42,8 +42,8 @@ export const useSidebar = () => {
   }
 
   return {
-    skillsList,
-    setSkillsList,
+    skills,
+    setSkills,
     formSubmitHandler,
     handleInputChange,
   };

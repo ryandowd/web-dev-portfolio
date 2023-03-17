@@ -1,6 +1,10 @@
-import { connectToDatabase, insertOneDocument } from '@/utils/db-util';
+import { connectToDatabase } from '@/utils/db-util';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     const skillsList = req.body.skillsList;
     const client = await connectToDatabase();

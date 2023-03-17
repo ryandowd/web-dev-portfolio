@@ -1,7 +1,11 @@
 import { hashPassword } from '@/utils/auth-util';
 import { connectToDatabase } from '@/utils/db-util';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== 'POST') {
     return;
   }

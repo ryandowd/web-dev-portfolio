@@ -1,6 +1,10 @@
 import { connectToDatabase } from '@/utils/db-util';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     const newEvent = req.body.newEvent;
     const client = await connectToDatabase();
@@ -17,6 +21,7 @@ export default async function handler(req: any, res: any) {
   }
 
   if (req.method === 'GET') {
+    console.log('GET ALL EVENTS');
     const client = await connectToDatabase();
     const db = client.db();
     const result = await db

@@ -6,11 +6,11 @@ import { EventProps } from '@/types';
 
 export const useTimeline = () => {
   const [events, setEvents] = useState<EventProps[]>([]);
-  // const [eventQuerySuccess, setEventQuerySuccess] = useState(false);
   const router = useRouter();
 
+  // Create
   const {
-    mutate,
+    mutate: createEventMutate,
     isLoading: isLoadingMutate,
     isSuccess: isSuccessMutate,
   } = useMutation({
@@ -20,14 +20,23 @@ export const useTimeline = () => {
       });
       return response.data;
     },
-    onSuccess: (data) => {
-      console.log('data', data);
-      //   setSkillsList(data.skillsList);
-      // setEventQuerySuccess(true);
-    },
   });
 
-  const updateEventMutation = useMutation({
+  // Read
+  const { isLoading: isLoadingGet } = useQuery({
+    queryKey: ['events'],
+    queryFn: async () => {
+      const response = await axios.get('/api/portfolio/events');
+      return response.data;
+    },
+    onSuccess: (data) => {
+      setEvents(data.events);
+    },
+    refetchOnWindowFocus: false,
+  });
+
+  // Update
+  const { mutate: updateEventMutate } = useMutation({
     mutationFn: async (updatedEvent: EventProps) => {
       const response = await axios.put(
         `/api/portfolio/events/${updatedEvent.eventId}`,
@@ -42,7 +51,8 @@ export const useTimeline = () => {
     },
   });
 
-  const removeEventMutation = useMutation({
+  // Delete
+  const { mutate: removeEventMutate } = useMutation({
     mutationFn: async (eventId: string) => {
       const response = axios({
         method: 'delete',
@@ -51,31 +61,11 @@ export const useTimeline = () => {
           eventId,
         },
       });
-      //   const response = axios.delete(`/api/portfolio/events/${eventId}`, {
-      //     eventId,
-      //   });
-      //   return response.data;
-    },
-    onSuccess: (data) => {
-      console.log('data', data);
-      //   setSkillsList(data.skillsList);
-    },
-  });
-
-  const { isLoading } = useQuery({
-    queryKey: ['events'],
-    queryFn: async () => {
-      console.log('yep');
-      const response = await axios.get('/api/portfolio/events');
-      return response.data;
-    },
-    onSuccess: (data) => {
-      setEvents(data.events);
     },
   });
 
   function createEventFormHandler(newEvent: EventProps) {
-    mutate(newEvent);
+    createEventMutate(newEvent);
 
     setEvents((prevState) => {
       return [newEvent, ...prevState];
@@ -83,16 +73,23 @@ export const useTimeline = () => {
   }
 
   function deleteEventHandler(eventId: string) {
-    removeEventMutation.mutate(eventId);
+    setEvents((prevEvents: EventProps[]) => {
+      const updatedEvents = prevEvents.filter(
+        (event) => event.eventId !== eventId
+      );
+      console.log('updatedEvents', updatedEvents);
+      return updatedEvents;
+    });
+    removeEventMutate(eventId);
   }
 
   function updateEventFormHandler(updatedEvent: EventProps) {
-    updateEventMutation.mutate(updatedEvent);
+    updateEventMutate(updatedEvent);
   }
 
   return {
     events,
-    isLoading,
+    isLoadingGet,
     setEvents,
     createEventFormHandler,
     deleteEventHandler,

@@ -19,13 +19,19 @@ interface TimelineAddEventFormProps {
   createEventFormHandler: (newEvent: EventProps) => void;
   isLoadingMutate: boolean;
   isSuccessMutate: boolean;
+  setEvents: (events: EventProps[]) => void;
 }
 
 export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
   const [hideForm, setHideForm] = useState<boolean>(true);
   const [formError, setFormError] = useState<string | null>(null);
   const theme = useTheme();
-  const { createEventFormHandler, isLoadingMutate, isSuccessMutate } = props;
+  const {
+    setEvents,
+    createEventFormHandler,
+    isLoadingMutate,
+    isSuccessMutate,
+  } = props;
 
   useEffect(() => {
     if (isSuccessMutate) {
@@ -72,16 +78,16 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
     setHideForm(true);
   }
 
-  if (hideForm) {
+  if (hideForm || isLoadingMutate) {
     return (
-      <Button variant='contained' onClick={() => setHideForm(false)}>
+      <Button
+        variant='contained'
+        onClick={() => setHideForm(false)}
+        disabled={isLoadingMutate}
+      >
         Add new event
       </Button>
     );
-  }
-
-  if (isLoadingMutate) {
-    return <CircularProgress />;
   }
 
   return (
@@ -95,7 +101,7 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
     >
       <Container
         component='form'
-        onSubmit={(event) => submitFormHandler(event)}
+        onSubmit={(event: any) => submitFormHandler(event)}
       >
         <IconButton>
           <CancelIcon onClick={closeFormHandler} />

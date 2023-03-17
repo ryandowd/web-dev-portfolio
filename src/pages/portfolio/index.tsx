@@ -26,9 +26,10 @@ export default function Portfolio(props: PortfolioProps) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const client = await connectToDatabase();
   const db = client.db();
+
   const resultSkills = await db.collection('skills').find().toArray();
   const skillsList = resultSkills[0]?.skillsList;
 
@@ -53,6 +54,8 @@ export async function getServerSideProps() {
     props: {
       staticSkillsList: skillsList ? skillsList : [],
       staticEvents: eventsList ? eventsList : [],
+      // staticSkillsList: [],
+      // staticEvents: [],
     },
   };
 }

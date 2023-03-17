@@ -1,6 +1,10 @@
-import { connectToDatabase } from '@/utils/db-util';
+import { connectToDatabase, getEvent } from '@/utils/db-util';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'DELETE') {
     const eventId = req.body.eventId;
     const client = await connectToDatabase();
@@ -22,5 +26,19 @@ export default async function handler(req: any, res: any) {
       .updateOne({ eventId }, { $set: { ...updatedEvent } });
 
     res.status(200).json({ message: 'Successfully updated event', result });
+  }
+
+  if (req.method === 'GET') {
+    const client = await connectToDatabase();
+    const eventId = req.query.eventId;
+    const event = await getEvent(eventId, client);
+
+    delete event._id;
+
+    if (!event) {
+      res.status(404).json({ message: 'Could not find event' });
+    }
+
+    res.status(200).json({ event });
   }
 }

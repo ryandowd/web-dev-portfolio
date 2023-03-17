@@ -1,11 +1,15 @@
 import { useState, useCallback } from 'react';
-import { useTheme } from '@mui/material';
+import { Button, IconButton, useTheme } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import classes from './TimelineCard.module.scss';
 import VisibilitySensor from 'react-visibility-sensor';
 import { EventProps } from '@/types';
 import { TimelineCardContent } from '@/components/portfolio/Timeline/TimelineCardContent';
 import { TimelineCardJoiner } from './TimelineCardJoiner';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { LoadingButton } from '@mui/lab';
+import { DeleteForever, Edit } from '@mui/icons-material';
 
 interface TimelineCardProps {
   event: EventProps;
@@ -15,10 +19,25 @@ interface TimelineCardProps {
 }
 
 export const TimelineCard = (props: TimelineCardProps) => {
-  const [cardIsVisible, setCardVisible] = useState<boolean>(false);
-
   const theme = useTheme();
-  const { event, addJoinerLine, cardExpanded, deleteEventHandler } = props;
+  const { data: session } = useSession();
+  const [cardIsVisible, setCardVisible] = useState<boolean>(false);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+
+  const { event, addJoinerLine, cardExpanded, deleteEventHandler, setEvents } =
+    props;
+
+  const deleteButtonHandler = (eventId: string) => {
+    deleteEventHandler(eventId);
+    setIsDeleting(true);
+    // setEvents((prevEvents: EventProps[]) => {
+    //   const updatedEvents = prevEvents.filter(
+    //     (event) => event.eventId !== eventId
+    //   );
+    //   console.log('updatedEvents', updatedEvents);
+    //   return updatedEvents;
+    // });
+  };
 
   // function cardExpandHandler() {
   //   console.log('log here');
@@ -64,10 +83,33 @@ export const TimelineCard = (props: TimelineCardProps) => {
           >
             <TimelineCardContent
               event={event}
-              deleteEventHandler={deleteEventHandler}
+              // deleteEventHandler={deleteEventHandler}
               // cardIsVisible={cardIsVisible}
               // addJoinerLine={addJoinerLine}
             />
+            {session && (
+              <Box sx={{ position: 'absolute', top: 0, right: '-90px' }}>
+                <Link href={`/portfolio/events/${event.eventId}`}>
+                  <IconButton>
+                    <Edit />
+                  </IconButton>
+                </Link>
+                <IconButton onClick={() => deleteButtonHandler(event.eventId)}>
+                  <DeleteForever />
+                </IconButton>
+                {/* <Button
+                  variant='outlined'
+                  onClick={() => deleteButtonHandler(event.eventId)}
+                >
+                  Delete event
+                </Button> */}
+                {/* <Button variant='outlined'>
+                  <Link href={`/portfolio/events/${event.eventId}`}>
+                    Edit event
+                  </Link>
+                </Button> */}
+              </Box>
+            )}
           </Box>
           {/* <Box
             className={classes['timeline-card__background']}

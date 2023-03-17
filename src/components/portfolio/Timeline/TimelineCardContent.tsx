@@ -7,13 +7,12 @@ import Image from 'next/image';
 
 interface TimelineCardContentProps {
   event: EventProps;
-  deleteEventHandler: (eventId: string) => void;
+  // deleteEventHandler: (eventId: string) => void;
 }
 
 export const TimelineCardContent = (props: TimelineCardContentProps) => {
   const theme = useTheme();
-  const { data: session } = useSession();
-  const { event, deleteEventHandler } = props;
+  const { event } = props;
   const { skills } = event;
   return (
     <>
@@ -41,19 +40,6 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
       </Box>
       {/* {skills && <TimelineCardSkills skills={skills} />} */}
       {/* <p>{event.description}</p> */}
-      {session && (
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
-          <Button
-            variant='outlined'
-            onClick={() => deleteEventHandler(event.eventId)}
-          >
-            Delete event
-          </Button>
-          <Button variant='outlined'>
-            <Link href={`/portfolio/events/${event.eventId}`}>Edit event</Link>
-          </Button>
-        </Box>
-      )}
     </>
   );
 };

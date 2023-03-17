@@ -7,13 +7,13 @@ import Image from 'next/image';
 
 interface TimelineCardContentProps {
   event: EventProps;
-  // deleteEventHandler: (eventId: string) => void;
+  isExpanded: boolean;
 }
 
 export const TimelineCardContent = (props: TimelineCardContentProps) => {
   const theme = useTheme();
-  const { event } = props;
-  const { skills } = event;
+  const { event, isExpanded } = props;
+
   return (
     <>
       <Box sx={{ display: 'flex' }}>
@@ -36,10 +36,22 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
           >
             {event.location}
           </Typography>
+          <Box
+            sx={{
+              height: isExpanded ? '300px' : '0px',
+              transition: 'all 0.5s',
+              overflow: 'hidden',
+            }}
+          >
+            <Typography
+              sx={{ opacity: isExpanded ? 1 : 0, transition: 'opacity 1s' }}
+            >
+              {event.description}
+            </Typography>
+          </Box>
         </Box>
       </Box>
       {/* {skills && <TimelineCardSkills skills={skills} />} */}
-      {/* <p>{event.description}</p> */}
     </>
   );
 };

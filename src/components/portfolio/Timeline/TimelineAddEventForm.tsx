@@ -84,6 +84,7 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
         variant='contained'
         onClick={() => setHideForm(false)}
         disabled={isLoadingMutate}
+        sx={{ marginBottom: '60px' }}
       >
         Add new event
       </Button>

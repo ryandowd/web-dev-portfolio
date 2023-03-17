@@ -21,9 +21,9 @@
   }
 }
 
-.timeline-card--expanded .timeline-card__foreground {
-  height: 600px;
-}
+// .timeline-card--expanded .timeline-card__foreground {
+//   height: 200px;
+// }
 
 .timeline-card__foreground,
 .timeline-card__background {
@@ -31,7 +31,7 @@
 }
 
 .timeline-card__foreground {
-  height: 250px;
+  // height: 200px;
   transition: all 0.3s;
   //   position: relative;
   //   cursor: pointer;

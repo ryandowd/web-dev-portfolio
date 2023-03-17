@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemIcon } from '@mui/material';
+import { List, ListItem, ListItemIcon, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 interface SkillsListProps {
@@ -16,7 +16,15 @@ export const SkillsList = (props: SkillsListProps) => {
               <ListItemIcon sx={{ minWidth: 30 }}>
                 <ChevronRightIcon color='primary' />
               </ListItemIcon>
-              {skillItem}
+              <Typography
+                sx={{
+                  fontWeight: 500,
+                  fontSize: '1.2rem',
+                  fontFamily: 'sans-serif',
+                }}
+              >
+                {skillItem}
+              </Typography>
             </ListItem>
           );
         })}

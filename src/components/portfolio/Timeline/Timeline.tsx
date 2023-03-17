@@ -16,7 +16,7 @@ interface TimelineProps {
 
 export const Timeline = (props: TimelineProps) => {
   const { data: session } = useSession();
-  const [cardExpanded, setCardExpanded] = useState<boolean>(false);
+  const [cardExpandedId, setCardExpandedId] = useState<string | null>(null);
 
   const {
     events,
@@ -30,12 +30,15 @@ export const Timeline = (props: TimelineProps) => {
   return (
     <Box
       sx={{
-        p: '60px 50px 40px',
+        padding: '60px 50px 40px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         width: { md: '55%' },
         backgroundColor: '#f9f9f9',
+        position: {
+          xs: 'relative',
+        },
       }}
     >
       {session && (
@@ -48,11 +51,19 @@ export const Timeline = (props: TimelineProps) => {
       )}
       <Box
         sx={{
+          transition: 'all 0.3s',
           width: {
-            md: '60%',
-            lg: '53%',
+            xs: '100%',
+            md: '80%',
+            lg: '65%',
           },
-          mt: 5,
+          marginTop: !session
+            ? {
+                xs: '-100px',
+                md: '40px',
+              }
+            : {},
+          marginBottom: '300px',
         }}
       >
         {events &&
@@ -64,7 +75,8 @@ export const Timeline = (props: TimelineProps) => {
                 event={event}
                 deleteEventHandler={deleteEventHandler}
                 addJoinerLine={addJoinerLine}
-                cardExpanded={cardExpanded}
+                cardExpandedId={cardExpandedId}
+                setCardExpandedId={setCardExpandedId}
               />
             );
           })}

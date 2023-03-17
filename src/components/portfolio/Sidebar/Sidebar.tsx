@@ -5,11 +5,13 @@ import { AuthContext } from '@/global/context/use-auth-provider';
 
 import { useSidebar } from './use-sidebar';
 
-import classes from './Sidebar.module.scss';
+import { useTheme } from '@mui/material/styles';
+
 import { SkillsListForm } from './SkillsListForm';
 import { SkillsList } from './SkillsList';
 import { Button, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
+import { Box } from '@mui/system';
 
 interface SidebarProps {
   skillsList: string[];
@@ -21,6 +23,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: SidebarProps) => {
+  const theme = useTheme();
   const { data: session } = useSession();
   const { skillsList, setSkillsList, handleInputChange } = props;
   const { isEditing, toggleIsEditingHandler } = useContext(AuthContext);
@@ -28,16 +31,28 @@ export const Sidebar = (props: SidebarProps) => {
   const { formSubmitHandler } = useSidebar();
 
   return (
-    <div className={classes.sidebar}>
+    <Box
+      sx={{
+        backgroundColor: theme.palette.primary.light,
+        padding: {
+          xs: '60px 50px 100px 40px',
+          md: '60px 50px 40px',
+          lg: '60px 70px 40px;',
+        },
+        width: {
+          md: '45%',
+        },
+      }}
+    >
       <SidebarNav />
 
       <Typography
         paragraph
         sx={{
-          fontSize: 24,
-          fontWeight: 500,
+          fontSize: '1.6rem',
+          fontWeight: 600,
           lineHeight: 1.3,
-          textAlign: { sm: 'center', md: 'center', lg: 'left' },
+          textAlign: { sm: 'center', lg: 'left' },
         }}
       >
         I'm a web developer with over ten years experience building websites,
@@ -66,6 +81,6 @@ export const Sidebar = (props: SidebarProps) => {
           handleInputChange={handleInputChange}
         />
       )}
-    </div>
+    </Box>
   );
 };

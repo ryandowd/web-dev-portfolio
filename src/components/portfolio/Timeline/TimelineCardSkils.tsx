@@ -10,16 +10,24 @@ export const TimelineCardSkills = (props: TimelineCardSkillsProps) => {
   const skillsArray = skills.split(',');
 
   return (
-    <Box>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        margin: '30px 0 10px',
+      }}
+    >
       {skillsArray.map((skill) => {
         return (
-          <Image
-            key={skill}
-            src={`/assets/images/tech-${skill}.png`}
-            alt={skill}
-            width={50}
-            height={50}
-          />
+          <Box key={skill.trim()} sx={{ margin: '5px' }}>
+            <Image
+              src={`/assets/images/tech-${skill.trim()}.png`}
+              alt={skill.trim()}
+              width={50}
+              height={50}
+            />
+          </Box>
         );
       })}
     </Box>

@@ -54,7 +54,9 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
   ];
 
   function submitFormHandler(event: React.FormEvent<HTMLFormElement>) {
-    const formData = Object.fromEntries(new FormData(event.target));
+    const formData = Object.fromEntries(
+      new FormData(event.target as HTMLFormElement)
+    );
 
     event.preventDefault();
 
@@ -74,15 +76,14 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
 
     const updatedEvent: EventProps = {
       eventId: eventDetail?.eventId,
-      title: formData.title,
-      logo: formData.logo,
-      startDate: formData.startDate,
-      endDate: formData.title,
-      location: formData.location,
-      skills: formData.skills,
-      description: formData.description,
+      title: formData.title as string,
+      logo: formData.logo as string,
+      startDate: formData.startDate as string,
+      endDate: formData.title as string,
+      location: formData.location as string,
+      skills: formData.skills as string,
+      description: formData.description as string,
     };
-    console.log('updatedEvent', updatedEvent);
 
     // if (title && startDate && endDate && location && skills && description) {
     //   const updatedEvent: EventProps = {

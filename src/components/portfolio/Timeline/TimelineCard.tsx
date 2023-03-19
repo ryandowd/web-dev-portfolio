@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { IconButton, useTheme } from '@mui/material';
+import { IconButton, Tooltip, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import classes from './TimelineCard.module.scss';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -54,16 +54,25 @@ export const TimelineCard = (props: TimelineCardProps) => {
       offset={{ bottom: 100 }}
       active={!cardIsVisible}
     >
-      <Box>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
         {addJoinerLine && <TimelineCardJoiner endDate={event.endDate} />}
         <Box
           component='article'
-          className={`
-            ${classes['timeline-card']} 
-            ${cardIsExpanded ? classes['timeline-card--expanded'] : ''}
+          className={`${classes['timeline-card']} ${
+            cardIsExpanded ? classes['timeline-card--expanded'] : ''
+          }
           `}
           sx={{
             opacity: cardIsVisible ? 1 : 0,
+            transition: 'width 0.3s',
+            // transitionDelay: '1s',
+            width: {
+              xs: '100%',
+              md: cardIsExpanded ? '80%' : '55%',
+              // lg: '55%',
+            },
           }}
           onClick={cardClickedHandler}
           ref={cardRef}
@@ -87,13 +96,17 @@ export const TimelineCard = (props: TimelineCardProps) => {
                 }}
               >
                 <Link href={`/portfolio/events/${event.eventId}`}>
-                  <IconButton>
-                    <Edit />
-                  </IconButton>
+                  <Tooltip title='Edit event' placement='left'>
+                    <IconButton>
+                      <Edit />
+                    </IconButton>
+                  </Tooltip>
                 </Link>
-                <IconButton onClick={() => deleteEventHandler(event.eventId)}>
-                  <DeleteForever />
-                </IconButton>
+                <Tooltip title='Delete event' placement='left'>
+                  <IconButton onClick={() => deleteEventHandler(event.eventId)}>
+                    <DeleteForever />
+                  </IconButton>
+                </Tooltip>
               </Box>
             )}
           </Box>

@@ -42,15 +42,13 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
           sx={{
             height: isExpanded ? '300px' : '0px',
             opacity: isExpanded ? '1' : '0',
-            transition: 'all 0.2s',
             overflow: 'hidden',
+            transitionProperty: 'opacity, height',
+            transitionDuration: '0.2s, 0.5s',
           }}
         >
           {event.skills && <TimelineCardSkills skills={event.skills} />}
-
-          <Typography
-            sx={{ opacity: isExpanded ? 1 : 0, transition: 'opacity 1s' }}
-          >
+          <Typography sx={{ marginTop: '20px' }}>
             {event.description}
           </Typography>
         </Box>

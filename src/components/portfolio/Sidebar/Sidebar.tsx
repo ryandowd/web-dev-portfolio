@@ -9,7 +9,7 @@ import { useTheme } from '@mui/material/styles';
 
 import { SkillsListForm } from './SkillsListForm';
 import { SkillsList } from './SkillsList';
-import { Button, Grid, Typography } from '@mui/material';
+import { Button, Grid, Tooltip, Typography } from '@mui/material';
 import Link from 'next/link';
 import { Box } from '@mui/system';
 
@@ -60,15 +60,17 @@ export const Sidebar = (props: SidebarProps) => {
       </Typography>
 
       {session && !isEditing && (
-        <Button
-          type='button'
-          fullWidth
-          variant='contained'
-          sx={{ mt: 3, mb: 2 }}
-          onClick={toggleIsEditingHandler}
-        >
-          Edit skills list
-        </Button>
+        <Tooltip title='Edit'>
+          <Button
+            type='button'
+            fullWidth
+            variant='contained'
+            sx={{ mt: 3, mb: 2 }}
+            onClick={toggleIsEditingHandler}
+          >
+            Edit skills list
+          </Button>
+        </Tooltip>
       )}
 
       {skillsList && !isEditing && <SkillsList skillsList={skillsList} />}

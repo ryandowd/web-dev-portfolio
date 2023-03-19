@@ -3,10 +3,15 @@ import { Container } from '@mui/system';
 import { GlobalNav } from '@/components/ui/GlobalNav';
 import Link from 'next/link';
 import { ArrowBack } from '@mui/icons-material';
-import { EventUpdateForm } from '@/components/pages/EventUpdatePage/EventUpdateForm';
+import { EventUpdateForm } from '@/components/portfolio/EventUpdatePage/EventUpdateForm';
 import { Typography } from '@mui/material';
 
-export const EventUpdatePage = () => {
+type EventUpdatePageProps = {
+  eventId: string;
+};
+
+export const EventUpdatePage = (props: EventUpdatePageProps) => {
+  const { eventId } = props;
   const { updateEventFormHandler, isLoadingMutate } = useTimeline();
 
   return (
@@ -21,7 +26,10 @@ export const EventUpdatePage = () => {
         {isLoadingMutate ? (
           <Typography variant='h4'>Loading...</Typography>
         ) : (
-          <EventUpdateForm updateEventFormHandler={updateEventFormHandler} />
+          <EventUpdateForm
+            updateEventFormHandler={updateEventFormHandler}
+            eventId={eventId}
+          />
         )}
       </Container>
     </>

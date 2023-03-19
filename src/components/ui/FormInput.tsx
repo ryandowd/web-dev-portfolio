@@ -5,7 +5,6 @@ type FormInputProps = {
   field: {
     name: string;
     label: string;
-    ref: MutableRefObject<HTMLInputElement | null>;
   };
   value: string;
   isRefetching: boolean;
@@ -19,7 +18,7 @@ export const FormInput = (props: FormInputProps) => {
     setFieldValue(value);
   }, [value]);
 
-  const _fieldValue = isRefetching ? 'Refreshing...' : fieldValue;
+  const _fieldValue = isRefetching ? 'Refreshing...' : fieldValue || '';
 
   return (
     <TextField
@@ -35,7 +34,6 @@ export const FormInput = (props: FormInputProps) => {
       label={field.label}
       name={field.name}
       autoFocus
-      inputRef={field.ref}
       onChange={(event) => setFieldValue(event.target.value)}
     />
   );

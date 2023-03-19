@@ -1,3 +1,4 @@
+import { Tooltip } from '@mui/material';
 import { Box } from '@mui/system';
 import Image from 'next/image';
 
@@ -14,19 +15,21 @@ export const TimelineCardSkills = (props: TimelineCardSkillsProps) => {
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        margin: '30px 0 10px',
+        justifyContent: 'center',
+        margin: '10px 0',
       }}
     >
       {skillsArray.map((skill) => {
         return (
           <Box key={skill.trim()} sx={{ margin: '5px' }}>
-            <Image
-              src={`/assets/images/tech-${skill.trim()}.png`}
-              alt={skill.trim()}
-              width={50}
-              height={50}
-            />
+            <Tooltip title={skill.trim()} placement='top'>
+              <Image
+                src={`/assets/images/tech-${skill.trim()}.png`}
+                alt={skill.trim()}
+                width={50}
+                height={50}
+              />
+            </Tooltip>
           </Box>
         );
       })}

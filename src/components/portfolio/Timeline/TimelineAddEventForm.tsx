@@ -40,11 +40,12 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
   }, [isSuccessMutate]);
 
   const titleRef = useRef<HTMLInputElement | null>(null);
+  const logoRef = useRef<HTMLInputElement | null>(null);
   const startDateRef = useRef<HTMLInputElement | null>(null);
   const endDateRef = useRef<HTMLInputElement | null>(null);
   const locationRef = useRef<HTMLInputElement | null>(null);
   const skillsRef = useRef<HTMLInputElement | null>(null);
-  const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
+  const descriptionRef = useRef<HTMLInputElement | null>(null);
 
   async function submitFormHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -52,6 +53,7 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
     setFormError(null);
 
     const title = titleRef.current?.value;
+    const logo = logoRef.current?.value;
     const startDate = startDateRef.current?.value;
     const endDate = endDateRef.current?.value;
     const location = locationRef.current?.value;
@@ -62,6 +64,7 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
       const newEvent: EventProps = {
         eventId: uuid(),
         title,
+        logo,
         startDate,
         endDate,
         location,
@@ -117,9 +120,17 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
           id='title'
           label='Job Title'
           name='title'
-          autoComplete='title'
           autoFocus
           inputRef={titleRef}
+        />
+        <TextField
+          margin='normal'
+          fullWidth
+          id='logo'
+          label='Logo name'
+          name='logo'
+          autoFocus
+          inputRef={logoRef}
         />
         <TextField
           margin='normal'
@@ -128,7 +139,6 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
           id='startDate'
           label='Start Date'
           name='startDate'
-          autoComplete='startDate'
           autoFocus
           inputRef={startDateRef}
         />
@@ -139,7 +149,6 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
           id='endDate'
           label='End Date'
           name='endDate'
-          autoComplete='endDate'
           autoFocus
           inputRef={endDateRef}
         />
@@ -150,7 +159,6 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
           id='location'
           label='Location'
           name='location'
-          autoComplete='location'
           autoFocus
           inputRef={locationRef}
         />
@@ -161,20 +169,19 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
           id='skills'
           label='Skills'
           name='skills'
-          autoComplete='skills'
           autoFocus
           inputRef={skillsRef}
         />
-        <TextareaAutosize
+        <TextField
+          multiline
           required
           minRows={7}
           id='description'
-          placeholder='Description'
+          label='Description'
           name='description'
-          autoComplete='description'
           autoFocus
           ref={descriptionRef}
-          style={{ margin: '15px 0 5px', width: '100%', padding: '15px' }}
+          style={{ margin: '15px 0 5px', width: '100%' }}
         />
         {formError && <Typography variant='body1'>{formError}</Typography>}
         <Button type='submit' variant='contained' fullWidth sx={{ mt: 2 }}>

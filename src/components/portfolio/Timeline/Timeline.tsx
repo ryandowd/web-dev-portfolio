@@ -52,11 +52,6 @@ export const Timeline = (props: TimelineProps) => {
       <Box
         sx={{
           transition: 'all 0.3s',
-          width: {
-            xs: '100%',
-            md: '80%',
-            lg: '65%',
-          },
           marginTop: !session
             ? {
                 xs: '-100px',

@@ -47,7 +47,7 @@ export const Sidebar = (props: SidebarProps) => {
       <SidebarNav />
 
       <Typography
-        paragraph
+        variant='h4'
         sx={{
           fontSize: '1.6rem',
           fontWeight: 600,

@@ -3,6 +3,9 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   typography: {
     fontFamily: "'Lora', sans-serif",
+    body1: {
+      fontFamily: 'Helvetica, sans-serif',
+    },
   },
   palette: {
     primary: {

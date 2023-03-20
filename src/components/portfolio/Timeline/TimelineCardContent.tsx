@@ -16,8 +16,8 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ display: 'flex' }}>
-          <Box sx={{ marginRight: '20px', width: '150px' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ marginRight: '20px' }}>
             <Image
               src={`/assets/images/logo-${event.logo}.png`}
               alt={event.title}
@@ -25,11 +25,10 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
               height={100}
             />
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography
-              variant='h4'
-              sx={{ width: '200px', fontSize: '1.8rem' }}
-            >
+          <Box
+            sx={{ display: 'flex', flexDirection: 'column', width: '200px' }}
+          >
+            <Typography variant='h4' sx={{ fontSize: '1.8rem' }}>
               {event.title}
             </Typography>
             <Typography variant='body1'>
@@ -53,7 +52,15 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
           }}
         >
           {event.skills && <TimelineCardSkills skills={event.skills} />}
-          <Typography sx={{ marginTop: '20px' }}>
+          <Typography
+            sx={{
+              marginTop: '20px',
+              opacity: isExpanded ? '1' : '0',
+              transitionProperty: 'opacity',
+              transitionDuration: '0.5s',
+              transitionDelay: '0.2s',
+            }}
+          >
             {event.description}
           </Typography>
         </Box>

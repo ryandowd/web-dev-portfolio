@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "63feda5728b97d581ce24dea"
+  },
+  "skillsList": [
+    "3+ years React, 2+ years MERN (MongoDB/Express/React/Node), 1+ years GraphQL",
+    "3+ years unit testing Jest/Enzyme (1+ React-Testing-Library), 2+ years end-to-end and integration testing with Selenium/Mocha/Chai\n",
+    "5+ years Drupal (6,7,8) site-building and theming (Twig, PHP, Module updates, Drupal Hooks API)\n",
+    "10+ years responsive web development (CSS3, HTML5, browser & device support)\n",
+    "Lots of Wordpress & Shopify site-building and theming\n",
+    "All the usual suspects: Agile, JIRA, AWS, Jenkins, Webpack, Gulp, Git, Docker, Yarn, NPM, SASS/SCSS, Bootstrap, BEM, SMACCS, Photoshop, Zeplin\n",
+    "Experience with Google Ads, Web vitals, SEO, GTM, A/B Testing\n"
+  ]
+}]

@@ -1,0 +1,133 @@
+[{
+  "_id": {
+    "$oid": "6412da9677b8c7ddba68ff7d"
+  },
+  "eventId": "1d71c0e1-4cfb-462e-a8ab-a050bff04dff",
+  "title": "University of Sunshine Coast",
+  "startDate": "2009",
+  "endDate": "2011",
+  "location": "Sunshine Coast, Queensland, Australia",
+  "skills": "html, css, jquery, as3, php",
+  "description": "At university, I completed a 'Dual Degree in Electronic Media & Digital Design' and received a high distinction for both my design & programming portfolios for the final year. My programming portfolio included a bespoke game which I built in ActionScript 3.0.",
+  "logo": "usc"
+},{
+  "_id": {
+    "$oid": "6417c7c09fbf8835f1a570a8"
+  },
+  "eventId": "b7de5750-63da-4c40-8c82-2ffe6354e500",
+  "title": "Fig Creative",
+  "logo": "fig",
+  "startDate": "June 2010",
+  "endDate": "April 2011",
+  "location": "Queensland, Australia",
+  "skills": "html5, css3, jquery",
+  "description": "Fig Creative was my first web development job which I began in the middle of my degree at university. It was a 'ma and pa' web agency which catered for small businesses in the local town. My job was part web developer (building sites in Wordpress, Concrete 5, static HTML) and part designer (creating logos, webpage mockups and printed brochures)."
+},{
+  "_id": {
+    "$oid": "6417c8a2e58c612cf7eb75d5"
+  },
+  "eventId": "3f90be0a-3ecd-4b9f-a87e-e4b29cbe88fd",
+  "title": "Flight Centre ",
+  "logo": "fc",
+  "startDate": "March 2011",
+  "endDate": "November 2014",
+  "location": "Brisbane, Australia",
+  "skills": "html5, css3, jquery, jsmvc, drupal7",
+  "description": "I began working here as a junior front-end developer in 2011, updating various brand websites through their legacy 'WCM' platform. By 2014, I had spent a year building and updating their flight booking app (a JS app built with JSMVC), a bespoke travel-agent web app (JSMVC), and a year working on their Drupal 7 websites. My time at Flight Centre was formative."
+},{
+  "_id": {
+    "$oid": "6417c903e58c612cf7eb75d6"
+  },
+  "eventId": "b9ed79b2-8163-4eb5-91e0-ecef9646b629",
+  "title": "NBCU",
+  "logo": "nbcu",
+  "startDate": "December 2014",
+  "endDate": "January 2015",
+  "location": "London, England",
+  "skills": "drupal7, jquery, sass, bootstrap",
+  "description": "I was brought on to the NBCU team on a short-term contract to help complete the build of their redesigned 'Syfy' website on a Drupal 7 platform. Here I worked along-side a senior front-end developer, a designer and back-end developers to finish the project on time and in scope."
+},{
+  "_id": {
+    "$oid": "6417c930e58c612cf7eb75d7"
+  },
+  "eventId": "4a1178a5-454b-488f-81e3-613eba029423",
+  "title": "Attraction Tickets Direct",
+  "logo": "atd",
+  "startDate": "February 2015",
+  "endDate": "July 2015",
+  "location": "London, England",
+  "skills": "drupal7, jquery, sass, bootstrap",
+  "description": "I worked at ATD to help transform their non-responsive website into a responsive website. It included working with SASS, jQuery and Drupal 6. The update required lots of device testing. I also implemented various A/B tests to gauge the success of new features and designs."
+},{
+  "_id": {
+    "$oid": "6417ca8ce58c612cf7eb75d8"
+  },
+  "eventId": "63895ff8-e5fc-4f99-8e07-f57cf743fc60",
+  "title": "TES (for Times Higher Education)",
+  "logo": "tes",
+  "startDate": "August 2015",
+  "endDate": "December 2015",
+  "location": "London, England",
+  "skills": "drupal7, jquery, sass, php, bootstrap",
+  "description": "When I began my time at TES, the 'Times Higher Education' website was being re-built on a Drupal 7 platform. I was brought on as one of two front-end developers, in a small team of back-end developers, to help with the rebuild. Here I worked with the Drupal 7 platform on a daily basis, including site-building tasks such as working with modules, views and templates to match the designers mockups, and making sure these pages worked as a fully-responsive website, implementing UI features with jQuery, and also regression testing these changes with the 'Wraith' testing tool."
+},{
+  "_id": {
+    "$oid": "6417cc40e58c612cf7eb75d9"
+  },
+  "eventId": "df7963e8-9249-49cb-aced-6fac6cb0628a",
+  "title": "Times Higher Education (with TES)",
+  "logo": "tes",
+  "startDate": "May 2016",
+  "endDate": "April 2018",
+  "location": "London, England",
+  "skills": "drupal7, drupal8, php, sass, bootstrap",
+  "description": "At TES, I was the lead front-end developer for the fully-responsive Drupal 7 website 'Times Higher Education' which received 32.7 million visitors in 2017. Proving myself on the 'THE' website, I then moved onto a green-fields Drupal 8 project for the TES Global website. My day-to-day included liaising with the designers, project managers and back-end developers, then implementing feature upgrades including new pages, widgets and redesigns into the Drupal 7 & 8 platforms, working daily with front-end and back-end technologies. These included all the latest responsive web standards (HTML5, CSS3, Flexbox) and tools such as SASS/SCSS, NPM, Docker, etc."
+},{
+  "_id": {
+    "$oid": "6417cc92e58c612cf7eb75da"
+  },
+  "eventId": "4d0e3427-7f66-4221-bf00-485c94f4139a",
+  "title": "Freelance & Ecommerce",
+  "logo": "me",
+  "startDate": "May 2018",
+  "endDate": "August 2019",
+  "location": "England, Spain, Malaysia, Australia",
+  "skills": "shopify, drupal8, bigcommerce, react, es6",
+  "description": "In 2018, I had the opportunity to travel and earn from my ecommerce business, as well as a few freelance projects. I also began skilling-up in React, with various Udemy projects. My ecommerce store is built on the Shopify platform and it's been a great way for me to learn all aspects of owning and running a business (not just the development side of Shopify). My freelance work has involved short-term 'Drupal 8', 'Shopify' and 'Big Commerce' projects, while in my freetime I've been learning React. Despite the success of the store and our fun travelling, my wife and I want to put our roots down, sell the store and focus on our careers in the UK."
+},{
+  "_id": {
+    "$oid": "6417cce7e58c612cf7eb75db"
+  },
+  "eventId": "6dfedacb-13bb-4d71-a04a-da5f3f20cd46",
+  "title": "Haymarket Media Group",
+  "logo": "haymarket",
+  "startDate": "June 2019",
+  "endDate": "April 2021",
+  "location": "London, England",
+  "skills": "react, es6, node, mongodb, aws, webpack",
+  "description": "I worked in the Haymarket Automotive team on the What Car? website. This was my first professional React position, after upskilling in React in my free time. I learned tons about React, and also helped organise/implement an 'Atomic design' structure for their FE components with Storybook. I then moved into the full-stack team for my second year where I worked on the MERN stack for their buyer/dealership platform. I was able to greatly improve my back-end skills and now feel comfortable developing MERN applications. I also greatly improved my unit/integration/end-to-end testing knowledge and became a more well-rounded developer, in addition to building on my existing front-end skills."
+},{
+  "_id": {
+    "$oid": "6417cd46e58c612cf7eb75dc"
+  },
+  "eventId": "fdd1a1ff-59b8-4846-90af-5c26ce135c57",
+  "title": "Sky UK",
+  "logo": "sky",
+  "startDate": "May 2021 ",
+  "endDate": "February 2022",
+  "location": "(Remote within England)",
+  "skills": "react, es6, node, graphql, aws, webpack",
+  "description": "In this role, I was able to grow as a full-stack developer by collaborating and sometimes leading on many aspects of the React and Node architecture and daily development within our squads codebase. This made for a challenging but fun time at Sky. I was able to collaborate with other squads and their senior developers and this experience was invaluable, especially in a company the size of Sky. I also skilled up in GraphQL which, until Sky, I had only worked on in my personal dev time outside of work."
+},{
+  "_id": {
+    "$oid": "6417cf262bdda4b29515e94b"
+  },
+  "eventId": "ea2f57bb-c338-408f-bb60-059f0792d60a",
+  "title": "Deloitte Digital",
+  "logo": "deloitte",
+  "startDate": "June 2022",
+  "endDate": "January 2023",
+  "location": "(Remote within Australia)",
+  "skills": "react, graphql, es6, recoil",
+  "description": "I was the FED tech lead for a small squad who successfully completed a project for the \"Arts Centre Melbourne\" website which involved converting over 40 Angular components to React components (these included product catalogues, seat selection, payment gateway form etc). I was then a Senior FED for a small squad involved in adding features to a digital twin for a very large transport organisation in Melbourne. "
+}]

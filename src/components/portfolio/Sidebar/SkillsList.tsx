@@ -21,6 +21,7 @@ export const SkillsList = (props: SkillsListProps) => {
                   fontWeight: 500,
                   fontSize: '1.2rem',
                   fontFamily: 'sans-serif',
+                  marginBottom: '15px',
                 }}
               >
                 {skillItem}

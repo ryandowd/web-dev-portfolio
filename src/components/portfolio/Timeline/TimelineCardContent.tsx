@@ -26,7 +26,10 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h4' sx={{ width: '200px' }}>
+            <Typography
+              variant='h4'
+              sx={{ width: '200px', fontSize: '1.8rem' }}
+            >
               {event.title}
             </Typography>
             <Typography variant='body1'>

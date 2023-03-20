@@ -82,7 +82,7 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
       title: formData.title as string,
       logo: formData.logo as string,
       startDate: formData.startDate as string,
-      endDate: formData.title as string,
+      endDate: formData.endDate as string,
       location: formData.location as string,
       skills: formData.skills as string,
       description: formData.description as string,

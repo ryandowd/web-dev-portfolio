@@ -7,8 +7,6 @@ import { Timeline } from '@/components/portfolio/Timeline/Timeline';
 import { EventProps } from '@/types';
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 
 interface PortfolioProps {
   staticSkillsList: string[];

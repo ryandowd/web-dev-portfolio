@@ -70,7 +70,8 @@ export const TimelineCard = (props: TimelineCardProps) => {
             // transitionDelay: '1s',
             width: {
               xs: '100%',
-              md: cardIsExpanded ? '80%' : '55%',
+              md: cardIsExpanded ? '90%' : '75%',
+              lg: cardIsExpanded ? '80%' : '55%',
               // lg: '55%',
             },
           }}

@@ -17,16 +17,18 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex' }}>
-          <Box sx={{ mr: 4 }}>
+          <Box sx={{ marginRight: '20px', width: '150px' }}>
             <Image
-              src={`/assets/images/logo-atd.png`}
+              src={`/assets/images/logo-${event.logo}.png`}
               alt={event.title}
               width={100}
               height={100}
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h4'>{event.title}</Typography>
+            <Typography variant='h4' sx={{ width: '200px' }}>
+              {event.title}
+            </Typography>
             <Typography variant='body1'>
               {event.startDate} - {event.endDate}
             </Typography>

@@ -8,3 +8,13 @@ export interface EventProps {
   skills: string;
   description: string;
 }
+
+export interface FormFieldProps {
+  name: string;
+  label: string;
+  extraProps?: {
+    minRows: number;
+    style: object;
+    multiline: boolean;
+  };
+}

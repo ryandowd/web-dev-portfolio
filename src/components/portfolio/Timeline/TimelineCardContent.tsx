@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import { TimelineCardSkills } from './TimelineCardSkils';
+import type { MutableRefObject } from 'react';
 
 interface TimelineCardContentProps {
   event: EventProps;
@@ -57,7 +58,7 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
             display: 'flex',
             flexDirection: 'column',
             flex: {
-              sm: '0 0 210px',
+              sm: '0 0 250px',
             },
           }}
         >
@@ -86,25 +87,31 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
       </Box>
       <Box
         sx={{
-          height: {
-            xs: isExpanded ? 'auto' : '0px',
-            lg: isExpanded ? '300px' : '0px',
-          },
-          opacity: isExpanded ? '1' : '0',
+          maxHeight: isExpanded ? '500px' : '0px',
+          // opacity: isExpanded ? '1' : '0',
           overflow: 'hidden',
-          transitionProperty: 'opacity, height',
-          transitionDuration: '0.2s, 0.5s',
+          transitionProperty: 'max-height',
+          transitionDuration: '0.2s',
+          // transitionDelay: '3s, 0',
         }}
       >
         {event.skills && <TimelineCardSkills skills={event.skills} />}
         <Typography
           sx={{
-            marginTop: '20px',
+            marginTop: '25px',
             opacity: isExpanded ? '1' : '0',
+            transitionTimingFunction: 'ease-in-out',
             transitionProperty: 'opacity',
-            transitionDuration: '0.5s',
-            transitionDelay: '0.2s',
-            textAlign: 'justify',
+            transitionDuration: '1s',
+            transitionDelay: '0.3s',
+            textAlign: {
+              xs: 'left',
+              sm: 'justify',
+            },
+            padding: {
+              xs: '0 20px',
+              sm: '0',
+            },
           }}
         >
           {event.description}

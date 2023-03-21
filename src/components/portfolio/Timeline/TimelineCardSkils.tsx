@@ -16,12 +16,20 @@ export const TimelineCardSkills = (props: TimelineCardSkillsProps) => {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        margin: '10px 0',
+        marginTop: {
+          xs: '20px',
+          sm: '10px',
+        },
       }}
     >
       {skillsArray.map((skill) => {
         return (
-          <Box key={skill.trim()} sx={{ margin: '5px' }}>
+          <Box
+            key={skill.trim()}
+            sx={{
+              margin: '5px',
+            }}
+          >
             <Tooltip title={skill.trim()} placement='top'>
               <Image
                 src={`/assets/images/tech-${skill.trim()}.png`}

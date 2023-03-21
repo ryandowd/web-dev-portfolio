@@ -35,7 +35,7 @@ export const Sidebar = (props: SidebarProps) => {
       sx={{
         backgroundColor: theme.palette.primary.light,
         padding: {
-          xs: '60px 50px 100px 40px',
+          xs: '30px 20px 100px',
           md: '60px 50px 40px',
           lg: '60px 70px 40px;',
         },
@@ -45,13 +45,13 @@ export const Sidebar = (props: SidebarProps) => {
       }}
     >
       <SidebarNav />
-
       <Typography
         variant='h4'
         sx={{
           fontSize: {
             xs: '1.2rem',
             sm: '1.6rem',
+            marginBottom: '30px',
           },
           fontWeight: 600,
           lineHeight: 1.3,

@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { IconButton, Tooltip, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import classes from './TimelineCard.module.scss';
 import VisibilitySensor from 'react-visibility-sensor';
 import { EventProps } from '@/types';
 import { TimelineCardContent } from '@/components/portfolio/Timeline/TimelineCardContent';
@@ -13,9 +12,9 @@ import { DeleteForever, Edit } from '@mui/icons-material';
 interface TimelineCardProps {
   event: EventProps;
   addJoinerLine: boolean;
-  cardExpandedId: string | null;
+  // cardExpandedId: string | null;
   deleteEventHandler: (eventId: string) => void;
-  setCardExpandedId: (eventId: string | null) => void;
+  // setCardExpandedId: (eventId: string | null) => void;
 }
 
 export const TimelineCard = (props: TimelineCardProps) => {
@@ -23,28 +22,27 @@ export const TimelineCard = (props: TimelineCardProps) => {
   const cardRef = useRef<null | HTMLDivElement>(null);
   const { data: session } = useSession();
   const [cardIsVisible, setCardVisible] = useState<boolean>(false);
+  const [cardIsExpanded, setCardIsExapanded] = useState<boolean>(false);
 
   const {
     event,
     addJoinerLine,
-    cardExpandedId,
+    // cardExpandedId,
     deleteEventHandler,
-    setCardExpandedId,
+    // setCardExpandedId,
   } = props;
 
-  const cardIsExpanded = event.eventId === cardExpandedId;
-
   function cardClickedHandler() {
-    setCardExpandedId(!cardIsExpanded ? event.eventId : null);
+    setCardIsExapanded((prevState: boolean) => !prevState);
 
-    setTimeout(() => {
-      if (!cardIsExpanded && cardRef.current) {
-        cardRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      }
-    }, 70);
+    //       setTimeout(() => {
+    //         if (!cardIsExpanded && cardRef.current) {
+    //           cardRef.current.scrollIntoView({
+    //             behavior: 'smooth',
+    //             block: 'center',
+    //           });
+    //         }
+    //       }, 200);
   }
 
   return (
@@ -60,27 +58,37 @@ export const TimelineCard = (props: TimelineCardProps) => {
         {addJoinerLine && <TimelineCardJoiner endDate={event.endDate} />}
         <Box
           component='article'
-          className={`${classes['timeline-card']} ${
-            cardIsExpanded ? classes['timeline-card--expanded'] : ''
-          }
-          `}
           sx={{
             opacity: cardIsVisible ? 1 : 0,
             transition: 'width 0.3s',
             width: {
               xs: '100%',
-              md: cardIsExpanded ? '90%' : '75%',
-              lg: cardIsExpanded ? '80%' : '60%',
+              lg: cardIsExpanded ? '80%' : '420px',
             },
+            cursor: 'pointer',
+            position: 'relative',
           }}
           onClick={cardClickedHandler}
           ref={cardRef}
         >
           <Box
-            className={classes['timeline-card__inner']}
             sx={{
+              transition: 'all 0.3s',
+              minHeight: '180px',
+              background: '#FFF',
+              padding: {
+                xs: '20px 10px 30px',
+                sm: '20px 30px 40px',
+              },
+              position: 'relative',
+              zIndex: 1,
               opacity: cardIsVisible ? 1 : 0,
               border: `1px solid ${theme.palette.secondary.main}`,
+              boxShadow: '0 20px 2px -10px rgba(0 0 0 / 4%)',
+              '&:hover': {
+                boxShadow: '0 15px 10px -10px rgba(0 0 0 / 3%)',
+                transform: 'scale(1.05)',
+              },
             }}
           >
             <TimelineCardContent event={event} isExpanded={cardIsExpanded} />

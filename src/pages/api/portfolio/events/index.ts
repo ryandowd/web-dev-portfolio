@@ -21,7 +21,6 @@ export default async function handler(
   }
 
   if (req.method === 'GET') {
-    console.log('GET ALL EVENTS');
     const client = await connectToDatabase();
     const db = client.db();
     const result = await db

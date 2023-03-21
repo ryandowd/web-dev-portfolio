@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react';
 
-export const AuthContext = createContext();
+export const IsEditingContext = createContext();
 
-export const AuthProvider = (props) => {
+export const IsEditingProvider = (props) => {
   const { children } = props;
   const [isEditing, setIsEditing] = useState(false);
 
@@ -13,6 +13,8 @@ export const AuthProvider = (props) => {
   const context = { isEditing, setIsEditing, toggleIsEditingHandler };
 
   return (
-    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
+    <IsEditingContext.Provider value={context}>
+      {children}
+    </IsEditingContext.Provider>
   );
 };

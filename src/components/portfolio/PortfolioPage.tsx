@@ -11,9 +11,12 @@ import { useEffect } from 'react';
 interface PortfolioProps {
   staticSkillsList: string[];
   staticEvents: EventProps[];
+  // isAdmin: boolean;
 }
 
 export const PortfolioPage = (props: PortfolioProps) => {
+  const { staticSkillsList, staticEvents } = props;
+
   const { skills, setSkills, handleInputChange } = useSidebar();
   const {
     events,
@@ -23,8 +26,6 @@ export const PortfolioPage = (props: PortfolioProps) => {
     isLoadingMutate,
     isSuccessMutate,
   } = useTimeline();
-
-  const { staticSkillsList, staticEvents } = props;
 
   useEffect(() => {
     if (staticSkillsList) {
@@ -50,6 +51,7 @@ export const PortfolioPage = (props: PortfolioProps) => {
         skillsList={skills}
         setSkillsList={setSkills}
         handleInputChange={handleInputChange}
+        // isAdmin={isAdmin}
       />
       <Timeline
         events={events}
@@ -58,6 +60,7 @@ export const PortfolioPage = (props: PortfolioProps) => {
         createEventFormHandler={createEventFormHandler}
         isLoadingMutate={isLoadingMutate}
         isSuccessMutate={isSuccessMutate}
+        // isAdmin={isAdmin}
       />
     </Box>
   );

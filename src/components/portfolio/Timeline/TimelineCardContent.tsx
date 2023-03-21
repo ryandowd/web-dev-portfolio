@@ -3,7 +3,6 @@ import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import { TimelineCardSkills } from './TimelineCardSkils';
-import type { MutableRefObject } from 'react';
 
 interface TimelineCardContentProps {
   event: EventProps;
@@ -47,7 +46,7 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
           }}
         >
           <Image
-            src={`/assets/images/logo-${event.logo}.png`}
+            src={`/assets/images/portfolio/logo-${event.logo}.png`}
             alt={event.title}
             width={90}
             height={90}
@@ -65,7 +64,10 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
           <Typography
             variant='h4'
             sx={{
-              fontSize: '1.8rem',
+              fontSize: {
+                xs: '1.6rem',
+                sm: '1.8rem',
+              },
               marginBottom: {
                 xs: '20px',
                 sm: '10px',
@@ -88,11 +90,9 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
       <Box
         sx={{
           maxHeight: isExpanded ? '500px' : '0px',
-          // opacity: isExpanded ? '1' : '0',
           overflow: 'hidden',
           transitionProperty: 'max-height',
           transitionDuration: '0.2s',
-          // transitionDelay: '3s, 0',
         }}
       >
         {event.skills && <TimelineCardSkills skills={event.skills} />}

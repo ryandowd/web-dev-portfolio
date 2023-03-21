@@ -6,7 +6,7 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  Button,
+  Grid,
 } from '@mui/material';
 import NextLink from 'next/link';
 import { GlobalNav } from '@/components/ui/GlobalNav';
@@ -16,12 +16,12 @@ export const HomePage = () => {
   const { data: session } = useSession();
 
   const portfolioItem = (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <NextLink href='/portfolio'>
         <CardActionArea>
           <CardMedia
             sx={{ height: 140 }}
-            image='/static/images/cards/contemplative-reptile.jpg'
+            image='assets/images/banner-portfolio.png'
             title='green iguana'
           />
           <CardContent>
@@ -29,8 +29,8 @@ export const HomePage = () => {
               Portfolio
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              My web developer portfolio. Showing a timeline of my career as a
+              web developer and a list of my current skillsets.
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -39,12 +39,12 @@ export const HomePage = () => {
   );
 
   const financeItem = session && (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <NextLink href='/finance-tracker'>
         <CardActionArea>
           <CardMedia
             sx={{ height: 140 }}
-            image='/static/images/cards/contemplative-reptile.jpg'
+            image='assets/images/banner-portfolio.png'
             title='green iguana'
           />
           <CardContent>
@@ -67,26 +67,29 @@ export const HomePage = () => {
         {!session ? (
           <Link
             href='/auth/signin'
-            sx={{ color: '#fff', textDecoration: 'none' }}
+            sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
           >
             Sign In
           </Link>
         ) : (
           <Link
             onClick={() => signOut()}
-            sx={{ color: '#fff', textDecoration: 'none' }}
+            sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
           >
             Sign Out
           </Link>
         )}
       </GlobalNav>
 
-      <Container
-        component='main'
-        sx={{ display: 'flex', justifyContent: 'space-evenly', mt: 10 }}
-      >
-        {portfolioItem}
-        {financeItem}
+      <Container component='main' sx={{ marginTop: 10 }}>
+        <Grid container spacing={5} columnSpacing={10}>
+          <Grid item xs={12} md={6}>
+            {portfolioItem}
+          </Grid>
+          <Grid item xs={12} md={6}>
+            {financeItem}
+          </Grid>
+        </Grid>
       </Container>
     </>
   );

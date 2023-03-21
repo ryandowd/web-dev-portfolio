@@ -32,7 +32,7 @@ export const TimelineCardSkills = (props: TimelineCardSkillsProps) => {
           >
             <Tooltip title={skill.trim()} placement='top'>
               <Image
-                src={`/assets/images/tech-${skill.trim()}.png`}
+                src={`/assets/images/portfolio/tech-${skill.trim()}.png`}
                 alt={skill.trim()}
                 width={50}
                 height={50}

@@ -11,6 +11,7 @@ export const theme = createTheme({
     primary: {
       main: '#003546',
       light: '#add8e6',
+      dark: '#00373e',
     },
     secondary: {
       main: '#e9e9e9',
@@ -27,6 +28,15 @@ export const theme = createTheme({
     },
     success: {
       main: '#4caf50',
+    },
+  },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: 'none',
+        },
+      },
     },
   },
 });

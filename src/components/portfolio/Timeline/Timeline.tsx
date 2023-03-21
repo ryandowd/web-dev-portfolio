@@ -1,9 +1,8 @@
-import { useSession } from 'next-auth/react';
 import { EventProps } from 'src/types';
 import { TimelineAddEventForm } from './TimelineAddEventForm';
 import { Box } from '@mui/material';
 import { TimelineCard } from '@/components/portfolio/Timeline/TimelineCard';
-import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 interface TimelineProps {
   events: EventProps[];
@@ -15,8 +14,7 @@ interface TimelineProps {
 }
 
 export const Timeline = (props: TimelineProps) => {
-  const { data: session } = useSession();
-  // const [cardExpandedId, setCardExpandedId] = useState<string | null>(null);
+  const { data: session }: any = useSession();
 
   const {
     events,
@@ -44,7 +42,7 @@ export const Timeline = (props: TimelineProps) => {
         },
       }}
     >
-      {session && (
+      {session?.user?.isAdmin && (
         <TimelineAddEventForm
           createEventFormHandler={createEventFormHandler}
           isLoadingMutate={isLoadingMutate}
@@ -55,7 +53,7 @@ export const Timeline = (props: TimelineProps) => {
       <Box
         sx={{
           transition: 'all 0.3s',
-          marginTop: !session
+          marginTop: !session?.user?.isAdmin
             ? {
                 xs: '-100px',
                 md: '40px',
@@ -73,8 +71,6 @@ export const Timeline = (props: TimelineProps) => {
                 event={event}
                 deleteEventHandler={deleteEventHandler}
                 addJoinerLine={addJoinerLine}
-                // cardExpandedId={cardExpandedId}
-                // setCardExpandedId={setCardExpandedId}
               />
             );
           })}

@@ -13,7 +13,6 @@ export const GlobalNav = (props: GlobalNavProps) => {
       sx={{ p: 3, backgroundColor: '#000' }}
     >
       <Container
-        component='main'
         maxWidth='xs'
         sx={{ display: 'flex', justifyContent: 'center' }}
       >

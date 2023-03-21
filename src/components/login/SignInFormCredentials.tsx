@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
 
 export const SignInFormCredentials = () => {
-  const { status } = useSession();
   const [signInLoading, setSignInLoading] = useState(false);
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);

@@ -12,25 +12,17 @@ import { DeleteForever, Edit } from '@mui/icons-material';
 interface TimelineCardProps {
   event: EventProps;
   addJoinerLine: boolean;
-  // cardExpandedId: string | null;
   deleteEventHandler: (eventId: string) => void;
-  // setCardExpandedId: (eventId: string | null) => void;
 }
 
 export const TimelineCard = (props: TimelineCardProps) => {
   const theme = useTheme();
   const cardRef = useRef<null | HTMLDivElement>(null);
-  const { data: session } = useSession();
+  const { data: session }: any = useSession();
   const [cardIsVisible, setCardVisible] = useState<boolean>(false);
   const [cardIsExpanded, setCardIsExapanded] = useState<boolean>(false);
 
-  const {
-    event,
-    addJoinerLine,
-    // cardExpandedId,
-    deleteEventHandler,
-    // setCardExpandedId,
-  } = props;
+  const { event, addJoinerLine, deleteEventHandler } = props;
 
   function cardClickedHandler() {
     setCardIsExapanded((prevState: boolean) => !prevState);
@@ -55,7 +47,9 @@ export const TimelineCard = (props: TimelineCardProps) => {
       <Box
         sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
-        {addJoinerLine && <TimelineCardJoiner endDate={event.endDate} />}
+        {addJoinerLine && cardIsVisible && (
+          <TimelineCardJoiner endDate={event.endDate} />
+        )}
         <Box
           component='article'
           sx={{
@@ -92,7 +86,7 @@ export const TimelineCard = (props: TimelineCardProps) => {
             }}
           >
             <TimelineCardContent event={event} isExpanded={cardIsExpanded} />
-            {session && (
+            {session?.user?.isAdmin && (
               <Box
                 sx={{
                   position: 'absolute',

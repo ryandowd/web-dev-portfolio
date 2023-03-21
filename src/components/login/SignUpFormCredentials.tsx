@@ -156,7 +156,7 @@ export const SignUpFormCredentials = () => {
           variant='contained'
           sx={{ mt: 3, mb: 2 }}
         >
-          Login
+          Sign up
         </LoadingButton>
         <Link
           href='/auth/signin'

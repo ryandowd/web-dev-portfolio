@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
-import { AuthContext } from '@/global/context/use-auth-provider';
+import { IsEditingContext } from '@/global/context/use-is-editing-provider';
 
 export const useSidebar = () => {
   const [skills, setSkills] = useState<string[]>([]);
-  const { setIsEditing } = useContext(AuthContext);
+  const { setIsEditing } = useContext(IsEditingContext);
 
   const { mutate } = useMutation({
     mutationFn: async (updatedSkills: string[]) => {

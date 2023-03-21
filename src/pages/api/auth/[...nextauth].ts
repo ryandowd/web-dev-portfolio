@@ -10,8 +10,8 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   callbacks: {
+    // user data is passed over to the jwt for client side
     async jwt({ token, user }: any) {
-      // user data is passed over to the jwt for client side
       if (!user) {
         return token;
       } else {
@@ -25,9 +25,13 @@ export const authOptions: NextAuthOptions = {
         return token;
       }
     },
+    // session callback is called whenever a session for that particular user is checked
     async session({ session, token }: any) {
-      // session callback is called whenever a session for that particular user is checked
+      const isAdminEmail =
+        session?.user?.email === process.env.ADMIN_USER_EMAIL;
+
       session.user = token.user;
+      session.user.isAdmin = isAdminEmail;
 
       return session;
     },

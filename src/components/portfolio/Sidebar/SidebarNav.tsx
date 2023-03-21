@@ -4,7 +4,15 @@ import classes from './SidebarNav.module.scss';
 export const SidebarNav = () => {
   return (
     <div className={classes['sidebar__nav']}>
-      <Typography variant='h3' fontWeight={700}>
+      <Typography
+        variant='h3'
+        fontWeight={700}
+        sx={{
+          marginBottom: {
+            xs: '20px',
+          },
+        }}
+      >
         Ryan Dowd
       </Typography>
       <div className={classes['sidebar__links']}>

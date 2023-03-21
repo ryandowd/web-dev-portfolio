@@ -49,7 +49,10 @@ export const Sidebar = (props: SidebarProps) => {
       <Typography
         variant='h4'
         sx={{
-          fontSize: '1.6rem',
+          fontSize: {
+            xs: '1.2rem',
+            sm: '1.6rem',
+          },
           fontWeight: 600,
           lineHeight: 1.3,
           textAlign: { sm: 'center', lg: 'left' },

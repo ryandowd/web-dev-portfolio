@@ -14,57 +14,102 @@ export const TimelineCardContent = (props: TimelineCardContentProps) => {
   const { event, isExpanded } = props;
 
   return (
-    <>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Box sx={{ marginRight: '20px' }}>
-            <Image
-              src={`/assets/images/logo-${event.logo}.png`}
-              alt={event.title}
-              width={100}
-              height={100}
-            />
-          </Box>
-          <Box
-            sx={{ display: 'flex', flexDirection: 'column', width: '210px' }}
-          >
-            <Typography variant='h4' sx={{ fontSize: '1.8rem' }}>
-              {event.title}
-            </Typography>
-            <Typography variant='body1'>
-              {event.startDate} - {event.endDate}
-            </Typography>
-            <Typography
-              variant='body1'
-              sx={{ color: theme.palette.secondary.light }}
-            >
-              {event.location}
-            </Typography>
-          </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: {
+            xs: 'column',
+            sm: 'row',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: {
+              xs: 'flex',
+            },
+            justifyContent: {
+              xs: 'center',
+            },
+            marginRight: {
+              sm: '20px',
+            },
+            flex: {
+              sm: '0 0 90px',
+            },
+            marginBottom: {
+              xs: '20px',
+              sm: '10px',
+            },
+          }}
+        >
+          <Image
+            src={`/assets/images/logo-${event.logo}.png`}
+            alt={event.title}
+            width={90}
+            height={90}
+          />
         </Box>
         <Box
           sx={{
-            height: isExpanded ? '300px' : '0px',
-            opacity: isExpanded ? '1' : '0',
-            overflow: 'hidden',
-            transitionProperty: 'opacity, height',
-            transitionDuration: '0.2s, 0.5s',
+            display: 'flex',
+            flexDirection: 'column',
+            flex: {
+              sm: '0 0 210px',
+            },
           }}
         >
-          {event.skills && <TimelineCardSkills skills={event.skills} />}
           <Typography
+            variant='h4'
             sx={{
-              marginTop: '20px',
-              opacity: isExpanded ? '1' : '0',
-              transitionProperty: 'opacity',
-              transitionDuration: '0.5s',
-              transitionDelay: '0.2s',
+              fontSize: '1.8rem',
+              marginBottom: {
+                xs: '20px',
+                sm: '10px',
+              },
             }}
           >
-            {event.description}
+            {event.title}
+          </Typography>
+          <Typography variant='body1'>
+            {event.startDate} - {event.endDate}
+          </Typography>
+          <Typography
+            variant='body1'
+            sx={{ color: theme.palette.secondary.light }}
+          >
+            {event.location}
           </Typography>
         </Box>
       </Box>
-    </>
+      <Box
+        sx={{
+          height: {
+            xs: isExpanded ? 'auto' : '0px',
+            lg: isExpanded ? '300px' : '0px',
+          },
+          opacity: isExpanded ? '1' : '0',
+          overflow: 'hidden',
+          transitionProperty: 'opacity, height',
+          transitionDuration: '0.2s, 0.5s',
+        }}
+      >
+        {event.skills && <TimelineCardSkills skills={event.skills} />}
+        <Typography
+          sx={{
+            marginTop: '20px',
+            opacity: isExpanded ? '1' : '0',
+            transitionProperty: 'opacity',
+            transitionDuration: '0.5s',
+            transitionDelay: '0.2s',
+            textAlign: 'justify',
+          }}
+        >
+          {event.description}
+        </Typography>
+      </Box>
+    </Box>
   );
 };

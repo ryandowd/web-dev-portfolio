@@ -67,19 +67,17 @@ export const TimelineCard = (props: TimelineCardProps) => {
           sx={{
             opacity: cardIsVisible ? 1 : 0,
             transition: 'width 0.3s',
-            // transitionDelay: '1s',
             width: {
               xs: '100%',
               md: cardIsExpanded ? '90%' : '75%',
-              lg: cardIsExpanded ? '80%' : '55%',
-              // lg: '55%',
+              lg: cardIsExpanded ? '80%' : '60%',
             },
           }}
           onClick={cardClickedHandler}
           ref={cardRef}
         >
           <Box
-            className={classes['timeline-card__foreground']}
+            className={classes['timeline-card__inner']}
             sx={{
               opacity: cardIsVisible ? 1 : 0,
               border: `1px solid ${theme.palette.secondary.main}`,

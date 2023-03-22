@@ -19,6 +19,8 @@ export const TimelineCard = (props: TimelineCardProps) => {
   const theme = useTheme();
   const cardRef = useRef<null | HTMLDivElement>(null);
   const { data: session }: any = useSession();
+  const isAdmin = session?.user?.role === 'admin';
+
   const [cardIsVisible, setCardVisible] = useState<boolean>(false);
   const [cardIsExpanded, setCardIsExapanded] = useState<boolean>(false);
 
@@ -86,7 +88,7 @@ export const TimelineCard = (props: TimelineCardProps) => {
             }}
           >
             <TimelineCardContent event={event} isExpanded={cardIsExpanded} />
-            {session?.user?.isAdmin && (
+            {isAdmin && (
               <Box
                 sx={{
                   position: 'absolute',

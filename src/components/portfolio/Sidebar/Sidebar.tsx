@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import { SidebarNav } from './SidebarNav';
-import { IsEditingContext } from '@/global/context/use-is-editing-provider';
 import { useSidebar } from './use-sidebar';
 import { useTheme } from '@mui/material/styles';
 import { SkillsListForm } from './SkillsListForm';
@@ -8,7 +6,6 @@ import { SkillsList } from './SkillsList';
 import { Button, Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useSession } from 'next-auth/react';
-import type { AuthSession } from '@/types';
 
 interface SidebarProps {
   skillsList: string[];
@@ -20,12 +17,12 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: SidebarProps) => {
+  const { skillsList, setSkillsList, handleInputChange } = props;
+
   const theme = useTheme();
   const { data: session }: any = useSession();
-  const { skillsList, setSkillsList, handleInputChange } = props;
-  const { isEditing, toggleIsEditingHandler } = useContext(IsEditingContext);
-
-  const { formSubmitHandler } = useSidebar();
+  const { isEditing, formSubmitHandler, toggleIsEditingHandler } = useSidebar();
+  const isAdmin = session?.user?.role === 'admin';
 
   return (
     <Box
@@ -59,7 +56,7 @@ export const Sidebar = (props: SidebarProps) => {
         widgets and web applications. I love developing intuitive interfaces.
       </Typography>
 
-      {session?.user?.isAdmin && !isEditing && (
+      {isAdmin && !isEditing && (
         <Tooltip title='Edit'>
           <Button
             type='button'

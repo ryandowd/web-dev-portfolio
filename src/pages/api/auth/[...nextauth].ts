@@ -27,11 +27,14 @@ export const authOptions: NextAuthOptions = {
     },
     // session callback is called whenever a session for that particular user is checked
     async session({ session, token }: any) {
-      const isAdminEmail =
+      const credentialsExist =
+        process.env.ADMIN_USER_EMAIL && session?.user?.email;
+      const credentialsMatch =
         session?.user?.email === process.env.ADMIN_USER_EMAIL;
 
       session.user = token.user;
-      session.user.isAdmin = isAdminEmail;
+      session.user.role =
+        credentialsExist && credentialsMatch ? 'admin' : 'user';
 
       return session;
     },

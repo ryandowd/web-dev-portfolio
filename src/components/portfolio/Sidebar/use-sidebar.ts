@@ -1,11 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
-import { IsEditingContext } from '@/global/context/use-is-editing-provider';
 
 export const useSidebar = () => {
   const [skills, setSkills] = useState<string[]>([]);
-  const { setIsEditing } = useContext(IsEditingContext);
+  const [isEditing, setIsEditing] = useState(false);
+
+  function toggleIsEditingHandler() {
+    setIsEditing(!isEditing);
+  }
 
   const { mutate } = useMutation({
     mutationFn: async (updatedSkills: string[]) => {
@@ -43,8 +46,10 @@ export const useSidebar = () => {
 
   return {
     skills,
+    isEditing,
     setSkills,
     formSubmitHandler,
     handleInputChange,
+    toggleIsEditingHandler,
   };
 };

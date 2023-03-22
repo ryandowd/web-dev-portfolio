@@ -15,6 +15,7 @@ interface TimelineProps {
 
 export const Timeline = (props: TimelineProps) => {
   const { data: session }: any = useSession();
+  const isAdmin = session?.user?.role === 'admin';
 
   const {
     events,
@@ -42,18 +43,17 @@ export const Timeline = (props: TimelineProps) => {
         },
       }}
     >
-      {session?.user?.isAdmin && (
+      {isAdmin && (
         <TimelineAddEventForm
           createEventFormHandler={createEventFormHandler}
           isLoadingMutate={isLoadingMutate}
           isSuccessMutate={isSuccessMutate}
-          setEvents={setEvents}
         />
       )}
       <Box
         sx={{
           transition: 'all 0.3s',
-          marginTop: !session?.user?.isAdmin
+          marginTop: !isAdmin
             ? {
                 xs: '-100px',
                 md: '40px',

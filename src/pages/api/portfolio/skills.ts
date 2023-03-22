@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     const skillsList = req.body.skillsList;
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
 
     const result = await db.collection('skills').updateOne(
@@ -33,7 +33,7 @@ export default async function handler(
   }
 
   if (req.method === 'GET') {
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
     const result = await db.collection('skills').find().toArray();
     res.status(200).json({ skillsList: result[0].skillsList });

@@ -18,7 +18,7 @@ export default async function handler(
     return;
   }
 
-  const client = await connectToDatabase();
+  const client = await connectToDatabase('portfolio');
   const db = client.db();
 
   const userAlreadyExists = await db.collection('users').findOne({ username });

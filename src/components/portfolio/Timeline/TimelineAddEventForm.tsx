@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { EventProps, FormFieldProps } from 'src/types';
 import { useTheme } from '@mui/material/styles';
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import { EventForm } from '../EventForm/EventForm';
+import { LoadingButton } from '@mui/lab';
 
 interface TimelineAddEventFormProps {
   createEventFormHandler: (newEvent: EventProps) => void;
@@ -69,14 +70,15 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
 
   if (hideForm || isLoadingMutate) {
     return (
-      <Button
+      <LoadingButton
         variant='contained'
+        loading={isLoadingMutate}
+        loadingPosition='center'
         onClick={() => setHideForm(false)}
-        disabled={isLoadingMutate}
         sx={{ marginBottom: '60px' }}
       >
         Add new event
-      </Button>
+      </LoadingButton>
     );
   }
 

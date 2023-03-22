@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        const client = await connectToDatabase();
+        const client = await connectToDatabase('portfolio');
         const usersCollection = client.db().collection('users');
 
         const user = await usersCollection.findOne({

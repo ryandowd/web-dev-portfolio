@@ -34,7 +34,7 @@ export default function Portfolio(props: PortfolioProps) {
 }
 
 export async function getStaticProps() {
-  const client = await connectToDatabase();
+  const client = await connectToDatabase('portfolio');
   const db = client.db();
 
   const resultSkills = await db.collection('skills').find().toArray();

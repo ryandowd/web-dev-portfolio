@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   if (req.method === 'DELETE') {
     const eventId = req.body.eventId;
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
 
     const result = await db.collection('events').deleteOne({ eventId });
@@ -18,7 +18,7 @@ export default async function handler(
   if (req.method === 'PUT') {
     const updatedEvent = req.body.updatedEvent;
     const eventId = req.body.updatedEvent.eventId;
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
 
     const result = await db
@@ -29,7 +29,7 @@ export default async function handler(
   }
 
   if (req.method === 'GET') {
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const eventId = req.query.eventId;
     const event = await getEvent(eventId, client);
 

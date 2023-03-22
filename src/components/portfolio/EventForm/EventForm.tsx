@@ -1,7 +1,6 @@
 import { FormInput } from '@/components/ui/FormInput';
 import { EventProps, FormFieldProps } from '@/types';
 import { LoadingButton } from '@mui/lab';
-import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
 
 type EventFormProps = {
@@ -42,7 +41,6 @@ export const EventForm = (props: EventFormProps) => {
         );
       })}
 
-      {/* {formError && <Typography variant='body1'>{formError}</Typography>} */}
       <LoadingButton
         type='submit'
         disabled={isLoading}

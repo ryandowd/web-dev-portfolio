@@ -1,8 +1,22 @@
 import { MongoClient } from 'mongodb';
-import { MONGODB_URL } from '@/constants';
+import { MONGODB_PORTFOLIO_URL, MONGODB_FINANCE_URL } from '@/constants';
 
-export async function connectToDatabase() {
-  const client = await MongoClient.connect(MONGODB_URL);
+export async function connectToDatabase(dbType) {
+  let dbTypeUrl;
+
+  console.log('dbType', dbType);
+
+  switch (dbType) {
+    case 'portfolio':
+      dbTypeUrl = MONGODB_PORTFOLIO_URL;
+      break;
+    case 'finance':
+      dbTypeUrl = MONGODB_FINANCE_URL;
+      break;
+  }
+
+  console.log('dbType', dbTypeUrl);
+  const client = await MongoClient.connect(dbTypeUrl);
   return client;
 }
 

@@ -21,7 +21,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const client = await connectToDatabase();
+  const client = await connectToDatabase('portfolio');
   const events = await getAllEvents(client);
 
   const paths = events.map((event: EventProps) => ({

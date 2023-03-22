@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     const newEvent = req.body.newEvent;
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
 
     await db.collection('events').insertOne({ ...newEvent });
@@ -21,7 +21,7 @@ export default async function handler(
   }
 
   if (req.method === 'GET') {
-    const client = await connectToDatabase();
+    const client = await connectToDatabase('portfolio');
     const db = client.db();
     const result = await db
       .collection('events')
@@ -44,18 +44,4 @@ export default async function handler(
 
     client.close();
   }
-
-  // if (req.method === 'PUT') {
-  //   const updatedEvent = req.body.updatedEvent;
-  //   console.log('PUT!!!', updatedEvent);
-  //   console.log('updatedEvent.eventId', updatedEvent.eventId);
-
-  //   const client = await connectToDatabase();
-  //   const db = client.db();
-  //   const result = await db
-  //     .collection('events')
-  //     .findOne({ eventId: updatedEvent.eventId });
-
-  //   // console.log('singleEvent', singleEvent);
-  // }
 }

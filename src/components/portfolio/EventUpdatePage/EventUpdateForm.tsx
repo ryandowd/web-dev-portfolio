@@ -34,14 +34,6 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
 
   const eventDetail = eventDetailData?.event || null;
 
-  // const titleRef = useRef<HTMLInputElement | null>(null);
-  // const logoRef = useRef<HTMLInputElement | null>(null);
-  // const startDateRef = useRef<HTMLInputElement | null>(null);
-  // const endDateRef = useRef<HTMLInputElement | null>(null);
-  // const locationRef = useRef<HTMLInputElement | null>(null);
-  // const skillsRef = useRef<HTMLInputElement | null>(null);
-  // const descriptionRef = useRef<HTMLInputElement | null>(null);
-
   const formFields: FormFieldProps[] = [
     { name: 'title', label: 'Title' },
     { name: 'logo', label: 'Logo' },
@@ -66,16 +58,6 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
     );
 
     event.preventDefault();
-
-    // setFormError(null);
-
-    // const title = titleRef.current?.value?.trim();
-    // const logo = logoRef.current?.value?.trim();
-    // const startDate = startDateRef.current?.value?.trim();
-    // const endDate = endDateRef.current?.value?.trim();
-    // const location = locationRef.current?.value?.trim();
-    // const skills = skillsRef.current?.value?.trim();
-    // const description = descriptionRef.current?.value?.trim();
 
     const updatedEvent: EventProps = {
       eventId: eventDetail?.eventId,
@@ -108,39 +90,5 @@ export const EventUpdateForm = (props: EventUpdateFormProps) => {
         submitFormHandler={submitFormHandler}
       />
     </>
-    // <Container
-    //   component='form'
-    //   onSubmit={(event: any) => submitFormHandler(event)}
-    // >
-    //   <Typography variant='h5' sx={{ mb: 1, textAlign: 'center' }}>
-    //     {isLoading || !eventDetail
-    //       ? 'Loading event details...'
-    //       : `Update event for '${eventDetail?.title}'`}
-    //   </Typography>
-    //   {formTextFields.map((field) => {
-    //     const fieldValue = eventDetail?.[field.name];
-
-    //     return (
-    //       <FormInput
-    //         key={field.name}
-    //         field={field}
-    //         value={fieldValue}
-    //         isRefetching={isRefetching}
-    //       />
-    //     );
-    //   })}
-
-    //   {/* {formError && <Typography variant='body1'>{formError}</Typography>} */}
-    //   <LoadingButton
-    //     type='submit'
-    //     disabled={isLoading}
-    //     loading={isUpdating}
-    //     variant='contained'
-    //     fullWidth
-    //     sx={{ mt: 2 }}
-    //   >
-    //     Update Event
-    //   </LoadingButton>
-    // </Container>
   );
 };

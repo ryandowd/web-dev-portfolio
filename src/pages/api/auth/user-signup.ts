@@ -35,8 +35,6 @@ export default async function handler(
       password: hashedPassword,
     });
 
-    console.log('client', client);
-
     res.status(201).json({ message: 'Created user!', username, password });
     // client.close();
     return;

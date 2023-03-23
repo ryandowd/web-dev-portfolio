@@ -14,8 +14,6 @@ export const SignInFormCredentials = () => {
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
-  console.log('signInLoading', signInLoading);
-
   async function signInFormHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 

@@ -55,8 +55,6 @@ export const authOptions: NextAuthOptions = {
           username: credentials?.username,
         });
 
-        console.log('user', user);
-
         if (!user) {
           throw new Error('No user found!');
         }

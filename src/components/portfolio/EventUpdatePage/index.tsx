@@ -1,4 +1,4 @@
-import { useTimeline } from '@/components/portfolio/Timeline/use-timeline';
+import { useTimeline } from '@/components/portfolio/use-timeline';
 import { Container } from '@mui/system';
 import { GlobalNav } from '@/components/ui/GlobalNav';
 import Link from 'next/link';

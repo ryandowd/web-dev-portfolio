@@ -31,7 +31,9 @@ export const SkillsListForm = (props: SkillsListFormProps) => {
   return (
     <Container
       component='form'
-      onSubmit={(event: any) => formSubmitHandler(event, skillsList)}
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+        formSubmitHandler(event, skillsList)
+      }
     >
       {skillsList.length ? (
         <List sx={{ fontSize: 18, fontWeight: 400 }}>

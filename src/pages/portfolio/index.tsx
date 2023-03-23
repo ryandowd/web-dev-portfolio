@@ -2,15 +2,10 @@ import { connectToDatabase } from '@/utils/db-util';
 import Head from 'next/head';
 import { EventProps } from 'src/types';
 import { PortfolioPage } from '@/components/portfolio/PortfolioPage';
-// import { authOptions } from '@/pages/api/auth/[...nextauth]';
-// import { getServerSession } from 'next-auth/next';
-// import type { GetServerSidePropsContext } from 'next';
-// import { AuthSession } from '@/types';
 
 interface PortfolioProps {
   staticSkillsList: string[];
   staticEvents: EventProps[];
-  // isAdmin: boolean;
 }
 
 export default function Portfolio(props: PortfolioProps) {
@@ -27,7 +22,6 @@ export default function Portfolio(props: PortfolioProps) {
       <PortfolioPage
         staticSkillsList={staticSkillsList}
         staticEvents={staticEvents}
-        // isAdmin={isAdmin}
       />
     </>
   );
@@ -64,20 +58,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   const session: AuthSession | null = await getServerSession(
-//     context.req,
-//     context.res,
-//     authOptions
-//   );
-//   const isAdminEmail = session?.user?.email === process.env.ADMIN_USER_EMAIL;
-//   const isAdminID = session?.user?.id === process.env.ADMIN_USER_ID;
-
-//   return {
-//     props: {
-//       session,
-//       isAdmin: isAdminEmail && isAdminID,
-//     },
-//   };
-// }

@@ -25,7 +25,9 @@ export const EventForm = (props: EventFormProps) => {
   return (
     <Container
       component='form'
-      onSubmit={(event: any) => submitFormHandler(event)}
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+        submitFormHandler(event)
+      }
     >
       {formFields.map((field: FormFieldProps, index: number) => {
         const fieldValue = eventDetail?.[field.name as keyof EventProps] || '';

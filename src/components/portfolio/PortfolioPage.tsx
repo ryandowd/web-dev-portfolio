@@ -1,4 +1,4 @@
-import { useTimeline } from '@/components/portfolio/Timeline/use-timeline';
+import { useTimeline } from '@/components/portfolio/use-timeline';
 import { useSidebar } from '@/components/portfolio/Sidebar/use-sidebar';
 
 import { Sidebar } from '@/components/portfolio/Sidebar/Sidebar';

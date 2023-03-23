@@ -4,8 +4,6 @@ import { MONGODB_PORTFOLIO_URL, MONGODB_FINANCE_URL } from '@/constants';
 export async function connectToDatabase(dbType) {
   let dbTypeUrl;
 
-  console.log('dbType', dbType);
-
   switch (dbType) {
     case 'portfolio':
       dbTypeUrl = MONGODB_PORTFOLIO_URL;
@@ -15,7 +13,6 @@ export async function connectToDatabase(dbType) {
       break;
   }
 
-  console.log('dbType', dbTypeUrl);
   const client = await MongoClient.connect(dbTypeUrl);
   return client;
 }
@@ -26,18 +23,18 @@ export async function insertDocument(client, collection, document) {
   return result;
 }
 
-export async function getAllEvents(client) {
+export async function getAllDocuments(client, collectionName) {
   const db = client.db();
-  const collection = await db.collection('events');
+  const collection = await db.collection(collectionName);
   const documents = await collection.find().toArray();
   client.close();
   return documents;
 }
 
-export async function getEvent(eventId, client) {
+export async function getDocument(idKey, id, client, collectionName) {
   const db = client.db();
-  const collection = await db.collection('events');
-  const document = await collection.findOne({ eventId });
+  const collection = await db.collection(collectionName);
+  const document = await collection.findOne({ [idKey]: id });
   client.close();
   return document;
 }

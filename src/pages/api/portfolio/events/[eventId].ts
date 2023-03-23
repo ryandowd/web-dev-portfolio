@@ -1,4 +1,4 @@
-import { connectToDatabase, getEvent } from '@/utils/db-util';
+import { connectToDatabase, getDocument } from '@/utils/db-util';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -31,8 +31,7 @@ export default async function handler(
   if (req.method === 'GET') {
     const client = await connectToDatabase('portfolio');
     const eventId = req.query.eventId;
-    const event = await getEvent(eventId, client);
-
+    const event = await getDocument('eventId', eventId, client, 'events');
     delete event._id;
 
     if (!event) {

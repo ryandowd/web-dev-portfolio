@@ -77,7 +77,6 @@ export const useTimeline = () => {
       const updatedEvents = prevEvents.filter(
         (event) => event.eventId !== eventId
       );
-      console.log('updatedEvents', updatedEvents);
       return updatedEvents;
     });
     removeEventMutate(eventId);

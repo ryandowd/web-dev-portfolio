@@ -12,8 +12,8 @@ type FormInputProps = {
     };
   };
   value: string;
-  isRefetching: boolean | undefined;
-  autofocus: boolean;
+  isRefetching?: boolean | undefined;
+  autofocus?: boolean;
 };
 
 export const FormInput = (props: FormInputProps) => {
@@ -25,23 +25,6 @@ export const FormInput = (props: FormInputProps) => {
   }, [value]);
 
   const _fieldValue = isRefetching ? 'Refreshing...' : fieldValue || '';
-
-  // <TextField
-  //   key='description'
-  //   multiline
-  //   InputLabelProps={{
-  //     shrink: !!eventDetail?.description,
-  //   }}
-  //   required
-  //   minRows={7}
-  //   id='description'
-  //   label='Description'
-  //   name='description'
-  //   ref={descriptionRef}
-  //   style={{ margin: '15px 0 5px', width: '100%' }}
-  // />;
-
-  // const extraProps = ;
 
   return (
     <TextField

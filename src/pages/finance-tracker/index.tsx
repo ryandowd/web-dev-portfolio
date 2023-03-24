@@ -1,10 +1,10 @@
-import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
-import { AssetForm } from '@/components/finance/AssetForm/AssetForm';
 import Head from 'next/head';
-import { connectToDatabase } from '@/utils/db-util';
+import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
+import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
+import { getAllTotals } from './utils';
 
 export default function FinancePage(props) {
-  const { snapshots } = props;
+  const { snapshotsTotals } = props;
   return (
     <>
       <Head>
@@ -13,45 +13,39 @@ export default function FinancePage(props) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <FinanceDashboardPage snapshots={snapshots} />
+      <FinanceDashboardPage snapshotsTotals={snapshotsTotals} />
     </>
   );
 }
 
 export async function getStaticProps() {
   const client = await connectToDatabase('finance');
-  const allSnapshots = await client
-    .db()
-    .collection('snapshots')
-    .find()
-    .toArray();
-  // const db = client.db();
+  const allSnapshots = await getAllDocuments(client, 'snapshots');
 
-  // const resultSkills = await db.collection('skills').find().toArray();
-  // const skillsList = resultSkills[0]?.skillsList;
+  const snapshots = allSnapshots.map((snapshot: any) => {
+    const updatedSnapshot = {
+      ...snapshot,
+    };
 
-  // const resultEvents = await db
-  //   .collection('events')
-  //   .find()
-  //   .sort({ _id: -1 })
-  //   .toArray();
+    delete updatedSnapshot._id;
+    return updatedSnapshot;
+  });
 
-  // const eventsList = resultEvents.map((event: any) => {
-  //   const updatedEvent = {
-  //     ...event,
-  //   };
+  snapshots.sort((a: any, b: any) => {
+    return (
+      new Date(b.snapshotDate).getTime() - new Date(a.snapshotDate).getTime()
+    );
+  });
 
-  //   delete updatedEvent._id;
-  //   return updatedEvent;
-  // });
-
-  console.log('allSnapshots', allSnapshots);
+  const snapshotsTotals = snapshots.map((snapshot) => {
+    return getAllTotals(snapshot);
+  });
 
   client.close();
 
   return {
     props: {
-      snapshots: allSnapshots,
+      snapshotsTotals,
     },
     revalidate: 10,
   };

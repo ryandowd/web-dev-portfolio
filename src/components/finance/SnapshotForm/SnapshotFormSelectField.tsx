@@ -11,14 +11,16 @@ import { FieldDetail, Snapshot } from '../global/constants';
 import type { SelectChangeEvent } from '@mui/material';
 import { toKebabCase } from '@/utils';
 
-type AssetFormSelectFieldProps = {
+type SnapshotFormSelectFieldProps = {
   field: [string | number, string | number];
   fieldDetail: FieldDetail;
   rowIndex: number;
   setSnapshotState: (snapshot: Snapshot) => void;
 };
 
-export const AssetFormSelectField = (props: AssetFormSelectFieldProps) => {
+export const SnapshotFormSelectField = (
+  props: SnapshotFormSelectFieldProps
+) => {
   const { field, fieldDetail, setSnapshotState, rowIndex } = props;
   // const [chosenValue, setChosenValue] = useState<string | unknown>(field[1]);
 

@@ -3,6 +3,12 @@ import { FieldDetails } from './types';
 export const dateFormat = 'YYYY/MM/DD';
 export const humanDateFormat = 'DD MMMM YYYY';
 
+export const currencySymbols = {
+  GBP: '£',
+  AUD: '$',
+  EURO: '€',
+};
+
 export const fieldDetails: FieldDetails = {
   assetId: {
     name: 'Asset ID',

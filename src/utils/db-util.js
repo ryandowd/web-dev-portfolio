@@ -35,6 +35,8 @@ export async function getDocument(idKey, id, client, collectionName) {
   const db = client.db();
   const collection = await db.collection(collectionName);
   const document = await collection.findOne({ [idKey]: id });
+  delete document._id;
+  console.log('document', document);
   client.close();
   return document;
 }

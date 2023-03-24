@@ -3,28 +3,12 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { EventProps } from '@/types';
-import { dateFormat } from './global/constants';
-import { v4 as uuid } from 'uuid';
-import dayjs from 'dayjs';
-import { Snapshot, SnapshotField } from './global/types';
-
-const defaultSnapshotField: SnapshotField = {
-  assetId: null,
-  assetName: null,
-  assetType: 'money',
-  assetValue: 0,
-  assetCurrency: 'gbp',
-  assetOwner: 'joint',
-};
-
-const defaultSnapshot: Snapshot = {
-  snapshotId: uuid(),
-  snapshotDate: dayjs(new Date()).format(dateFormat),
-  snapshotAssets: [defaultSnapshotField],
-};
+// import { dateFormat } from './global/constants';
+// import { v4 as uuid } from 'uuid';
+// import dayjs from 'dayjs';
 
 export const useSnapshots = () => {
-  const [snapshots, setSnapshots] = useState<Snapshot[]>([defaultSnapshot]);
+  // const [snapshots, setSnapshots] = useState<Snapshot[]>([defaultSnapshot]);
   const router = useRouter();
 
   // Create
@@ -33,9 +17,9 @@ export const useSnapshots = () => {
     isLoading: isCreateLoading,
     isSuccess: isCreateSuccess,
   } = useMutation({
-    mutationFn: async (newSnapshot: EventProps) => {
+    mutationFn: async (AddSnapshot: EventProps) => {
       const response = await axios.post('/api/finance/snapshots', {
-        newSnapshot,
+        AddSnapshot,
       });
       return response.data;
     },
@@ -57,65 +41,74 @@ export const useSnapshots = () => {
   //     refetchOnWindowFocus: false,
   //   });
 
-  //   // Update
-  //   const { mutate: updateEventMutate } = useMutation({
-  //     mutationFn: async (updatedEvent: EventProps) => {
-  //       const response = await axios.put(
-  //         `/api/portfolio/events/${updatedEvent.eventId}`,
-  //         {
-  //           updatedEvent,
-  //         }
-  //       );
-  //       return response.data;
-  //     },
-  //     onSuccess: () => {
-  //       router.replace('/portfolio');
-  //     },
-  //   });
+  // Update
+  const {
+    mutate: updateSnapshotMutate,
+    isLoading: isUpdateLoading,
+    isSuccess: isUpdateSuccess,
+  } = useMutation({
+    mutationFn: async (updatedSnapshot) => {
+      console.log('THINGY THINGY', updatedSnapshot);
+      const response = await axios.put(
+        `/api/finance/snapshots/${updatedSnapshot.snapshotId}`,
+        {
+          updatedSnapshot,
+        }
+      );
+      return response.data;
+    },
+    onSuccess: () => {
+      router.replace('/finance-tracker');
+    },
+  });
 
-  //   // Delete
-  //   const { mutate: removeEventMutate } = useMutation({
-  //     mutationFn: async (eventId: string) => {
-  //       const response = axios({
-  //         method: 'delete',
-  //         url: `/api/portfolio/events/${eventId}`,
-  //         data: {
-  //           eventId,
-  //         },
-  //       });
-  //     },
-  //   });
+  // Delete
+  const {
+    mutate: deleteSnapshotMutate,
+    isLoading: isDeleteLoading,
+    isSuccess: isDeleteSuccess,
+  } = useMutation({
+    mutationFn: async (snapshotId: string) => {
+      axios({
+        method: 'delete',
+        url: `/api/finance/snapshots/${snapshotId}`,
+        data: {
+          snapshotId,
+        },
+      });
+    },
+  });
 
-  function createNewSnapshotHandler(newSnapshot: EventProps) {
-    createSnapshotMutate(newSnapshot);
+  function createAddSnapshotHandler(AddSnapshot: EventProps) {
+    createSnapshotMutate(AddSnapshot);
 
-    setSnapshots((prevState) => {
-      return [newSnapshot, ...prevState];
-    });
+    // setSnapshots((prevState) => {
+    //   return [AddSnapshot, ...prevState];
+    // });
   }
 
-  //   function deleteEventHandler(eventId: string) {
-  //     setEvents((prevEvents: EventProps[]) => {
-  //       const updatedEvents = prevEvents.filter(
-  //         (event) => event.eventId !== eventId
-  //       );
-  //       return updatedEvents;
-  //     });
-  //     removeEventMutate(eventId);
-  //   }
+  function deleteSnapshotHandler(snapshotId: string) {
+    deleteSnapshotMutate(snapshotId);
+  }
 
-  //   function updateEventFormHandler(updatedEvent: EventProps) {
-  //     updateEventMutate(updatedEvent);
-  //   }
+  function updateSnapshotFormHandler(updatedSnapshot) {
+    updateSnapshotMutate(updatedSnapshot);
+  }
 
   return {
     // events,
     // isLoadingGet,
     // setEvents,
+    // snapshots,
     isCreateLoading,
     isCreateSuccess,
-    snapshots,
-    createNewSnapshotHandler,
+    createAddSnapshotHandler,
+    isUpdateLoading,
+    isUpdateSuccess,
+    updateSnapshotFormHandler,
+    isDeleteLoading,
+    isDeleteSuccess,
+    deleteSnapshotHandler,
     // deleteEventHandler,
     // updateEventFormHandler,
     // isLoadingMutate,

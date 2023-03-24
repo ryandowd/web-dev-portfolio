@@ -3,16 +3,15 @@ import { useState } from 'react';
 import { FieldDetail } from '../global/constants';
 import { toKebabCase } from '@/utils';
 
-type AssetFormTextFieldProps = {
+type SnapshotFormTextFieldProps = {
   field: [string | number, string | number];
   fieldDetail: FieldDetail;
   rowIndex: number;
   setSnapshotState: (snapshot: Snapshot) => void;
 };
 
-export const AssetFormTextField = (props: AssetFormTextFieldProps) => {
+export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
   const { field, fieldDetail, rowIndex, setSnapshotState } = props;
-
   const valueIsNumber = typeof field[1] === 'number';
   const fieldValueSanitized = valueIsNumber
     ? field[1]?.toString()
@@ -53,8 +52,8 @@ export const AssetFormTextField = (props: AssetFormTextFieldProps) => {
       margin='normal'
       value={fieldValueSanitized}
       required
-      type={field[0] === 'assetValue' && 'number'}
       fullWidth
+      type={field[0] === 'assetValue' && 'number'}
       id={field[0]}
       label={fieldDetail.name}
       name={field[0]}

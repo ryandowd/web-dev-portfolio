@@ -1,19 +1,29 @@
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import { Container } from '@mui/system';
+import { FinanceDashboardAreaChart } from './FinanceDashboardAreaChart';
+import { SnapshotWithTotals } from './global/types';
 import { SnapshotTotalsList } from './SnapshotTotalsList';
 
-export const FinanceDashboardPage = (props) => {
+type FinanceDashboardPageProps = {
+  snapshotsWithTotals: SnapshotWithTotals[];
+};
+
+export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
   const theme = useTheme();
-  const { snapshotsTotals } = props;
+  const { snapshotsWithTotals } = props;
 
   return (
     <Container
       component='main'
-      sx={{ backgroundColor: theme.palette.background.default }}
+      sx={{
+        backgroundColor: theme.palette.background.default,
+        marginBottom: '100px',
+      }}
     >
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
+      <FinanceDashboardAreaChart snapshotsWithTotals={snapshotsWithTotals} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -23,7 +33,7 @@ export const FinanceDashboardPage = (props) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshotsTotals={snapshotsTotals} />
+      <SnapshotTotalsList snapshotsWithTotals={snapshotsWithTotals} />
     </Container>
   );
 };

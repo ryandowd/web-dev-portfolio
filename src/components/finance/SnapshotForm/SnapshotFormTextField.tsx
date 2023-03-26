@@ -1,13 +1,13 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
-import { FieldDetail } from '../global/constants';
+import { FieldDetail, SnapshotWithTotals } from '../global/types';
 import { toKebabCase } from '@/utils';
 
 type SnapshotFormTextFieldProps = {
-  field: [string | number, string | number];
+  field: [string, string];
   fieldDetail: FieldDetail;
   rowIndex: number;
-  setSnapshotState: (snapshot: Snapshot) => void;
+  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
 };
 
 export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
@@ -17,9 +17,12 @@ export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
     ? field[1]?.toString()
     : (field[1]?.length > 0 && field[1]) || '';
 
-  function formInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
+  function formInputChangeHandler(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     console.log('event', event);
-    setSnapshotState((prevState) => {
+    // @ts-ignore
+    setSnapshotState((prevState: SnapshotWithTotals) => {
       const updatedAssets = prevState.snapshotAssets.map(
         (asset, index: number) => {
           if (index === rowIndex) {
@@ -53,7 +56,7 @@ export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
       value={fieldValueSanitized}
       required
       fullWidth
-      type={field[0] === 'assetValue' && 'number'}
+      type={(field[0] === 'assetValue' && 'number') as 'text'}
       id={field[0]}
       label={fieldDetail.name}
       name={field[0]}

@@ -9,6 +9,11 @@ export const currencySymbols = {
   EURO: '€',
 };
 
+export const exchangeRatesToGBP = {
+  AUD: 0.54,
+  EURO: 0.88,
+};
+
 export const fieldDetails: FieldDetails = {
   assetId: {
     name: 'Asset ID',

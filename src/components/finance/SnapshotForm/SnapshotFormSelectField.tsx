@@ -1,21 +1,12 @@
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  NativeSelect,
-  Select,
-} from '@mui/material';
-import { useState } from 'react';
-import { FieldDetail, Snapshot } from '../global/constants';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FieldDetail, SnapshotWithTotals } from '../global/types';
 import type { SelectChangeEvent } from '@mui/material';
-import { toKebabCase } from '@/utils';
 
 type SnapshotFormSelectFieldProps = {
-  field: [string | number, string | number];
+  field: [string, string];
   fieldDetail: FieldDetail;
   rowIndex: number;
-  setSnapshotState: (snapshot: Snapshot) => void;
+  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
 };
 
 export const SnapshotFormSelectField = (
@@ -27,9 +18,10 @@ export const SnapshotFormSelectField = (
   function formSelectChangeHandler(
     event: SelectChangeEvent<HTMLSelectElement>
   ) {
-    setSnapshotState((prevState) => {
+    // @ts-ignore
+    setSnapshotState((prevState: SnapshotWithTotals) => {
       const updatedAssets = prevState.snapshotAssets.map(
-        (asset, index: number) => {
+        (asset: object, index: number) => {
           if (index === rowIndex) {
             return {
               ...asset,
@@ -45,12 +37,19 @@ export const SnapshotFormSelectField = (
         snapshotAssets: [...updatedAssets],
       };
 
-      console.log('updatedSnapshot', updatedSnapshot);
-      // return prevState;
       return updatedSnapshot;
     });
-    // setChosenValue(event.target.value);
   }
+
+  // @ts-ignore
+  const menuItem = Object.entries(fieldDetail.selectOptions)?.map((option) => {
+    console.log('option', option);
+    return (
+      <MenuItem key={option[0]} value={option[0]}>
+        {option[1]}
+      </MenuItem>
+    );
+  });
 
   return (
     <FormControl required sx={{ m: 1, minWidth: 120 }}>
@@ -64,31 +63,8 @@ export const SnapshotFormSelectField = (
           formSelectChangeHandler(event as SelectChangeEvent<HTMLSelectElement>)
         }
       >
-        {Object.entries(fieldDetail.selectOptions)?.map((option) => {
-          return (
-            <MenuItem key={option[0]} value={option[0]}>
-              {option[1]}
-            </MenuItem>
-          );
-        })}
+        {menuItem}
       </Select>
-
-      {/* <NativeSelect
-        defaultValue={field[1]}
-        inputProps={{
-          id: field[0],
-          // name: field[1],
-        }}
-      >
-        {Object.entries(fieldDetail.selectOptions)?.map((option) => {
-          console.log('option', option);
-          return (
-            <option key={option[0]} value={option[1]}>
-              {option[1]}
-            </option>
-          );
-        })}
-      </NativeSelect> */}
     </FormControl>
   );
 };

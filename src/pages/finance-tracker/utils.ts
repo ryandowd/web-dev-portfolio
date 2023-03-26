@@ -1,20 +1,51 @@
-export const getTotals = (snapshot, objKey) => {
-  const total = snapshot.snapshotAssets.reduce((acc, current) => {
-    const { assetValue } = current;
-    const valueKey = current[objKey];
+import { exchangeRatesToGBP } from '@/components/finance/global/constants';
+import {
+  SnapshotTotals,
+  SnapshotWithTotals,
+} from '@/components/finance/global/types';
 
-    if (!acc[valueKey]) {
-      acc[valueKey] = Number(assetValue);
-    } else {
-      acc[valueKey] += Number(assetValue);
+export const convertAUDtoGBP = (value: number) => {
+  return value * exchangeRatesToGBP.AUD;
+};
+
+export const convertEUROtoGBP = (value: number) => {
+  return value * exchangeRatesToGBP.EURO;
+};
+
+export const getTotals = (snapshot: SnapshotWithTotals, objKey: string) => {
+  const total = snapshot.snapshotAssets.reduce((acc, current) => {
+    const { assetValue, assetCurrency } = current;
+    const assetKey =
+      current[objKey as keyof SnapshotWithTotals['snapshotAssets'][0]];
+    let assetValueInGBP;
+    const accValue = acc[assetKey as keyof typeof acc];
+
+    switch (assetCurrency) {
+      case 'aud':
+        assetValueInGBP = convertAUDtoGBP(Number(assetValue));
+        break;
+      case 'euro':
+        assetValueInGBP = convertEUROtoGBP(Number(assetValue));
+        break;
+      default:
+        assetValueInGBP = Number(assetValue);
     }
+
+    if (!accValue) {
+      // @ts-ignore
+      acc[assetKey] = assetValueInGBP;
+    } else {
+      // @ts-ignore
+      acc[assetKey] += assetValueInGBP;
+    }
+
     return acc;
   }, {});
 
   return total;
 };
 
-export const getAllTotals = (snapshot) => {
+export const getAllTotals = (snapshot: SnapshotWithTotals) => {
   const assetOwnerTotals = getTotals(snapshot, 'assetOwner');
   const assetTypeTotals = getTotals(snapshot, 'assetType');
   const assetCurrencyTotals = getTotals(snapshot, 'assetCurrency');
@@ -29,4 +60,35 @@ export const getAllTotals = (snapshot) => {
       currencies: assetCurrencyTotals,
     },
   };
+};
+
+type PieChartData = {
+  value: number;
+  name: string;
+};
+
+export const formatPieChartData = (
+  snapshot: { snapshotTotals: { [key: string]: any } },
+  valueKey: string
+): PieChartData[] => {
+  const pieChartData = Object.entries(snapshot.snapshotTotals[valueKey]).map(
+    (totalObj) => {
+      return {
+        value: Number(totalObj[1]).toFixed(2),
+        name: totalObj[0].toUpperCase(),
+      };
+    }
+  );
+  // @ts-ignore
+  return pieChartData;
+};
+
+export const findGBPTotal = (snapshotTotals: SnapshotTotals) => {
+  const audInGBPTotal = Number(snapshotTotals.currencies?.aud) || 0;
+  const gbpTotal = Number(snapshotTotals.currencies?.gbp) || 0;
+  const euroInGBPTotal = Number(snapshotTotals.currencies?.euro) || 0;
+
+  return (audInGBPTotal + euroInGBPTotal + gbpTotal).toLocaleString(undefined, {
+    maximumFractionDigits: 0,
+  });
 };

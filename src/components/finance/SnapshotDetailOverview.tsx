@@ -1,17 +1,16 @@
 import { Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import dayjs from 'dayjs';
-import { findGBPTotal } from './global/utils';
-import { currencySymbols, humanDateFormat } from './global/constants';
-import { useMemo } from 'react';
+import { humanDateFormat } from './global/constants';
+import { SnapshotWithTotals } from './global/types';
+import { formatNumber } from './global/utils';
 
-export const SnapshotDetailOverview = (props) => {
-  const { snapshot, noHover } = props;
+type SnapshotDetailOverviewProps = {
+  snapshot: SnapshotWithTotals;
+};
 
-  const snapshotTotalGBP = useMemo(
-    () => findGBPTotal(snapshot.snapshotTotals),
-    [snapshot.snapshotTotals]
-  );
+export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
+  const { snapshot } = props;
 
   return (
     <Paper
@@ -20,11 +19,6 @@ export const SnapshotDetailOverview = (props) => {
         display: 'flex',
         margin: '10px',
         width: '100%',
-        transition: 'background-color 0.1s ease-in-out',
-        '&:hover': !noHover && {
-          backgroundColor: 'rgba(40, 56, 106, 0.01)',
-          cursor: 'pointer',
-        },
       }}
     >
       <Box
@@ -44,9 +38,7 @@ export const SnapshotDetailOverview = (props) => {
           <Typography variant='h5' sx={{ margin: '0 0 10px' }}>
             {dayjs(snapshot.snapshotDate).format(humanDateFormat)}
           </Typography>
-          <Typography variant='h5'>
-            Total: £{snapshotTotalGBP.toLocaleString()}
-          </Typography>
+          <Typography variant='h5'>Total: £{snapshot.total}</Typography>
         </Box>
         <Box
           sx={{
@@ -55,11 +47,12 @@ export const SnapshotDetailOverview = (props) => {
             justifyContent: 'space-around',
           }}
         >
-          {Object.entries(snapshot.snapshotTotals).map((totalTypes) => {
+          {Object.entries(snapshot.snapshotTotals).map((totalTypes, index) => {
             const capitalise =
               totalTypes[0] === 'currencies' ? 'uppercase' : 'capitalize';
+
             return (
-              <Box>
+              <Box key={index}>
                 <Typography
                   variant='h5'
                   key={totalTypes[0]}
@@ -68,8 +61,6 @@ export const SnapshotDetailOverview = (props) => {
                   {totalTypes[0]}
                 </Typography>
                 {Object.entries(totalTypes[1]).map((total) => {
-                  const currencySymbol =
-                    currencySymbols[total[0].toUpperCase()] || '';
                   return (
                     <Box
                       key={total[0]}
@@ -80,9 +71,7 @@ export const SnapshotDetailOverview = (props) => {
                           textTransform: capitalise,
                         }}
                       >
-                        {`${
-                          total[0]
-                        }: ${currencySymbol}${total[1].toLocaleString()}`}
+                        {`${total[0]}: £${formatNumber(total[1])}`}
                       </Typography>
                     </Box>
                   );

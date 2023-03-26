@@ -1,12 +1,13 @@
 import { Box } from '@mui/system';
 import { SnapshotFormTextField } from './SnapshotFormTextField';
 import { SnapshotFormSelectField } from './SnapshotFormSelectField';
-import { fieldDetails, FieldDetails, Snapshot } from '../global/constants';
+import { fieldDetails } from '../global/constants';
+import { SnapshotWithTotals, FieldDetails } from '../global/types';
 
 type SnapshotFormFieldProps = {
-  field: [string | number, string | number];
+  field: [string, string];
   rowIndex: number;
-  setSnapshotState: (snapshot: Snapshot) => void;
+  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
 };
 
 export const SnapshotFormField = (props: SnapshotFormFieldProps) => {

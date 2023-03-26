@@ -1,10 +1,15 @@
 import Head from 'next/head';
 import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
-import { getAllTotals } from './utils';
+import { findGBPTotal, getAllTotals } from './utils';
+import { SnapshotWithTotals } from '@/components/finance/global/types';
 
-export default function FinancePage(props) {
-  const { snapshotsTotals } = props;
+type FinancePageProps = {
+  snapshotsWithTotals: SnapshotWithTotals[];
+};
+
+export default function FinancePage(props: FinancePageProps) {
+  const { snapshotsWithTotals } = props;
   return (
     <>
       <Head>
@@ -13,7 +18,7 @@ export default function FinancePage(props) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <FinanceDashboardPage snapshotsTotals={snapshotsTotals} />
+      <FinanceDashboardPage snapshotsWithTotals={snapshotsWithTotals} />
     </>
   );
 }
@@ -37,15 +42,19 @@ export async function getStaticProps() {
     );
   });
 
-  const snapshotsTotals = snapshots.map((snapshot) => {
-    return getAllTotals(snapshot);
+  const snapshotsWithTotals = snapshots.map((snapshot: SnapshotWithTotals) => {
+    const snapshotWithTotalAssets = getAllTotals(snapshot);
+    return {
+      ...snapshotWithTotalAssets,
+      total: findGBPTotal(snapshotWithTotalAssets.snapshotTotals),
+    };
   });
 
   client.close();
 
   return {
     props: {
-      snapshotsTotals,
+      snapshotsWithTotals,
     },
     revalidate: 10,
   };

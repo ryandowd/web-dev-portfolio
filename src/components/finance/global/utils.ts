@@ -1,24 +1,24 @@
-export const findGBPTotal = (snapshotTotals) => {
-  const audTotal = snapshotTotals.currencies.aud || 0;
-  const gbpTotal = snapshotTotals.currencies.gbp || 0;
-  const euroTotal = snapshotTotals.currencies.euro || 0;
+import { SnapshotAssetsField } from './types';
 
-  const audToGBP = audTotal * 0.54;
-  const euroToGBP = euroTotal * 0.88;
-
-  return audToGBP + euroToGBP + gbpTotal;
-};
-
-export const sortByString = (array, valueKey) => {
+export const sortByString = (
+  array: SnapshotAssetsField[],
+  valueKey: string
+) => {
+  console.log('array', array);
   const sortedArray = array.sort(function (rowA, rowB) {
-    const nameA = rowA[valueKey].toUpperCase();
-    const nameB = rowB[valueKey].toUpperCase();
+    const nameA = rowA[valueKey as keyof SnapshotAssetsField];
+    const nameB = rowB[valueKey as keyof SnapshotAssetsField];
 
-    if (nameA > nameB) {
-      return -1;
-    }
-    if (nameA < nameB) {
-      return 1;
+    const nameAString = typeof nameA === 'string' ? nameA.toLowerCase() : nameA;
+    const nameBString = typeof nameB === 'string' ? nameB.toLowerCase() : nameB;
+
+    if (nameAString && nameBString) {
+      if (nameAString > nameBString) {
+        return -1;
+      }
+      if (nameAString < nameBString) {
+        return 1;
+      }
     }
     return 0;
   });
@@ -26,17 +26,30 @@ export const sortByString = (array, valueKey) => {
   return sortedArray;
 };
 
-export const sortByNumber = (array, valueKey) => {
+export const sortByNumber = (
+  array: SnapshotAssetsField[],
+  valueKey: string
+) => {
   const sortedArray = array.sort(function (rowA, rowB) {
-    // console.log('rowA[valueKey]', rowA[valueKey]);
-    // console.log('rowB[valueKey]', rowB[valueKey]);
-    return Number(rowA[valueKey]) - Number(rowB[valueKey]);
+    return (
+      Number(rowA[valueKey as keyof SnapshotAssetsField]) -
+      Number(rowB[valueKey as keyof SnapshotAssetsField])
+    );
   });
   return sortedArray;
 };
 
-export const sortArrayByValue = (array, valueKey) => {
-  return isNaN(array[0][valueKey])
+export const sortArrayByValue = (
+  array: SnapshotAssetsField[],
+  valueKey: string
+) => {
+  const thingy = array[0][valueKey as keyof SnapshotAssetsField] as any;
+  return isNaN(thingy)
     ? sortByString(array, valueKey)
     : sortByNumber(array, valueKey);
+};
+
+export const formatNumber = (string: string) => {
+  const number = Number(string).toFixed(2);
+  return Number(number).toLocaleString();
 };

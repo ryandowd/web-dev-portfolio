@@ -9,16 +9,14 @@ import {
   TableRow,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { SnapshotAssetsField } from './global/types';
 import { sortArrayByValue } from './global/utils';
 
-// assetId: 'suncorp',
-// assetName: 'Suncorp',
-// assetType: 'money',
-// assetValue: 1000,
-// assetCurrency: 'AUD',
-// assetOwner: 'Ryan',
+type SnapshotDetailTableProps = {
+  rows: SnapshotAssetsField[];
+};
 
-export const SnapshotDetailTable = (props) => {
+export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
   const { rows } = props;
   const [rowsState, setRowsState] = useState(rows);
 
@@ -27,18 +25,14 @@ export const SnapshotDetailTable = (props) => {
   }, [rowsState]);
 
   function sortHandler(sortBy: string, isDescending = false) {
-    setRowsState((prevState) => {
+    setRowsState((prevState: any) => {
       if (isDescending) {
-        console.log('1');
         return [...sortArrayByValue(prevState, sortBy)];
       } else {
-        console.log('2');
         return [...sortArrayByValue(prevState, sortBy).reverse()];
       }
     });
   }
-
-  console.log('rowsState', rowsState);
 
   return (
     <TableContainer component={Paper}>
@@ -60,7 +54,15 @@ export const SnapshotDetailTable = (props) => {
                 Sort Down
               </Button>
             </TableCell>
-            <TableCell>Currency</TableCell>
+            <TableCell>
+              Currency
+              <Button onClick={() => sortHandler('assetCurrency')}>
+                Sort Up
+              </Button>
+              <Button onClick={() => sortHandler('assetCurrency', true)}>
+                Sort Down
+              </Button>
+            </TableCell>
             <TableCell>
               Owner
               <Button onClick={() => sortHandler('assetOwner')}>Sort Up</Button>
@@ -75,11 +77,21 @@ export const SnapshotDetailTable = (props) => {
             return (
               <TableRow
                 key={row.assetId}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{
+                  '&:last-child td, &:last-child th': { border: 0 },
+                  '.MuiTableCell-root': {
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                  },
+                }}
               >
                 <TableCell>{row.assetName}</TableCell>
                 <TableCell>{row.assetType}</TableCell>
-                <TableCell>{row.assetValue}</TableCell>
+                <TableCell>
+                  {Number(row.assetValue).toLocaleString(undefined, {
+                    maximumFractionDigits: 2,
+                  })}
+                </TableCell>
                 <TableCell>{row.assetCurrency}</TableCell>
                 <TableCell>{row.assetOwner}</TableCell>
               </TableRow>
@@ -90,25 +102,3 @@ export const SnapshotDetailTable = (props) => {
     </TableContainer>
   );
 };
-
-{
-  /* 
- (
-            <TableRow
-              key={row.assetId}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell align='right'>{row.calories}</TableCell>
-              <TableCell align='right'>{row.calories}</TableCell>
-              <TableCell align='right'>{row.calories}</TableCell>
-              <TableCell align='right'>{row.calories}</TableCell>
-              {/* <TableCell component='th' scope='row'>
-                {row.name}
-              </TableCell>
-              <TableCell align='right'>{row.calories}</TableCell>
-              <TableCell align='right'>{row.fat}</TableCell>
-              <TableCell align='right'>{row.carbs}</TableCell>
-              <TableCell align='right'>{row.protein}</TableCell> */
-}
-//     </TableRow>
-//   ))} */}

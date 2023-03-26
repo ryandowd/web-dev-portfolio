@@ -1,7 +1,11 @@
 import { Container } from '@mui/system';
 import { AddSnapshotForm } from './SnapshotForm/AddSnapshotForm';
 import { useSnapshots } from './use-snapshots';
-import { Snapshot, SnapshotField } from './global/types';
+import {
+  Snapshot,
+  SnapshotAssetsField,
+  SnapshotWithTotals,
+} from './global/types';
 import { uuid } from 'uuidv4';
 import dayjs from 'dayjs';
 import { dateFormat } from './global/constants';
@@ -9,7 +13,7 @@ import { Button } from '@mui/material';
 import { GlobalNav } from '../ui/GlobalNav';
 import { useState } from 'react';
 
-const snapshotFieldTemplate: SnapshotField = {
+const snapshotFieldTemplate: SnapshotAssetsField = {
   assetId: uuid(),
   assetName: null,
   assetType: 'money',
@@ -18,15 +22,25 @@ const snapshotFieldTemplate: SnapshotField = {
   assetOwner: 'joint',
 };
 
-const snapshotTemplate: Snapshot = {
+const snapshotTemplate: SnapshotWithTotals = {
   snapshotId: uuid(),
   snapshotDate: dayjs(new Date()).format(dateFormat),
   snapshotAssets: [snapshotFieldTemplate],
+  snapshotTotals: {
+    owners: undefined,
+    types: undefined,
+    currencies: undefined,
+  },
+  total: '',
 };
 
-export const AddSnapshotPage = (props) => {
+type AddSnapshotPageProps = {
+  previousSnapshot?: SnapshotWithTotals | null;
+};
+
+export const AddSnapshotPage = (props: AddSnapshotPageProps) => {
   const { previousSnapshot } = props;
-  const [snapshotState, setSnapshotState] = useState<Snapshot>(
+  const [snapshotState, setSnapshotState] = useState<SnapshotWithTotals>(
     previousSnapshot || snapshotTemplate
   );
   const { isCreateLoading, isCreateSuccess, createAddSnapshotHandler } =

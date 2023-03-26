@@ -1,10 +1,10 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { Snapshot } from '../global/types';
+import { Snapshot, SnapshotWithTotals } from '../global/types';
 import { SnapshotForm } from './SnapshotForm';
 
 type UpdateSnapshotFormProps = {
-  snapshot: Snapshot;
+  snapshot: SnapshotWithTotals;
   isUpdateLoading: boolean;
   setSnapshotState: (snapshot: any) => void;
   updateSnapshotFormHandler: (snapshot: any) => void;

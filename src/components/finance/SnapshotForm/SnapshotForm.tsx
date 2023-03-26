@@ -1,16 +1,17 @@
 import { Add, DeleteForever } from '@mui/icons-material';
 import { LoadingButton } from '@mui/lab';
-import { Button, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { v4 as uuid } from 'uuid';
+import { SnapshotWithTotals } from '../global/types';
 import { SnapshotFormField } from './SnapshotFormField';
 
 type SnapshotFormProps = {
   submitButtonText: string;
   isLoading: boolean;
-  snapshot: any;
-  setSnapshotState: any;
-  submitFormHandler: (snapshot: any) => void;
+  snapshot: SnapshotWithTotals;
+  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
+  submitFormHandler: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export const SnapshotForm = (props: SnapshotFormProps) => {
@@ -23,6 +24,7 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
   } = props;
 
   function addAssetRowHandler() {
+    // @ts-ignore
     setSnapshotState((prevState) => {
       const updatedSnapshot = {
         ...prevState,
@@ -44,6 +46,7 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
 
   function deleteAssetRowHandler(assetId: string) {
     if (confirm('Delete row?')) {
+      // @ts-ignore
       setSnapshotState((prevState) => {
         const updatedSnapshot = {
           ...prevState,
@@ -73,7 +76,8 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         {snapshot?.snapshotAssets?.map((asset: any, index: number) => {
           return (
             <Box key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              {Object.entries(asset)?.map((field) => {
+              {Object.entries(asset)?.map((field: any) => {
+                console.log('field', field);
                 const isNotAssetId = field[0] !== 'assetId';
                 return (
                   isNotAssetId && (

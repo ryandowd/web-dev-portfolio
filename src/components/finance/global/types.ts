@@ -1,4 +1,4 @@
-export type SnapshotField = {
+export type SnapshotAssetsField = {
   assetId: string | null;
   assetName: string | null;
   assetType: string;
@@ -7,10 +7,32 @@ export type SnapshotField = {
   assetOwner: string | null;
 };
 
+export type SnapshotTotals = {
+  owners?: {
+    [key: string]: string;
+  };
+  types?: {
+    [key: string]: string;
+  };
+  currencies?: {
+    [key: string]: string;
+  };
+};
+
 export type Snapshot = {
+  total?: string;
   snapshotId: string;
   snapshotDate: string;
-  snapshotAssets: SnapshotField[];
+  snapshotAssets: SnapshotAssetsField[];
+  snapshotTotals?: SnapshotTotals;
+};
+
+export type SnapshotWithTotals = {
+  snapshotId: string;
+  snapshotDate: string;
+  snapshotAssets: SnapshotAssetsField[];
+  snapshotTotals: SnapshotTotals;
+  total: string;
 };
 
 export type FieldDetail = {

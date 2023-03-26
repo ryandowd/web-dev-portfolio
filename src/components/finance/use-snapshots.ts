@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { EventProps } from '@/types';
+import { SnapshotWithTotals } from './global/types';
 // import { dateFormat } from './global/constants';
 // import { v4 as uuid } from 'uuid';
 // import dayjs from 'dayjs';
@@ -47,8 +48,7 @@ export const useSnapshots = () => {
     isLoading: isUpdateLoading,
     isSuccess: isUpdateSuccess,
   } = useMutation({
-    mutationFn: async (updatedSnapshot) => {
-      console.log('THINGY THINGY', updatedSnapshot);
+    mutationFn: async (updatedSnapshot: SnapshotWithTotals) => {
       const response = await axios.put(
         `/api/finance/snapshots/${updatedSnapshot.snapshotId}`,
         {
@@ -91,7 +91,7 @@ export const useSnapshots = () => {
     deleteSnapshotMutate(snapshotId);
   }
 
-  function updateSnapshotFormHandler(updatedSnapshot) {
+  function updateSnapshotFormHandler(updatedSnapshot: SnapshotWithTotals) {
     updateSnapshotMutate(updatedSnapshot);
   }
 

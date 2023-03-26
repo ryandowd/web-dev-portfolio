@@ -1,28 +1,30 @@
 import { LoadingButton } from '@mui/lab';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { GlobalNav } from '../ui/GlobalNav';
 import { SnapshotDetailOverview } from './SnapshotDetailOverview';
-import { Snapshot } from './global/types';
+import { Snapshot, SnapshotWithTotals } from './global/types';
 import { SnapshotDetailTable } from './SnapshotDetailTable';
 import { SnapshotDatepicker } from './SnapshotForm/SnapshotDatepicker';
 import { UpdateSnapshotForm } from './SnapshotForm/UpdateSnapshotForm';
 import { DateLong } from './ui/DateLong';
 import { useSnapshots } from './use-snapshots';
+import { SnapshotDetailPieChart } from './SnapshotDetailPieChart';
+import { formatPieChartData } from '@/pages/finance-tracker/utils';
 
 type SnapshotDetailPageProps = {
-  snapshot: Snapshot;
+  snapshot: SnapshotWithTotals;
 };
 
 export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
   const { snapshot } = props;
   const { isUpdateLoading, updateSnapshotFormHandler, deleteSnapshotHandler } =
     useSnapshots();
-  const [snapshotState, setSnapshotState] = useState(snapshot);
+  const [snapshotState, setSnapshotState] =
+    useState<SnapshotWithTotals>(snapshot);
   const [isEditing, setIsEditing] = useState(false);
-
-  console.log('snapshotState', snapshotState);
+  const [showLegend, setShowLegend] = useState(false);
 
   useEffect(() => {
     if (isUpdateLoading) {
@@ -37,13 +39,29 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
           Back to dashboard
         </Button>
       </GlobalNav>
+
       <Container
         component='main'
-        sx={{ display: 'flex', flexDirection: 'column' }}
+        sx={{ display: 'flex', flexDirection: 'column', marginBottom: '200px' }}
       >
         <Box sx={{ margin: '20px 0 0' }}>
-          <SnapshotDetailOverview snapshot={snapshotState} noHover />
+          <Typography
+            variant='h3'
+            sx={{ margin: '30px 0 50px', textAlign: 'center' }}
+          >
+            Total: £{snapshotState.total}
+          </Typography>
+          <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
+        <Button onClick={() => setShowLegend((prevState) => !prevState)}>
+          Toggle Legend
+        </Button>
+        <SnapshotDetailPieChart
+          showLegend={showLegend}
+          owners={formatPieChartData(snapshot, 'owners')}
+          types={formatPieChartData(snapshot, 'types')}
+          currencies={formatPieChartData(snapshot, 'currencies')}
+        />
         <Box
           sx={{
             display: 'flex',

@@ -1,13 +1,13 @@
 import { Box } from '@mui/system';
-import { Snapshot } from '../global/types';
+import { SnapshotWithTotals } from '../global/types';
 import { SnapshotDatepicker } from './SnapshotDatepicker';
 import { SnapshotForm } from './SnapshotForm';
 import { uuid } from 'uuidv4';
 import { DateLong } from '../ui/DateLong';
 
 type AddSnapshotFormProps = {
-  snapshotState: Snapshot;
-  setSnapshotState: any;
+  snapshotState: SnapshotWithTotals;
+  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
   isCreateLoading: boolean;
   isCreateSuccess: boolean;
   createAddSnapshotHandler: (snapshot: any) => void;

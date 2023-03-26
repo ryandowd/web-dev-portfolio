@@ -6,18 +6,16 @@ import {
   getDocument,
 } from '@/utils/db-util';
 import type { GetStaticPropsContext } from 'next';
-import { Snapshot } from '@/components/finance/global/types';
+import { SnapshotWithTotals } from '@/components/finance/global/types';
 import { SnapshotDetailPage } from '@/components/finance/SnapshotDetailPage';
-import { getAllTotals } from '../utils';
+import { findGBPTotal, getAllTotals } from '../utils';
 
 type SnapshotPageProps = {
-  snapshot: Snapshot;
+  snapshot: SnapshotWithTotals;
 };
 
 export default function SnapshotPage(props: SnapshotPageProps) {
   const { snapshot } = props;
-
-  console.log('snapshot MARCH', snapshot);
 
   return <SnapshotDetailPage snapshot={snapshot} />;
 }
@@ -32,7 +30,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     'snapshots'
   );
 
-  const snapshotWithTotals = getAllTotals(snapshot);
+  client.close();
+
+  const snapshotWithTotalAssets = getAllTotals(snapshot);
+
+  const snapshotWithTotals = {
+    ...snapshotWithTotalAssets,
+    total: findGBPTotal(snapshotWithTotalAssets.snapshotTotals),
+  };
 
   return {
     props: {
@@ -45,7 +50,9 @@ export async function getStaticPaths() {
   const client = await connectToDatabase('finance');
   const snapshots = await getAllDocuments(client, 'snapshots');
 
-  const paths = snapshots.map((snapshot) => ({
+  client.close();
+
+  const paths = snapshots.map((snapshot: SnapshotWithTotals) => ({
     params: { snapshotId: snapshot.snapshotId },
   }));
 

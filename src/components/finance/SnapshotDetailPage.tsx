@@ -11,7 +11,7 @@ import { UpdateSnapshotForm } from './SnapshotForm/UpdateSnapshotForm';
 import { DateLong } from './ui/DateLong';
 import { useSnapshots } from './use-snapshots';
 import { SnapshotDetailPieChart } from './SnapshotDetailPieChart';
-import { formatPieChartData } from '@/pages/finance-tracker/utils';
+import { formatPieChartData } from '@/global/utils';
 
 type SnapshotDetailPageProps = {
   snapshot: SnapshotWithTotals;

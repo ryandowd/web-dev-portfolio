@@ -1,5 +1,3 @@
-import { EventUpdatePage } from '@/components/portfolio/EventUpdatePage';
-import { EventProps } from '@/types';
 import {
   connectToDatabase,
   getAllDocuments,
@@ -8,7 +6,7 @@ import {
 import type { GetStaticPropsContext } from 'next';
 import { SnapshotWithTotals } from '@/components/finance/global/types';
 import { SnapshotDetailPage } from '@/components/finance/SnapshotDetailPage';
-import { findGBPTotal, getAllTotals } from '../utils';
+import { findGBPTotal, getAllTotals } from '@/global/utils';
 
 type SnapshotPageProps = {
   snapshot: SnapshotWithTotals;

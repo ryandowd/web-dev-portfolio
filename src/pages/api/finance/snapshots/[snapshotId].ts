@@ -1,4 +1,4 @@
-import { getAllTotals } from '@/pages/finance-tracker/utils';
+import { getAllTotals } from '@/global/utils';
 import { connectToDatabase, getDocument } from '@/utils/db-util';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

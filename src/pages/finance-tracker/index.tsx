@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
-import { findGBPTotal, getAllTotals } from './utils';
+import { findGBPTotal, getAllTotals } from '@/global/utils';
 import { SnapshotWithTotals } from '@/components/finance/global/types';
 
 type FinancePageProps = {

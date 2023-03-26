@@ -27,6 +27,8 @@ export async function getStaticProps() {
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
 
+  console.log('allSnapshots', allSnapshots);
+
   const snapshots = allSnapshots.map((snapshot: any) => {
     const updatedSnapshot = {
       ...snapshot,
@@ -49,6 +51,8 @@ export async function getStaticProps() {
       total: findGBPTotal(snapshotWithTotalAssets.snapshotTotals),
     };
   });
+
+  console.log('snapshotsWithTotals', snapshotsWithTotals);
 
   client.close();
 

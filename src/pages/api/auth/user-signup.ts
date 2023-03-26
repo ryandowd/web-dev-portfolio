@@ -36,7 +36,6 @@ export default async function handler(
     });
 
     res.status(201).json({ message: 'Created user!', username, password });
-    // client.close();
     return;
   }
 }

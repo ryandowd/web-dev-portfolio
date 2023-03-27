@@ -31,6 +31,7 @@ const snapshotTemplate: SnapshotWithTotals = {
     types: undefined,
     currencies: undefined,
   },
+  monthDifference: 0,
   total: '',
 };
 

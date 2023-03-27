@@ -4,6 +4,18 @@ import {
   SnapshotWithTotals,
 } from '@/components/finance/global/types';
 
+export const formatNumberWithCommas = (value: number | string) => {
+  return value
+    ? typeof value === 'number'
+      ? value.toLocaleString()
+      : value
+    : 0;
+};
+
+export const unformatNumberWithCommas = (value: string) => {
+  return value ? value.replaceAll(',', '') : 0;
+};
+
 export const convertAUDtoGBP = (value: number) => {
   return value * exchangeRatesToGBP.AUD;
 };
@@ -60,6 +72,22 @@ export const getAllTotals = (snapshot: SnapshotWithTotals) => {
       currencies: assetCurrencyTotals,
     },
   };
+};
+
+export const getMonthDifference = (
+  currentSnapshot: SnapshotWithTotals,
+  prevMonthTotal: string
+) => {
+  if (!prevMonthTotal) return 0;
+
+  const currentDollarAmount: number = parseFloat(
+    currentSnapshot.total.replaceAll(',', '')
+  );
+  const _prevMonthTotal = parseFloat(prevMonthTotal.replaceAll(',', ''));
+  const difference = currentDollarAmount - _prevMonthTotal;
+  console.log('difference', difference);
+
+  return difference;
 };
 
 type PieChartData = {

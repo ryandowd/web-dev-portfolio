@@ -33,6 +33,7 @@ export type SnapshotWithTotals = {
   snapshotAssets: SnapshotAssetsField[];
   snapshotTotals: SnapshotTotals;
   total: string;
+  monthDifference: number;
 };
 
 export type FieldDetail = {

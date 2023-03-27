@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
-import { findGBPTotal, getAllTotals } from '@/global/utils';
+import { findGBPTotal, getAllTotals, getMonthDifference } from '@/global/utils';
 import { SnapshotWithTotals } from '@/components/finance/global/types';
 
 type FinancePageProps = {
@@ -10,6 +10,9 @@ type FinancePageProps = {
 
 export default function FinancePage(props: FinancePageProps) {
   const { snapshotsWithTotals } = props;
+
+  // console.log('snapshotsWithTotals', snapshotsWithTotals);
+
   return (
     <>
       <Head>
@@ -26,8 +29,6 @@ export default function FinancePage(props: FinancePageProps) {
 export async function getStaticProps() {
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
-
-  console.log('allSnapshots', allSnapshots);
 
   const snapshots = allSnapshots.map((snapshot: any) => {
     const updatedSnapshot = {
@@ -52,13 +53,22 @@ export async function getStaticProps() {
     };
   });
 
-  console.log('snapshotsWithTotals', snapshotsWithTotals);
+  const snapshotsWithMonthDifference = snapshotsWithTotals.map(
+    (snapshotWithTotal: SnapshotWithTotals, index: number) => {
+      const prevMonthTotal = snapshotsWithTotals[index + 1]?.total || false;
+
+      return {
+        ...snapshotWithTotal,
+        monthDifference: getMonthDifference(snapshotWithTotal, prevMonthTotal),
+      };
+    }
+  );
 
   client.close();
 
   return {
     props: {
-      snapshotsWithTotals,
+      snapshotsWithTotals: snapshotsWithMonthDifference,
     },
     revalidate: 10,
   };

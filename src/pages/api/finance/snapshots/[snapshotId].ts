@@ -1,4 +1,4 @@
-import { getAllTotals } from '@/global/utils';
+import { getAllTotals } from '@/sites/finance/utils';
 import { connectToDatabase, getDocument } from '@/utils/db-util';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

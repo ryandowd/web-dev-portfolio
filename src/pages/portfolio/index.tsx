@@ -1,7 +1,7 @@
 import { connectToDatabase } from '@/utils/db-util';
 import Head from 'next/head';
-import { EventProps } from 'src/types';
-import { PortfolioPage } from '@/components/portfolio/PortfolioPage';
+import { EventProps } from '@/sites/portfolio/types';
+import { PortfolioPage } from '@/sites/portfolio/components/PortfolioPage';
 
 interface PortfolioProps {
   staticSkillsList: string[];

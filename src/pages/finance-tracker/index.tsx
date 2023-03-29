@@ -1,8 +1,12 @@
 import Head from 'next/head';
-import { FinanceDashboardPage } from '@/components/finance/FinanceDashboardPage';
+import { FinanceDashboardPage } from '@/sites/finance/components/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
-import { findGBPTotal, getAllTotals, getMonthDifference } from '@/global/utils';
-import { SnapshotWithTotals } from '@/components/finance/global/types';
+import {
+  findGBPTotal,
+  getAllTotals,
+  getMonthDifference,
+} from '@/sites/finance/utils';
+import { SnapshotWithTotals } from '@/sites/finance/global/types';
 
 type FinancePageProps = {
   snapshotsWithTotals: SnapshotWithTotals[];

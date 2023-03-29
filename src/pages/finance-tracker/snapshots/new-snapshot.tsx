@@ -1,5 +1,5 @@
-import { AddSnapshotPage } from '@/components/finance/AddSnapshotPage';
-import { SnapshotWithTotals } from '@/components/finance/global/types';
+import { AddSnapshotPage } from '@/sites/finance/components/AddSnapshotPage';
+import { SnapshotWithTotals } from '@/sites/finance/global/types';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 
 type AddSnapshotProps = {

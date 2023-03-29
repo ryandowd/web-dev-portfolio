@@ -1,5 +1,5 @@
-import { EventUpdatePage } from '@/components/portfolio/EventUpdatePage';
-import { EventProps } from '@/types';
+import { EventUpdatePage } from '@/sites/portfolio/components/EventUpdatePage';
+import { EventProps } from '@/sites/portfolio/types';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 import type { GetStaticPropsContext } from 'next';
 

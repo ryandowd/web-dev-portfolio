@@ -1,5 +1,5 @@
 import { Container, Link } from '@mui/material';
-import { SignUpFormCredentials } from '@/components/login/SignUpFormCredentials';
+import { SignUpFormCredentials } from '@/sites/main/components/login/SignUpFormCredentials';
 
 export default function SignUpPage() {
   return (

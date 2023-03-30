@@ -1,21 +1,23 @@
 import Head from 'next/head';
 import { FinanceDashboardPage } from '@/sites/finance/components/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
+import { Snapshot } from '@/sites/finance/global/types';
 import {
-  findGBPTotal,
-  getAllTotals,
-  getMonthDifference,
-} from '@/sites/finance/utils';
-import { SnapshotWithTotals } from '@/sites/finance/global/types';
+  appendMonthTotalDifferences,
+  appendAllSnaphotTotals,
+  deleteMongoIds,
+  orderSnapshotsByDate,
+  getTotalAssetTypeDifferences,
+  getAssetsTotals,
+  appendSnapshotTotal,
+} from '@/sites/finance/global/server-utils';
 
 type FinancePageProps = {
-  snapshotsWithTotals: SnapshotWithTotals[];
+  snapshots: Snapshot[];
 };
 
 export default function FinancePage(props: FinancePageProps) {
-  const { snapshotsWithTotals } = props;
-
-  // console.log('snapshotsWithTotals', snapshotsWithTotals);
+  const { snapshots } = props;
 
   return (
     <>
@@ -25,7 +27,7 @@ export default function FinancePage(props: FinancePageProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <FinanceDashboardPage snapshotsWithTotals={snapshotsWithTotals} />
+      <FinanceDashboardPage snapshots={snapshots} />
     </>
   );
 }
@@ -34,36 +36,25 @@ export async function getStaticProps() {
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
 
-  const snapshots = allSnapshots.map((snapshot: any) => {
-    const updatedSnapshot = {
-      ...snapshot,
-    };
+  const deleteSnapshotIds = deleteMongoIds(allSnapshots);
+  const orderedSnapshots = orderSnapshotsByDate(deleteSnapshotIds);
+  const snapshotsWithTotals = appendAllSnaphotTotals(orderedSnapshots);
 
-    delete updatedSnapshot._id;
-    return updatedSnapshot;
-  });
+  const snapshotsWithTotalDifferences =
+    appendMonthTotalDifferences(snapshotsWithTotals);
 
-  snapshots.sort((a: any, b: any) => {
-    return (
-      new Date(b.snapshotDate).getTime() - new Date(a.snapshotDate).getTime()
-    );
-  });
+  const totalAssetTypeDifferences = snapshotsWithTotalDifferences.map(
+    (currSnapshot, snapshotIndex) => {
+      const prevSnapshot = snapshotsWithTotalDifferences[snapshotIndex + 1];
 
-  const snapshotsWithTotals = snapshots.map((snapshot: SnapshotWithTotals) => {
-    const snapshotWithTotalAssets = getAllTotals(snapshot);
-    return {
-      ...snapshotWithTotalAssets,
-      total: findGBPTotal(snapshotWithTotalAssets.snapshotTotals),
-    };
-  });
-
-  const snapshotsWithMonthDifference = snapshotsWithTotals.map(
-    (snapshotWithTotal: SnapshotWithTotals, index: number) => {
-      const prevMonthTotal = snapshotsWithTotals[index + 1]?.total || false;
+      const snapshotTotalsWithDifferences = getTotalAssetTypeDifferences(
+        currSnapshot,
+        prevSnapshot
+      );
 
       return {
-        ...snapshotWithTotal,
-        monthDifference: getMonthDifference(snapshotWithTotal, prevMonthTotal),
+        ...currSnapshot,
+        snapshotTotals: snapshotTotalsWithDifferences,
       };
     }
   );
@@ -72,7 +63,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      snapshotsWithTotals: snapshotsWithMonthDifference,
+      snapshots: totalAssetTypeDifferences,
     },
     revalidate: 10,
   };

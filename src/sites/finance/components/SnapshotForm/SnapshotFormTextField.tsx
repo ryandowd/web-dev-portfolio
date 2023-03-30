@@ -1,12 +1,12 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
-import { FieldDetail, SnapshotWithTotals } from '../../global/types';
+import { FieldDetail, Snapshot } from '../../global/types';
 
 type SnapshotFormTextFieldProps = {
   field: [string, string];
   fieldDetail: FieldDetail;
   rowIndex: number;
-  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
+  setSnapshotState: (snapshot: Snapshot) => void;
 };
 
 export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
@@ -19,9 +19,8 @@ export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
   function formInputChangeHandler(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    console.log('event', event);
     // @ts-ignore
-    setSnapshotState((prevState: SnapshotWithTotals) => {
+    setSnapshotState((prevState: Snapshot) => {
       const updatedAssets = prevState.snapshotAssets.map(
         (asset, index: number) => {
           if (index === rowIndex) {
@@ -39,8 +38,6 @@ export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
         snapshotAssets: [...updatedAssets],
       };
 
-      console.log('updatedSnapshot', updatedSnapshot);
-      // return prevState;
       return updatedSnapshot;
     });
   }

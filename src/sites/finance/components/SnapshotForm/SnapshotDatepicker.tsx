@@ -2,11 +2,11 @@ import { Box } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { humanDateFormat, dateFormat } from '../../global/constants';
-import { SnapshotWithTotals } from '../../global/types';
+import { Snapshot } from '../../global/types';
 
 type SnapshotDatepickerProps = {
-  snapshot: SnapshotWithTotals;
-  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
+  snapshot: Snapshot;
+  setSnapshotState: (snapshot: Snapshot) => void;
 };
 
 export const SnapshotDatepicker = (props: SnapshotDatepickerProps) => {
@@ -14,13 +14,12 @@ export const SnapshotDatepicker = (props: SnapshotDatepickerProps) => {
 
   function dateOnChangeHandler(date: any) {
     // @ts-ignore comment
-    setSnapshotState((prevState: SnapshotWithTotals) => {
+    setSnapshotState((prevState: Snapshot) => {
       const thigy = {
         ...prevState,
         snapshotDate: date.format(dateFormat),
       };
 
-      console.log('thigy', thigy);
       return thigy;
     });
   }

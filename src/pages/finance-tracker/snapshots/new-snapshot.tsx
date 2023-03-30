@@ -1,9 +1,9 @@
 import { AddSnapshotPage } from '@/sites/finance/components/AddSnapshotPage';
-import { SnapshotWithTotals } from '@/sites/finance/global/types';
+import { Snapshot } from '@/sites/finance/global/types';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 
 type AddSnapshotProps = {
-  previousSnapshot: SnapshotWithTotals | null;
+  previousSnapshot: Snapshot | null;
 };
 
 export default function AddSnapshot(props: AddSnapshotProps) {

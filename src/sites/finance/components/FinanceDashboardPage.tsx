@@ -1,16 +1,18 @@
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import { Container } from '@mui/system';
 import { FinanceDashboardAreaChart } from './FinanceDashboardAreaChart';
-import { SnapshotWithTotals } from '../../sites/finance/global/types';
+import { Snapshot } from '@/sites/finance/global/types';
 import { SnapshotTotalsList } from './SnapshotTotalsList';
 
 type FinanceDashboardPageProps = {
-  snapshotsWithTotals: SnapshotWithTotals[];
+  snapshots: Snapshot[];
 };
 
 export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
   const theme = useTheme();
-  const { snapshotsWithTotals } = props;
+  const { snapshots } = props;
+
+  console.log('snapshots', snapshots);
 
   return (
     <Container
@@ -23,7 +25,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
-      <FinanceDashboardAreaChart snapshotsWithTotals={snapshotsWithTotals} />
+      <FinanceDashboardAreaChart snapshots={snapshots} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -33,7 +35,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshotsWithTotals={snapshotsWithTotals} />
+      <SnapshotTotalsList snapshots={snapshots} />
     </Container>
   );
 };

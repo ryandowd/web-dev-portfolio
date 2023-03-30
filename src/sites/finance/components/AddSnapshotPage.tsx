@@ -4,7 +4,7 @@ import { useSnapshots } from '../hooks/use-snapshots';
 import {
   Snapshot,
   SnapshotAssetsField,
-  SnapshotWithTotals,
+  Snapshot,
 } from '../../sites/finance/global/types';
 import { uuid } from 'uuidv4';
 import dayjs from 'dayjs';
@@ -22,7 +22,7 @@ const snapshotFieldTemplate: SnapshotAssetsField = {
   assetOwner: 'joint',
 };
 
-const snapshotTemplate: SnapshotWithTotals = {
+const snapshotTemplate: Snapshot = {
   snapshotId: uuid(),
   snapshotDate: dayjs(new Date()).format(dateFormat),
   snapshotAssets: [snapshotFieldTemplate],
@@ -36,12 +36,12 @@ const snapshotTemplate: SnapshotWithTotals = {
 };
 
 type AddSnapshotPageProps = {
-  previousSnapshot?: SnapshotWithTotals | null;
+  previousSnapshot?: Snapshot | null;
 };
 
 export const AddSnapshotPage = (props: AddSnapshotPageProps) => {
   const { previousSnapshot } = props;
-  const [snapshotState, setSnapshotState] = useState<SnapshotWithTotals>(
+  const [snapshotState, setSnapshotState] = useState<Snapshot>(
     previousSnapshot || snapshotTemplate
   );
   const { isCreateLoading, isCreateSuccess, createAddSnapshotHandler } =

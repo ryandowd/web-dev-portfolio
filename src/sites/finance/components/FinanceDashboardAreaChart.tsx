@@ -1,26 +1,26 @@
 import { Box } from '@mui/system';
 import * as echarts from 'echarts';
 import { useEffect, useMemo, useRef } from 'react';
-import type { SnapshotWithTotals } from '@/sites/finance/global/types';
+import type { Snapshot } from '@/sites/finance/global/types';
 import dayjs from 'dayjs';
 
 type FinanceDashboardAreaChartProps = {
-  snapshotsWithTotals: SnapshotWithTotals[];
+  snapshots: Snapshot[];
 };
 
 export const FinanceDashboardAreaChart = (
   props: FinanceDashboardAreaChartProps
 ) => {
-  const { snapshotsWithTotals } = props;
+  const { snapshots } = props;
   const chartRef = useRef(null);
 
-  const totals = snapshotsWithTotals
+  const totals = snapshots
     .map((snapshot) => {
       return snapshot.total;
     })
     .reverse();
 
-  const dates = snapshotsWithTotals
+  const dates = snapshots
     .map((snapshot) => {
       return dayjs(snapshot.snapshotDate).format('DD MMM YYYY');
     })
@@ -31,11 +31,13 @@ export const FinanceDashboardAreaChart = (
     const _owner = owner.toLowerCase();
     return {
       name: _owner,
-      data: snapshotsWithTotals
+      data: snapshots
         .map((snapshot) => {
-          return snapshot.snapshotTotals.owners
-            ? snapshot.snapshotTotals.owners[_owner]
-            : '';
+          return (
+            (snapshot.snapshotTotals.owners &&
+              snapshot.snapshotTotals.owners[_owner].current) ||
+            snapshot.snapshotTotals.owners[_owner]
+          );
         })
         .reverse(),
     };

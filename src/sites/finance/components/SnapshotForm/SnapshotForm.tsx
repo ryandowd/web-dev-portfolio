@@ -3,14 +3,14 @@ import { LoadingButton } from '@mui/lab';
 import { IconButton } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { v4 as uuid } from 'uuid';
-import { SnapshotWithTotals } from '../../global/types';
+import { Snapshot } from '../../global/types';
 import { SnapshotFormField } from './SnapshotFormField';
 
 type SnapshotFormProps = {
   submitButtonText: string;
   isLoading: boolean;
-  snapshot: SnapshotWithTotals;
-  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
+  snapshot: Snapshot;
+  setSnapshotState: (snapshot: Snapshot) => void;
   submitFormHandler: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
@@ -77,7 +77,6 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
           return (
             <Box key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               {Object.entries(asset)?.map((field: any) => {
-                console.log('field', field);
                 const isNotAssetId = field[0] !== 'assetId';
                 return (
                   isNotAssetId && (

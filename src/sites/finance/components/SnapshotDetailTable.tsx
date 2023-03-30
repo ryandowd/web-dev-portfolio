@@ -13,6 +13,8 @@ import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { SnapshotAssetsField } from '@/sites/finance/global/types';
 import { sortArrayByValue } from '@/sites/finance/global/utils';
+import { formatNumberWithCommas } from '../utils';
+import { TableSort } from './ui/TableSort';
 
 type SnapshotDetailTableProps = {
   rows: SnapshotAssetsField[];
@@ -21,10 +23,6 @@ type SnapshotDetailTableProps = {
 export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
   const { rows } = props;
   const [rowsState, setRowsState] = useState(rows);
-
-  useEffect(() => {
-    console.log('changed');
-  }, [rowsState]);
 
   function sortHandler(sortBy: string, isDescending = false) {
     setRowsState((prevState: any) => {
@@ -44,40 +42,41 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
           '.MuiTableRow-root:nth-of-type(even)': {
             backgroundColor: '#faf9f9',
           },
+          '.MuiTableCell-head': {
+            fontSize: '1.2rem',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+          },
         }}
       >
         <TableHead>
           <TableRow>
-            <TableCell>Asset Name</TableCell>
             <TableCell>
-              Value
-              <Button onClick={() => sortHandler('assetValue')}>Sort Up</Button>
-              <Button onClick={() => sortHandler('assetValue', true)}>
-                Sort Down
-              </Button>
+              <Typography>Asset Name</Typography>
             </TableCell>
             <TableCell>
-              Asset Type{' '}
-              <Button onClick={() => sortHandler('assetType')}>Sort Up</Button>
-              <Button onClick={() => sortHandler('assetType', true)}>
-                Sort Down
-              </Button>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography>Value</Typography>
+                <TableSort handler={sortHandler} sortValue={'assetValue'} />
+              </Box>
             </TableCell>
             <TableCell>
-              Currency
-              <Button onClick={() => sortHandler('assetCurrency')}>
-                Sort Up
-              </Button>
-              <Button onClick={() => sortHandler('assetCurrency', true)}>
-                Sort Down
-              </Button>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography>Asset Type</Typography>
+                <TableSort handler={sortHandler} sortValue={'assetType'} />
+              </Box>
             </TableCell>
             <TableCell>
-              Owner
-              <Button onClick={() => sortHandler('assetOwner')}>Sort Up</Button>
-              <Button onClick={() => sortHandler('assetOwner', true)}>
-                Sort Down
-              </Button>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography>Currency</Typography>
+                <TableSort handler={sortHandler} sortValue={'assetCurrency'} />
+              </Box>
+            </TableCell>
+            <TableCell>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography>Owner</Typography>
+                <TableSort handler={sortHandler} sortValue={'assetOwner'} />
+              </Box>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -89,6 +88,11 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
                 : row.difference > 0
                 ? 'rgba(192, 255, 213, 0.6)'
                 : 'transparent';
+
+            const differenceValue =
+              row.difference === 'nomatch'
+                ? 'Currency change'
+                : formatNumberWithCommas(row.difference);
             return (
               <TableRow
                 key={row.assetId}
@@ -96,7 +100,6 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
                   '&:last-child td, &:last-child th': { border: 0 },
                   '.MuiTableCell-root': {
                     fontSize: '1rem',
-                    textTransform: 'uppercase',
                   },
                 }}
               >
@@ -106,22 +109,9 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
                     sx={{ display: 'flex', justifyContent: 'space-between' }}
                   >
                     <Typography>
-                      {Number(row.assetValue).toLocaleString(undefined, {
-                        maximumFractionDigits: 2,
-                      })}
+                      {formatNumberWithCommas(row.assetValue)}
                     </Typography>
-                    <Typography
-                    // sx={{
-                    //   color: 'black',
-                    //   // border: `1px solid ${differenceColour}`,
-                    //   backgroundColor: `${differenceColour}`,
-                    //   padding: '5px 10px',
-                    // }}
-                    >
-                      {Number(row.difference).toLocaleString(undefined, {
-                        maximumFractionDigits: 2,
-                      })}
-                    </Typography>
+                    <Typography>{differenceValue}</Typography>
                   </Box>
                 </TableCell>
                 <TableCell>{row.assetType}</TableCell>

@@ -1,16 +1,16 @@
 import { theme } from '@/styles/theme';
 import { formatNumberWithCommas } from '@/sites/finance/utils';
 import { ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
-import { Paper, Typography } from '@mui/material';
+import { Typography, Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import dayjs from 'dayjs';
 import { humanDateFormat } from '@/sites/finance/global/constants';
-import { SnapshotWithTotals } from '@/sites/finance/global/types';
+import { Snapshot } from '@/sites/finance/global/types';
 import { formatNumber } from '@/sites/finance/global/utils';
 import { SnapshotDetailOverviewTotal } from './SnapshotDetailOverviewTotal';
 
 type SnapshotDetailOverviewProps = {
-  snapshot: SnapshotWithTotals;
+  snapshot: Snapshot;
 };
 
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
@@ -37,92 +37,111 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
         key={snapshot.snapshotId}
         sx={{
           padding: '20px',
-          display: 'flex',
+          display: {
+            sm: 'flex',
+          },
           width: '100%',
           flexDirection: {
             xs: 'column',
-            sm: 'row',
+            md: 'row',
           },
         }}
       >
         <Box
           sx={{
             display: 'flex',
-            flex: '0 0 35%',
+            flex: '0 0 20%',
             textAlign: {
               xs: 'center',
               sm: 'left',
             },
             flexDirection: 'column',
+            marginBottom: {
+              xs: '20px',
+              lg: 0,
+            },
+            alignItems: {
+              xs: 'center',
+              lg: 'flex-start',
+            },
           }}
         >
           <Box
             sx={{
               margin: '0 0 10px',
               display: 'flex',
-              alignItems: 'flex-start',
+              // flexDirection: 'column',
             }}
           >
-            <Typography
+            {/* <Box sx={{ display: 'flex' }}> */}
+            {/* <Typography
               variant='h5'
               sx={{
                 fontSize: {
                   xs: '1.5rem',
+                  md: '2.5rem',
+                },
+                padding: '5px',
+                color: '#e9e9e9',
+              }}
+            >
+              {dayjs(snapshot.snapshotDate).format('DD')}
+            </Typography> */}
+            <Typography
+              variant='h5'
+              sx={{
+                fontSize: {
+                  xs: '3rem',
                   md: '2.5rem',
                 },
                 padding: '5px',
                 color: '#424242',
               }}
             >
-              {dayjs(snapshot.snapshotDate).format('YYYY')}
+              {dayjs(snapshot.snapshotDate).format('MMM')}
             </Typography>
+
+            {/* </Box> */}
             <Typography
               variant='h5'
               sx={{
                 fontSize: {
-                  xs: '1.5rem',
+                  xs: '3rem',
                   md: '2.5rem',
                 },
                 padding: '5px',
                 color: '#7f7f7f',
               }}
             >
-              {dayjs(snapshot.snapshotDate).format('MMM')}
-            </Typography>
-            <Typography
-              variant='h5'
-              sx={{
-                fontSize: {
-                  xs: '1.5rem',
-                  md: '2.5rem',
-                },
-                padding: '5px',
-                color: '#d0d0d0',
-              }}
-            >
-              {dayjs(snapshot.snapshotDate).format('DD')}
+              {dayjs(snapshot.snapshotDate).format('YYYY')}
             </Typography>
           </Box>
-          <Typography variant='h5'>
-            Total: £{formatNumberWithCommas(snapshot.total)}
+          <Typography variant='h5' sx={{ fontSize: '2rem' }}>
+            £{formatNumberWithCommas(snapshot.total)}
           </Typography>
-          <Typography
-            variant='h5'
-            sx={{
-              color: 'white',
-              backgroundColor: differenceColour,
-              padding: '7px',
-              marginTop: '20px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontFamily: theme.typography.body1,
-            }}
-          >
-            Total Difference: £
-            {formatNumberWithCommas(snapshot.monthDifference)}
-            {differenceIcon}
-          </Typography>
+          {snapshot.monthDifference ? (
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: '20px',
+              }}
+            >
+              <Typography
+                variant='h5'
+                sx={{
+                  color: differenceColour,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                £{formatNumberWithCommas(snapshot.monthDifference)}
+              </Typography>
+              {differenceIcon}
+            </Box>
+          ) : null}
         </Box>
 
         <SnapshotDetailOverviewTotal snapshot={snapshot} />

@@ -10,7 +10,7 @@ export const GlobalNav = (props: GlobalNavProps) => {
     <Container
       component='nav'
       maxWidth={false}
-      sx={{ p: 3, backgroundColor: '#000' }}
+      sx={{ p: 3, backgroundColor: '#e0f3ff' }}
     >
       <Container
         maxWidth='xs'

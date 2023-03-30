@@ -1,10 +1,10 @@
 import { Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import { SnapshotWithTotals } from '@/sites/finance/global/types';
-import { formatNumber } from '@/sites/finance/global/utils';
+import { Snapshot } from '@/sites/finance/global/types';
+import { formatNumberWithCommas } from '../utils';
 
 type SnapshotDetailOverviewTotalProps = {
-  snapshot: SnapshotWithTotals;
+  snapshot: Snapshot;
 };
 
 export const SnapshotDetailOverviewTotal = (
@@ -18,10 +18,10 @@ export const SnapshotDetailOverviewTotal = (
       sx={{
         display: 'flex',
         width: '100%',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         flexDirection: {
           xs: 'column',
-          sm: 'row',
+          md: 'row',
         },
         textAlign: {
           xs: 'center',
@@ -29,51 +29,89 @@ export const SnapshotDetailOverviewTotal = (
         },
       }}
     >
-      {Object.entries(snapshot.snapshotTotals)
-        .reverse()
-        .map((totalTypes, index) => {
-          if (totalTypes[0] === 'currencies') return null;
-          return (
-            <Box key={index}>
-              <Typography
-                variant='h5'
-                key={totalTypes[0]}
-                sx={{ textTransform: 'capitalize' }}
-              >
-                {totalTypes[0]}
-              </Typography>
-              {Object.entries(totalTypes[1]).map((total) => {
-                return (
-                  <Box
-                    key={total[0]}
+      {Object.entries(snapshot.snapshotTotals).map((totalTypes, index) => {
+        // if (totalTypes[0] === 'currencies') return null;
+        return (
+          <Box
+            key={index}
+            sx={{
+              border: `1px solid ${theme.palette.grey[200]}`,
+              flex: {
+                xs: '0 0 100%',
+                md: '0 0 32%',
+              },
+              padding: '15px',
+              // border: '1px solid red',
+
+              alignItems: {
+                xs: 'center',
+              },
+            }}
+          >
+            <Typography
+              variant='h5'
+              key={totalTypes[0]}
+              sx={{
+                textTransform: 'capitalize',
+                textDecoration: 'underline',
+                textAlign: 'center',
+                marginBottom: '20px',
+              }}
+            >
+              {totalTypes[0]}
+            </Typography>
+            {Object.entries(totalTypes[1]).map((total) => {
+              const differenceColour =
+                total[1].difference < 0 ? 'red' : 'green';
+              const currentValue = `£${formatNumberWithCommas(
+                total[1].current || total[1]
+              )}`;
+              const diffenceValue = isNaN(total[1].difference)
+                ? 'N/A'
+                : `${formatNumberWithCommas(total[1].difference)}`;
+
+              return (
+                <Box
+                  key={total[0]}
+                  sx={{
+                    display: 'flex',
+                    margin: '10px 0',
+                    flexDirection: {
+                      xs: 'row',
+                      sm: 'row',
+                    },
+
+                    alignItems: {
+                      xs: 'center',
+                      sm: 'flex-start',
+                    },
+                    justifyContent: {
+                      sm: 'flex-start',
+                    },
+                    fontFamily: theme.typography.body1,
+                  }}
+                >
+                  <Typography
                     sx={{
-                      display: 'flex',
-                      margin: '10px 0',
-                      flexDirection: {
-                        xs: 'column',
-                        sm: 'row',
-                      },
-                      alignItems: {
-                        xs: 'center',
-                        sm: 'flex-start',
-                      },
-                      fontFamily: theme.typography.body1,
+                      textTransform: 'uppercase',
+                      marginRight: '5px',
+                      flexBasis: '30%',
                     }}
                   >
-                    <Box sx={{ display: 'flex', justifyContent: 'row' }}>
-                      <Typography
-                        sx={{ textTransform: 'capitalize', marginRight: '5px' }}
-                      >
-                        {total[0]}:
-                      </Typography>
-                      <Typography>£{formatNumber(total[1])}</Typography>
-                    </Box>
-                  </Box>
-                );
-              })}
-            </Box>
-          );
-        })}
+                    <strong>{total[0]}:</strong>
+                  </Typography>
+                  <Typography sx={{ width: '100px' }}>
+                    {currentValue}
+                  </Typography>
+                  <Typography sx={{ color: differenceColour }}>
+                    {diffenceValue}
+                  </Typography>
+                </Box>
+              );
+            })}
+          </Box>
+        );
+      })}
     </Box>
   );
 };

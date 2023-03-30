@@ -1,18 +1,18 @@
 import { Box } from '@mui/material';
 import Link from 'next/link';
 import { SnapshotDetailOverview } from './SnapshotDetailOverview';
-import { SnapshotWithTotals } from '../../sites/finance/global/types';
+import { Snapshot } from '@/sites/finance/global/types';
 
 type SnapshotTotalsListProps = {
-  snapshotsWithTotals: SnapshotWithTotals[];
+  snapshots: Snapshot[];
 };
 
 export const SnapshotTotalsList = (props: SnapshotTotalsListProps) => {
-  const { snapshotsWithTotals } = props;
+  const { snapshots } = props;
 
   return (
     <>
-      {snapshotsWithTotals?.map((snapshot) => {
+      {snapshots?.map((snapshot) => {
         return (
           <Box key={snapshot.snapshotId} sx={{ marginBottom: '40px' }}>
             <Link href={`/finance-tracker/snapshots/${snapshot.snapshotId}`}>

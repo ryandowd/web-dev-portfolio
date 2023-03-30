@@ -1,12 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { FieldDetail, SnapshotWithTotals } from '../../global/types';
+import { FieldDetail, Snapshot } from '../../global/types';
 import type { SelectChangeEvent } from '@mui/material';
 
 type SnapshotFormSelectFieldProps = {
   field: [string, string];
   fieldDetail: FieldDetail;
   rowIndex: number;
-  setSnapshotState: (snapshot: SnapshotWithTotals) => void;
+  setSnapshotState: (snapshot: Snapshot) => void;
 };
 
 export const SnapshotFormSelectField = (
@@ -19,7 +19,7 @@ export const SnapshotFormSelectField = (
     event: SelectChangeEvent<HTMLSelectElement>
   ) {
     // @ts-ignore
-    setSnapshotState((prevState: SnapshotWithTotals) => {
+    setSnapshotState((prevState: Snapshot) => {
       const updatedAssets = prevState.snapshotAssets.map(
         (asset: object, index: number) => {
           if (index === rowIndex) {
@@ -43,7 +43,6 @@ export const SnapshotFormSelectField = (
 
   // @ts-ignore
   const menuItem = Object.entries(fieldDetail.selectOptions)?.map((option) => {
-    console.log('option', option);
     return (
       <MenuItem key={option[0]} value={option[0]}>
         {option[1]}

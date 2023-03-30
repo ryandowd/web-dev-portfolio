@@ -4,7 +4,7 @@ import { Container } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
 import { SnapshotDetailOverview } from './SnapshotDetailOverview';
-import { Snapshot, SnapshotWithTotals } from '@/sites/finance/global/types';
+import { Snapshot } from '@/sites/finance/global/types';
 import { SnapshotDetailTable } from './SnapshotDetailTable';
 import { SnapshotDatepicker } from './SnapshotForm/SnapshotDatepicker';
 import { UpdateSnapshotForm } from './SnapshotForm/UpdateSnapshotForm';
@@ -15,17 +15,17 @@ import {
   formatNumberWithCommas,
   formatPieChartData,
 } from '@/sites/finance/utils';
+import { SnapshotAssetBarChart } from './SnapshotAssetBarChart';
 
 type SnapshotDetailPageProps = {
-  snapshot: SnapshotWithTotals;
+  snapshot: Snapshot;
 };
 
 export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
   const { snapshot } = props;
   const { isUpdateLoading, updateSnapshotFormHandler, deleteSnapshotHandler } =
     useSnapshots();
-  const [snapshotState, setSnapshotState] =
-    useState<SnapshotWithTotals>(snapshot);
+  const [snapshotState, setSnapshotState] = useState<Snapshot>(snapshot);
   const [isEditing, setIsEditing] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
 
@@ -48,12 +48,14 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         sx={{ display: 'flex', flexDirection: 'column', marginBottom: '200px' }}
       >
         <Box sx={{ margin: '20px 0 0' }}>
-          <Typography
-            variant='h3'
-            sx={{ margin: '30px 0 50px', textAlign: 'center' }}
-          >
-            Total: £{formatNumberWithCommas(snapshot.total)}
-          </Typography>
+          {snapshot.total && (
+            <Typography
+              variant='h3'
+              sx={{ margin: '30px 0 50px', textAlign: 'center' }}
+            >
+              Total: £{formatNumberWithCommas(snapshot.total)}
+            </Typography>
+          )}
           <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>
@@ -65,6 +67,7 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
           types={formatPieChartData(snapshot, 'types')}
           currencies={formatPieChartData(snapshot, 'currencies')}
         />
+        <SnapshotAssetBarChart snapshot={snapshot} />
         <Box
           sx={{
             display: 'flex',

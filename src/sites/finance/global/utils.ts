@@ -1,10 +1,10 @@
+import { exchangeRatesToGBP } from './constants';
 import { SnapshotAssetsField } from './types';
 
 export const sortByString = (
   array: SnapshotAssetsField[],
   valueKey: string
 ) => {
-  console.log('array', array);
   const sortedArray = array.sort(function (rowA, rowB) {
     const nameA = rowA[valueKey as keyof SnapshotAssetsField];
     const nameB = rowB[valueKey as keyof SnapshotAssetsField];
@@ -49,8 +49,12 @@ export const sortArrayByValue = (
     : sortByNumber(array, valueKey);
 };
 
-export const formatNumber = (string: string) => {
-  const number = Number(string).toFixed(2);
-  return Number(number).toLocaleString();
-  return string;
+export const convertAssetToCurrentCurrency = (
+  asset: SnapshotAssetsField
+): number => {
+  const assetValueInCurrency =
+    asset.assetValue *
+    exchangeRatesToGBP[asset.assetCurrency.toUpperCase() as keyof Currencies];
+
+  return assetValueInCurrency;
 };

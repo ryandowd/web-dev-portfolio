@@ -30,7 +30,6 @@ export const SnapshotDetailOverviewTotal = (
       }}
     >
       {Object.entries(snapshot.snapshotTotals).map((totalTypes, index) => {
-        // if (totalTypes[0] === 'currencies') return null;
         return (
           <Box
             key={index}
@@ -41,8 +40,6 @@ export const SnapshotDetailOverviewTotal = (
                 md: '0 0 32%',
               },
               padding: '10px 15px 15px 15px',
-              // border: '1px solid red',
-
               alignItems: {
                 xs: 'center',
               },
@@ -55,7 +52,7 @@ export const SnapshotDetailOverviewTotal = (
                 textTransform: 'capitalize',
                 textDecoration: 'underline',
                 textAlign: 'center',
-                paddingBottom: '20px',
+                paddingBottom: '15px',
                 marginBottom: '20px',
                 borderBottom: `1px solid ${theme.palette.grey[200]}`,
               }}

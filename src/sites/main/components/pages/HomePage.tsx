@@ -7,6 +7,7 @@ import {
   CardContent,
   Typography,
   Grid,
+  Button,
 } from '@mui/material';
 import NextLink from 'next/link';
 import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
@@ -20,17 +21,21 @@ export const HomePage = () => {
       <NextLink href='/portfolio'>
         <CardActionArea>
           <CardMedia
-            sx={{ height: 140 }}
+            sx={{
+              height: 280,
+              backgroundPosition: '0 0',
+            }}
             image='assets/images/banner-portfolio.png'
-            title='green iguana'
+            title='portfolio banner'
           />
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography
+              gutterBottom
+              variant='h5'
+              component='div'
+              textAlign='center'
+            >
               Portfolio
-            </Typography>
-            <Typography variant='body2' color='text.secondary'>
-              My web developer portfolio. Showing a timeline of my career as a
-              web developer and a list of my current skillsets.
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -43,17 +48,18 @@ export const HomePage = () => {
       <NextLink href='/finance-tracker'>
         <CardActionArea>
           <CardMedia
-            sx={{ height: 140 }}
-            image='assets/images/banner-portfolio.png'
-            title='green iguana'
+            sx={{ height: 280, backgroundPosition: '0 0' }}
+            image='assets/images/banner-finance.png'
+            title='finance banner'
           />
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography
+              gutterBottom
+              variant='h5'
+              component='div'
+              textAlign='center'
+            >
               Finance Tracker
-            </Typography>
-            <Typography variant='body2' color='text.secondary'>
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -65,19 +71,23 @@ export const HomePage = () => {
     <>
       <GlobalNav>
         {!session ? (
-          <Link
-            href='/auth/signin'
-            sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
-          >
-            Sign In
-          </Link>
+          <Button variant='contained'>
+            <Link
+              href='/auth/signin'
+              sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
+            >
+              Sign In
+            </Link>
+          </Button>
         ) : (
-          <Link
-            onClick={() => signOut()}
-            sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
-          >
-            Sign Out
-          </Link>
+          <Button variant='contained'>
+            <Link
+              onClick={() => signOut()}
+              sx={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }}
+            >
+              Sign Out
+            </Link>
+          </Button>
         )}
       </GlobalNav>
 

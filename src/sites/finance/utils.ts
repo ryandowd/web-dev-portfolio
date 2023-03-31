@@ -1,10 +1,4 @@
-import { exchangeRatesToGBP } from '@/sites/finance/global/constants';
-import {
-  Currencies,
-  SnapshotAssetsField,
-  SnapshotTotals,
-  Snapshot,
-} from '@/sites/finance/global/types';
+import { SnapshotTotals } from '@/sites/finance/global/types';
 
 export const formatNumberWithCommas = (value: number) => {
   const isFractional = Number(value) % 1 != 0;
@@ -13,7 +7,7 @@ export const formatNumberWithCommas = (value: number) => {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       })
-    : value;
+    : (Number(value) || value).toLocaleString();
 };
 
 type PieChartData = {

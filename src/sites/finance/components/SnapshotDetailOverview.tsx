@@ -29,6 +29,10 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
         margin: '10px',
         width: '100%',
         borderRadius: 0,
+        transition: 'all 0.3s ease-in-out',
+        '&:hover': {
+          transform: 'scale(1.03)',
+        },
       }}
     >
       <Box
@@ -68,7 +72,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
             sx={{
               marginBottom: {
                 xs: '10px',
-                md: 0,
+                md: '30px',
               },
               display: 'flex',
             }}

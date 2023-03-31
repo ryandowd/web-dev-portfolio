@@ -11,10 +11,14 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
-import { SnapshotAssetsField } from '@/sites/finance/global/types';
+import {
+  CurrencySymbols,
+  SnapshotAssetsField,
+} from '@/sites/finance/global/types';
 import { sortArrayByValue } from '@/sites/finance/global/utils';
 import { formatNumberWithCommas } from '../utils';
 import { TableSort } from './ui/TableSort';
+import { currencySymbols } from '@/sites/finance/global/constants';
 
 type SnapshotDetailTableProps = {
   rows: SnapshotAssetsField[];
@@ -93,6 +97,12 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
               row.difference === 'nomatch'
                 ? 'Currency change'
                 : formatNumberWithCommas(row.difference);
+
+            let currencySymbol =
+              currencySymbols[
+                row.assetCurrency.toUpperCase() as keyof CurrencySymbols
+              ];
+
             return (
               <TableRow
                 key={row.assetId}
@@ -109,14 +119,21 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
                     sx={{ display: 'flex', justifyContent: 'space-between' }}
                   >
                     <Typography>
+                      {currencySymbol}
                       {formatNumberWithCommas(row.assetValue)}
                     </Typography>
                     <Typography>{differenceValue}</Typography>
                   </Box>
                 </TableCell>
-                <TableCell>{row.assetType}</TableCell>
-                <TableCell>{row.assetCurrency}</TableCell>
-                <TableCell>{row.assetOwner}</TableCell>
+                <TableCell sx={{ textTransform: 'capitalize' }}>
+                  {row.assetType}
+                </TableCell>
+                <TableCell sx={{ textTransform: 'uppercase' }}>
+                  {row.assetCurrency}
+                </TableCell>
+                <TableCell sx={{ textTransform: 'capitalize' }}>
+                  {row.assetOwner}
+                </TableCell>
               </TableRow>
             );
           })}

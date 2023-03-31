@@ -1,9 +1,9 @@
-import { Currencies, FieldDetails } from './types';
+import { Currencies, FieldDetails, CurrencySymbols } from './types';
 
 export const dateFormat = 'YYYY/MM/DD';
 export const humanDateFormat = 'DD MMMM YYYY';
 
-export const currencySymbols = {
+export const currencySymbols: CurrencySymbols = {
   GBP: '£',
   AUD: '$',
   EURO: '€',

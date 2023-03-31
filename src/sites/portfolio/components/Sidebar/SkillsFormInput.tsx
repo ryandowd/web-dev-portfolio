@@ -29,8 +29,8 @@ export const SkillsFormInput = (props: SkillsFormInputProps) => {
         onChange={(event) => handleInputChange(event, index)}
         style={{ width: '100%', marginRight: '10px' }}
       />
-      <IconButton>
-        <DeleteForeverIcon onClick={() => removeSkillHandler(index)} />
+      <IconButton onClick={() => removeSkillHandler(index)}>
+        <DeleteForeverIcon />
       </IconButton>
     </ListItem>
   );

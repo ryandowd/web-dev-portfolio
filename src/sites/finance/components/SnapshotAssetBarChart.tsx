@@ -2,8 +2,7 @@ import { Box } from '@mui/system';
 import { useEffect, useMemo, useRef } from 'react';
 import * as echarts from 'echarts';
 import { Snapshot } from '../global/types';
-import { convertAssetToCurrentCurrency } from '../global/utils';
-import { formatNumberWithCommas } from '../utils';
+import { convertAssetToGBPCurrency } from '../global/utils';
 
 type SnapshotAssetBarChartProps = {
   snapshot: Snapshot;
@@ -18,17 +17,23 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
       let assetValue: string | number = asset.assetValue;
 
       if (asset.assetCurrency !== 'gbp') {
-        assetValue = convertAssetToCurrentCurrency(asset).toFixed();
+        assetValue = convertAssetToGBPCurrency(asset).toFixed();
+        console.log('assetValue', assetValue);
       }
 
       return [asset.assetName, assetValue];
     })
     .filter((asset) => asset[1] > 1000);
 
+  const legendsData = dataSource.map((source) => source[0]);
+
+  console.log('dataSource', dataSource);
+  console.log('legendsData', legendsData);
+
   const chartOptions = useMemo(
     () => ({
       legend: {
-        data: dataSource.map((source) => source[0]),
+        data: legendsData,
       },
       label: {
         show: true,
@@ -65,6 +70,8 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
     }),
     [dataSource]
   );
+
+  console.log('123', JSON.stringify(chartOptions));
 
   useEffect(() => {
     if (chartRef.current) {

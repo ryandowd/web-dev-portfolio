@@ -10,11 +10,11 @@ export const TableSort = (props: TableSortProps) => {
   const { handler, sortValue } = props;
   return (
     <>
-      <IconButton>
-        <ArrowUpward onClick={() => handler(sortValue)} />
+      <IconButton onClick={() => handler(sortValue)}>
+        <ArrowUpward />
       </IconButton>
-      <IconButton>
-        <ArrowDownward onClick={() => handler(sortValue, true)} />
+      <IconButton onClick={() => handler(sortValue, true)}>
+        <ArrowDownward />
       </IconButton>
     </>
   );

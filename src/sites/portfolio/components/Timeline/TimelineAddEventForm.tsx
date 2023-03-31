@@ -91,8 +91,8 @@ export const TimelineAddEventForm = (props: TimelineAddEventFormProps) => {
         padding: '30px 20px 40px',
       }}
     >
-      <IconButton>
-        <CancelIcon onClick={closeFormHandler} />
+      <IconButton onClick={closeFormHandler}>
+        <CancelIcon />
       </IconButton>
       <Typography variant='h5' sx={{ mb: 1, textAlign: 'center' }}>
         Add new event

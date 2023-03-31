@@ -61,13 +61,13 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>
           Toggle Legend
         </Button>
-        {/* <SnapshotDetailPieChart
+        <SnapshotDetailPieChart
           showLegend={showLegend}
           owners={formatPieChartData(snapshot, 'owners')}
           types={formatPieChartData(snapshot, 'types')}
           currencies={formatPieChartData(snapshot, 'currencies')}
         />
-        <SnapshotAssetBarChart snapshot={snapshot} /> */}
+        <SnapshotAssetBarChart snapshot={snapshot} />
         <Box
           sx={{
             display: 'flex',

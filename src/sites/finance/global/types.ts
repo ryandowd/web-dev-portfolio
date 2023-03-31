@@ -59,3 +59,7 @@ export type FieldDetails = {
 export type Currencies = {
   [key: string]: number;
 };
+
+export type CurrencySymbols = {
+  [key: string]: string;
+};

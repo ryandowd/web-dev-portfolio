@@ -58,3 +58,11 @@ export const convertAssetToCurrentCurrency = (
 
   return assetValueInCurrency;
 };
+
+export const convertAssetToGBPCurrency = (
+  asset: SnapshotAssetsField
+): number => {
+  const assetValueInGBP =
+    asset.assetValue * exchangeRatesToGBP[asset.assetCurrency.toUpperCase()];
+  return assetValueInGBP;
+};

@@ -74,12 +74,17 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         }}
       >
         {snapshot?.snapshotAssets?.map((asset: any, index: number) => {
+          console.log('asset', asset);
           return (
             <Box key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               {Object.entries(asset)?.map((field: any) => {
-                const isNotAssetId = field[0] !== 'assetId';
+                const notIgnoredFields =
+                  field[0] !== 'assetId' && field[0] !== 'difference';
+
+                console.log('snapshot field[0]', field[0]);
+                console.log('snapshot notIgnoredFields', notIgnoredFields);
                 return (
-                  isNotAssetId && (
+                  notIgnoredFields && (
                     <SnapshotFormField
                       key={field[0]}
                       field={field}

@@ -40,7 +40,7 @@ export const SnapshotDetailOverviewTotal = (
                 xs: '0 0 100%',
                 md: '0 0 32%',
               },
-              padding: '15px',
+              padding: '10px 15px 15px 15px',
               // border: '1px solid red',
 
               alignItems: {
@@ -55,7 +55,9 @@ export const SnapshotDetailOverviewTotal = (
                 textTransform: 'capitalize',
                 textDecoration: 'underline',
                 textAlign: 'center',
+                paddingBottom: '20px',
                 marginBottom: '20px',
+                borderBottom: `1px solid ${theme.palette.grey[200]}`,
               }}
             >
               {totalTypes[0]}
@@ -63,7 +65,9 @@ export const SnapshotDetailOverviewTotal = (
             {Object.entries(totalTypes[1]).map((total) => {
               const differenceColour =
                 total[1].difference < 0 ? 'red' : 'green';
+
               const currentValue = `£${formatNumberWithCommas(
+                // @ts-ignore
                 total[1].current || total[1]
               )}`;
               const diffenceValue = isNaN(total[1].difference)

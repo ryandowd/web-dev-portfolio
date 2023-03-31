@@ -26,6 +26,7 @@ export async function getStaticProps() {
   const previousSnapshot = snapshots[0];
 
   if (previousSnapshot) {
+    // @ts-ignore
     delete previousSnapshot._id;
   }
 

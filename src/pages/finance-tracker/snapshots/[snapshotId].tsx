@@ -27,10 +27,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   const client = await connectToDatabase('finance');
   const snapshots = await getAllDocuments(client, 'snapshots');
+  // @ts-ignore
   const orderedSnapshots = orderSnapshotsByDate(snapshots);
 
   client.close();
 
+  // @ts-ignore
   const currSnapshotIndex = snapshots.findIndex((currSnapshot: Snapshot) => {
     return currSnapshot.snapshotId === snapshotId;
   });
@@ -80,6 +82,7 @@ export async function getStaticPaths() {
 
   client.close();
 
+  // @ts-ignore
   const paths = snapshots.map((snapshot: Snapshot) => ({
     params: { snapshotId: snapshot.snapshotId },
   }));

@@ -24,6 +24,7 @@ export async function getStaticPaths() {
   const client = await connectToDatabase('portfolio');
   const events = await getAllDocuments(client, 'events');
 
+  // @ts-ignore
   const paths = events.map((event: EventProps) => ({
     params: { eventId: event.eventId },
   }));

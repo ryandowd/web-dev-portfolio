@@ -17,7 +17,7 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
 
   const dataSource = snapshot.snapshotAssets
     .map((asset) => {
-      let assetValue = asset.assetValue;
+      let assetValue: string | number = asset.assetValue;
 
       if (asset.assetCurrency !== 'gbp') {
         assetValue = convertAssetToCurrentCurrency(asset).toFixed();
@@ -25,12 +25,13 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
 
       return [asset.assetName, assetValue];
     })
-    .filter((asset) => asset[1] > 0);
-
-  console.log('dataSource', dataSource);
+    .filter((asset) => asset[1] > 1000);
 
   const chartOptions = useMemo(
     () => ({
+      legend: {
+        data: dataSource.map((source) => source[0]),
+      },
       label: {
         show: true,
       },
@@ -48,7 +49,7 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
       ],
       xAxis: {
         type: 'category',
-        axisLabel: { interval: 0, rotate: 30, overflow: 'break' },
+        axisLabel: { interval: 0, rotate: 20, overflow: 'break' },
       },
       tooltip: {
         trigger: 'axis',
@@ -64,15 +65,21 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
         colorBy: 'data',
       },
     }),
-    []
+    [dataSource]
   );
 
   useEffect(() => {
     if (chartRef.current) {
       const myChart = echarts.init(chartRef.current);
+
+      console.log(JSON.stringify(chartOptions));
       // Draw the chart
       myChart.clear();
       myChart.setOption(chartOptions);
+
+      myChart.on('click', function (params) {
+        console.log('123', params);
+      });
     }
   }, [chartRef, chartOptions]);
 

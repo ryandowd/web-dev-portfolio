@@ -3,13 +3,9 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { EventProps } from '@/sites/portfolio/types';
-import { Snapshot } from '../../sites/finance/global/types';
-// import { dateFormat } from './global/constants';
-// import { v4 as uuid } from 'uuid';
-// import dayjs from 'dayjs';
+import { Snapshot } from '@/sites/finance/global/types';
 
 export const useSnapshots = () => {
-  // const [snapshots, setSnapshots] = useState<Snapshot[]>([defaultSnapshot]);
   const router = useRouter();
 
   // Create

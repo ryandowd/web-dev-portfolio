@@ -27,23 +27,23 @@ export const FinanceDashboardAreaChart = (
     .reverse();
 
   const owners = ['Ryan', 'Kay', 'Joint'];
+
+  // @ts-ignore
   const ownersArray = owners.map((owner) => {
     const _owner = owner.toLowerCase();
     return {
       name: _owner,
       data: snapshots
-        .map((snapshot) => {
-          return (
-            (snapshot.snapshotTotals.owners &&
-              snapshot.snapshotTotals.owners[_owner].current) ||
-            snapshot.snapshotTotals.owners[_owner]
-          );
+        .map((snapshot: Snapshot) => {
+          // @ts-ignore
+          const ownerTotal = snapshot.snapshotTotals.owners[_owner];
+          return ownerTotal.current || ownerTotal;
         })
         .reverse(),
     };
   });
 
-  const chartStacks = ownersArray.map((owner) => {
+  const chartStacks = ownersArray.map((owner: any) => {
     return {
       name: owner.name.charAt(0).toUpperCase() + owner.name.slice(1),
       data: owner.data,
@@ -94,7 +94,7 @@ export const FinanceDashboardAreaChart = (
         ...chartStacks,
       ],
     }),
-    [totals, dates]
+    [totals, dates, chartStacks, owners]
   );
 
   useEffect(() => {

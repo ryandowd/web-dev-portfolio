@@ -48,14 +48,14 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         sx={{ display: 'flex', flexDirection: 'column', marginBottom: '200px' }}
       >
         <Box sx={{ margin: '20px 0 0' }}>
-          {snapshot.total && (
+          {/* {snapshot.total && (
             <Typography
               variant='h3'
               sx={{ margin: '30px 0 50px', textAlign: 'center' }}
             >
               Total: £{formatNumberWithCommas(snapshot.total)}
             </Typography>
-          )}
+          )} */}
           <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>

@@ -26,9 +26,11 @@ export const formatPieChartData = (
   valueKey: string
 ): PieChartData[] => {
   const pieChartData = Object.entries(snapshot.snapshotTotals[valueKey]).map(
-    (totalObj) => {
+    // @ts-ignore
+    (totalObj: { current: number; difference: number }[]) => {
       return {
         value: Number(totalObj[1].current).toFixed(2),
+        // @ts-ignore
         name: totalObj[0].toUpperCase(),
       };
     }

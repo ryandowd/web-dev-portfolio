@@ -4,7 +4,7 @@ import {
   MONGODB_FINANCE_URL,
 } from '@/sites/main/constants';
 
-export async function connectToDatabase(dbType) {
+export async function connectToDatabase(dbType: string) {
   let dbTypeUrl;
 
   switch (dbType) {
@@ -14,29 +14,48 @@ export async function connectToDatabase(dbType) {
     case 'finance':
       dbTypeUrl = MONGODB_FINANCE_URL;
       break;
+    default:
+      dbTypeUrl = MONGODB_PORTFOLIO_URL;
+      break;
   }
 
   const client = await MongoClient.connect(dbTypeUrl);
   return client;
 }
 
-export async function insertDocument(client, collection, document) {
+export async function insertDocument(
+  client: MongoClient,
+  collection: string,
+  document: any
+) {
   const db = client.db();
   const result = await db.collection(collection).insertOne(document);
   return result;
 }
 
-export async function getAllDocuments(client, collectionName) {
+export async function getAllDocuments(
+  client: MongoClient,
+  collectionName: string
+) {
   const db = client.db();
   const collection = await db.collection(collectionName);
   const documents = await collection.find().toArray();
   return documents;
 }
 
-export async function getDocument(idKey, id, client, collectionName) {
+export async function getDocument(
+  idKey: string,
+  id: string | string[] | undefined,
+  client: MongoClient,
+  collectionName: string
+) {
   const db = client.db();
   const collection = await db.collection(collectionName);
   const document = await collection.findOne({ [idKey]: id });
-  delete document._id;
-  return document;
+
+  if (document) {
+    // @ts-ignore
+    delete document._id;
+    return document;
+  }
 }

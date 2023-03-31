@@ -1,6 +1,6 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { Snapshot, Snapshot } from '../../global/types';
+import { Snapshot } from '../../global/types';
 import { SnapshotForm } from './SnapshotForm';
 
 type UpdateSnapshotFormProps = {

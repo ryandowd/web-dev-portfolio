@@ -1,4 +1,5 @@
 export interface EventProps {
+  _id?: string;
   eventId: string;
   title: string;
   logo: string | undefined;

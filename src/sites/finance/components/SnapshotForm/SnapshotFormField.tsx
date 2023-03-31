@@ -15,7 +15,10 @@ export const SnapshotFormField = (props: SnapshotFormFieldProps) => {
   const fieldDetail = fieldDetails[field[0] as keyof FieldDetails];
   const largeField = field[0] === 'assetName' ? '40%' : '20%';
 
-  let fieldType = fieldDetail.selectOptions ? (
+  // console.log('field[0]', field[0]);
+  // console.log('fieldDetail', fieldDetail);
+
+  let fieldType = fieldDetail?.selectOptions ? (
     <SnapshotFormSelectField
       field={field}
       fieldDetail={fieldDetail}

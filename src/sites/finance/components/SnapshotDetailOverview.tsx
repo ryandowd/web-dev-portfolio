@@ -1,12 +1,10 @@
-import { theme } from '@/styles/theme';
+import dayjs from 'dayjs';
+
 import { formatNumberWithCommas } from '@/sites/finance/utils';
 import { ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
 import { Typography, Paper } from '@mui/material';
 import { Box } from '@mui/system';
-import dayjs from 'dayjs';
-import { humanDateFormat } from '@/sites/finance/global/constants';
 import { Snapshot } from '@/sites/finance/global/types';
-import { formatNumber } from '@/sites/finance/global/utils';
 import { SnapshotDetailOverviewTotal } from './SnapshotDetailOverviewTotal';
 
 type SnapshotDetailOverviewProps = {
@@ -15,7 +13,7 @@ type SnapshotDetailOverviewProps = {
 
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const { snapshot } = props;
-  const isDifferenceNegative = snapshot.monthDifference < 0;
+  const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
   const differenceColour = isDifferenceNegative ? 'red' : 'green';
   const differenceIcon = isDifferenceNegative ? (
     <ArrowDropDown sx={{ color: differenceColour }} />
@@ -68,25 +66,13 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
         >
           <Box
             sx={{
-              margin: '0 0 10px',
+              marginBottom: {
+                xs: '10px',
+                md: 0,
+              },
               display: 'flex',
-              // flexDirection: 'column',
             }}
           >
-            {/* <Box sx={{ display: 'flex' }}> */}
-            {/* <Typography
-              variant='h5'
-              sx={{
-                fontSize: {
-                  xs: '1.5rem',
-                  md: '2.5rem',
-                },
-                padding: '5px',
-                color: '#e9e9e9',
-              }}
-            >
-              {dayjs(snapshot.snapshotDate).format('DD')}
-            </Typography> */}
             <Typography
               variant='h5'
               sx={{
@@ -94,7 +80,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                   xs: '3rem',
                   md: '2.5rem',
                 },
-                padding: '5px',
+                padding: '5px 5px 5px 0',
                 color: '#424242',
               }}
             >
@@ -116,16 +102,21 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
               {dayjs(snapshot.snapshotDate).format('YYYY')}
             </Typography>
           </Box>
-          <Typography variant='h5' sx={{ fontSize: '2rem' }}>
-            £{formatNumberWithCommas(snapshot.total)}
-          </Typography>
+          {snapshot.total && (
+            <Typography variant='h5' sx={{ fontSize: '2.2rem' }}>
+              £{formatNumberWithCommas(snapshot.total)}
+            </Typography>
+          )}
           {snapshot.monthDifference ? (
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: '20px',
+                marginTop: {
+                  xs: '20px',
+                  md: '5px',
+                },
               }}
             >
               <Typography
@@ -135,6 +126,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  fontSize: '2rem',
                 }}
               >
                 £{formatNumberWithCommas(snapshot.monthDifference)}

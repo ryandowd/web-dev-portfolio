@@ -1,5 +1,5 @@
 import { exchangeRatesToGBP } from './constants';
-import { SnapshotAssetsField } from './types';
+import { Currencies, SnapshotAssetsField } from './types';
 
 export const sortByString = (
   array: SnapshotAssetsField[],

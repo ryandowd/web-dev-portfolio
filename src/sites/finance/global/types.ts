@@ -10,13 +10,22 @@ export type SnapshotAssetsField = {
 
 export type SnapshotTotals = {
   owners?: {
-    [key: string]: string;
+    [key: string]: {
+      current: number;
+      difference: number;
+    };
   };
   types?: {
-    [key: string]: string;
+    [key: string]: {
+      current: number;
+      difference: number;
+    };
   };
   currencies?: {
-    [key: string]: string;
+    [key: string]: {
+      current: number;
+      difference: number;
+    };
   };
 };
 

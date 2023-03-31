@@ -2,7 +2,7 @@ import { Box } from '@mui/system';
 import { Snapshot } from '../../global/types';
 import { SnapshotDatepicker } from './SnapshotDatepicker';
 import { SnapshotForm } from './SnapshotForm';
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import { DateLong } from '../ui/DateLong';
 
 type AddSnapshotFormProps = {

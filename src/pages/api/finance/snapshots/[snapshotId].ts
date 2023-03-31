@@ -38,12 +38,12 @@ export default async function handler(
       'snapshots'
     );
 
-    delete snapshot._id;
-
-    if (!snapshot) {
+    if (snapshot) {
+      // @ts-ignore
+      delete snapshot._id;
+      res.status(200).json({ snapshot });
+    } else {
       res.status(404).json({ message: 'Could not find snapshot' });
     }
-
-    res.status(200).json({ snapshot });
   }
 }

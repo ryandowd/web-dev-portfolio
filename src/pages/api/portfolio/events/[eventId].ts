@@ -32,12 +32,13 @@ export default async function handler(
     const client = await connectToDatabase('portfolio');
     const eventId = req.query.eventId;
     const event = await getDocument('eventId', eventId, client, 'events');
-    delete event._id;
 
-    if (!event) {
+    if (event) {
+      // @ts-ignore
+      delete event._id;
+      res.status(200).json({ event });
+    } else {
       res.status(404).json({ message: 'Could not find event' });
     }
-
-    res.status(200).json({ event });
   }
 }

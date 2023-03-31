@@ -29,6 +29,7 @@ export const getAssetTypeTotals = (
     const { assetValue, assetCurrency } = asset;
     const assetKey = asset[assetTypeKey as keyof Snapshot['snapshotAssets'][0]];
     let assetValueInGBP;
+    // @ts-ignore
     const accValue = assetTypeTotal[assetKey as keyof typeof acc];
 
     // Normalise currency to GBP
@@ -89,11 +90,6 @@ export const appendAllSnaphotTotals = (snapshots: Snapshot[]) => {
 export const appendSnapshotTotal = (snapshot: Snapshot) => {
   const snapshotWithTotals = getAssetsTotals(snapshot);
 
-  // console.log(
-  //   'snapshotWithTotals.snapshotTotals',
-  //   snapshotWithTotals.snapshotTotals
-  // );
-
   return {
     ...snapshotWithTotals,
     total: findGBPTotal(snapshotWithTotals.snapshotTotals),
@@ -103,6 +99,7 @@ export const appendSnapshotTotal = (snapshot: Snapshot) => {
 export const appendMonthTotalDifferences = (snapshots: Snapshot[]) => {
   return snapshots.map((snapshot: Snapshot, index: number) => {
     const prevMonthTotal = snapshots[index + 1]?.total;
+    // @ts-ignore
     return appendMonthTotalDifference(snapshot, prevMonthTotal);
   });
 };
@@ -121,6 +118,7 @@ export const getMonthTotalDifference = (
   currentSnapshot: Snapshot,
   prevMonthTotal: number
 ) => {
+  // @ts-ignore
   const difference = currentSnapshot?.total - prevMonthTotal;
   return difference;
 };
@@ -144,13 +142,7 @@ export const getAssetDifferences = (
       const prevAssetValue = matchingAsset.assetValue;
       const currAssetValue = currSnapshotAsset.assetValue;
 
-      // isMatchingCurrency
-      //   ? matchingAsset.assetValue
-      //   : convertAssetToCurrentCurrency(
-      //       matchingAsset,
-      //       currSnapshotAsset.assetCurrency
-      //     ).assetValue;
-
+      // @ts-ignore
       difference = isMatchingCurrency
         ? currAssetValue - prevAssetValue
         : 'nomatch';
@@ -170,10 +162,13 @@ export const getTotalAssetDifference = (
   let assetTypeObject = {};
 
   for (const [assetKey, assetValue] of Object.entries(assetTypeValue)) {
+    // @ts-ignore
     const prevAssetValue = prevSnapshot.snapshotTotals[assetTypeName][assetKey];
 
+    // @ts-ignore
     assetTypeObject[assetKey] = {
       current: assetValue,
+      // @ts-ignore
       difference: prevAssetValue ? assetValue - prevAssetValue : 0,
     };
   }
@@ -194,9 +189,11 @@ export const getTotalAssetTypeDifferences = (
   for (const [assetKey, assetValue] of Object.entries(
     currSnapshot.snapshotTotals
   )) {
+    // @ts-ignore
     assetTypesObject[assetKey] = getTotalAssetDifference(
       prevSnapshot,
       assetKey,
+      // @ts-ignore
       assetValue
     );
   }

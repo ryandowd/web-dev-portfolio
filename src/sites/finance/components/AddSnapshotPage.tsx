@@ -1,25 +1,22 @@
 import { Container } from '@mui/system';
 import { AddSnapshotForm } from './SnapshotForm/AddSnapshotForm';
 import { useSnapshots } from '../hooks/use-snapshots';
-import {
-  Snapshot,
-  SnapshotAssetsField,
-  Snapshot,
-} from '../../sites/finance/global/types';
-import { uuid } from 'uuidv4';
+import { SnapshotAssetsField, Snapshot } from '@/sites/finance/global/types';
+import { v4 as uuid } from 'uuid';
 import dayjs from 'dayjs';
-import { dateFormat } from '../../sites/finance/global/constants';
+import { dateFormat } from '@/sites/finance/global/constants';
 import { Button } from '@mui/material';
-import { GlobalNav } from '../ui/GlobalNav';
+import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
 import { useState } from 'react';
 
 const snapshotFieldTemplate: SnapshotAssetsField = {
   assetId: uuid(),
-  assetName: null,
+  assetName: '',
   assetType: 'money',
   assetValue: 0,
   assetCurrency: 'gbp',
   assetOwner: 'joint',
+  difference: 0,
 };
 
 const snapshotTemplate: Snapshot = {
@@ -32,7 +29,7 @@ const snapshotTemplate: Snapshot = {
     currencies: undefined,
   },
   monthDifference: 0,
-  total: '',
+  total: 0,
 };
 
 type AddSnapshotPageProps = {

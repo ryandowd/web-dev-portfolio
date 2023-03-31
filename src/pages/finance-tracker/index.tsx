@@ -36,6 +36,7 @@ export async function getStaticProps() {
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
 
+  // @ts-ignore
   const deleteSnapshotIds = deleteMongoIds(allSnapshots);
   const orderedSnapshots = orderSnapshotsByDate(deleteSnapshotIds);
   const snapshotsWithTotals = appendAllSnaphotTotals(orderedSnapshots);

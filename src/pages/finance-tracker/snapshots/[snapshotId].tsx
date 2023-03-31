@@ -44,7 +44,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     currSnapshotWithAssetTotals
   );
 
-  const prevSnapshot = orderedSnapshots[currSnapshotIndex + 1];
+  // @TODO: This is horrible. Figure out a better way to skip over this
+  // if there is no previous snapshot.
+  const prevSnapshot =
+    orderedSnapshots[currSnapshotIndex + 1] || currSnapshotWithTotal;
+
+  console.log('prevSnapshot', prevSnapshot);
   const prevSnapshotWithAssetTotals = getAssetsTotals(prevSnapshot);
   const prevSnapshotTotal = appendSnapshotTotal(prevSnapshotWithAssetTotals);
 

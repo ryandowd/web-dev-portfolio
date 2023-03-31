@@ -1,4 +1,5 @@
-import { Add, DeleteForever } from '@mui/icons-material';
+import { DeleteForever } from '@mui/icons-material';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { LoadingButton } from '@mui/lab';
 import { IconButton } from '@mui/material';
 import { Box, Container } from '@mui/system';
@@ -59,6 +60,50 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
     }
   }
 
+  const groupedAssetsByOwner = snapshot?.snapshotAssets?.reduce(
+    (acc: any, asset: any) => {
+      const { assetOwner } = asset;
+      if (!acc[assetOwner]) {
+        acc[assetOwner] = [];
+      }
+      acc[assetOwner].push(asset);
+      return acc;
+    },
+    {}
+  );
+
+  const getAssetsByOwner = (ownerName: string) => {
+    return groupedAssetsByOwner[ownerName].map((asset: any, index: number) => {
+      const { assetId, difference, ...renderedAssetFields } = asset;
+      return (
+        <Box
+          key={index}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {Object.entries(renderedAssetFields)?.map((field: any) => {
+            return (
+              <SnapshotFormField
+                key={field[0]}
+                field={field}
+                setSnapshotState={setSnapshotState}
+                rowIndex={index}
+              />
+            );
+          })}
+          <IconButton>
+            <DeleteForever
+              onClick={() => deleteAssetRowHandler(asset.assetId)}
+            />
+          </IconButton>
+        </Box>
+      );
+    });
+  };
+
   return (
     <Container
       onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
@@ -73,38 +118,17 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
           flexDirection: 'column',
         }}
       >
-        {snapshot?.snapshotAssets?.map((asset: any, index: number) => {
-          console.log('asset', asset);
-          return (
-            <Box key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              {Object.entries(asset)?.map((field: any) => {
-                const notIgnoredFields =
-                  field[0] !== 'assetId' && field[0] !== 'difference';
-
-                console.log('snapshot field[0]', field[0]);
-                console.log('snapshot notIgnoredFields', notIgnoredFields);
-                return (
-                  notIgnoredFields && (
-                    <SnapshotFormField
-                      key={field[0]}
-                      field={field}
-                      setSnapshotState={setSnapshotState}
-                      rowIndex={index}
-                    />
-                  )
-                );
-              })}
-              <IconButton>
-                <DeleteForever
-                  onClick={() => deleteAssetRowHandler(asset.assetId)}
-                />
-              </IconButton>
-            </Box>
-          );
+        {Object.keys(groupedAssetsByOwner).map((ownerName) => {
+          return getAssetsByOwner(ownerName);
         })}
-        <IconButton onClick={addAssetRowHandler}>
-          <Add />
-        </IconButton>
+        <Box sx={{ display: 'flex', justifyContent: 'center', margin: '30px' }}>
+          <IconButton onClick={addAssetRowHandler}>
+            <AddCircleOutlineIcon
+              color='primary'
+              sx={{ width: '50px', height: '50px' }}
+            />
+          </IconButton>
+        </Box>
       </Box>
       <LoadingButton
         fullWidth
@@ -112,7 +136,7 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         loading={isLoading}
         loadingPosition='end'
         variant='contained'
-        sx={{ marginTop: '10px' }}
+        sx={{ marginTop: '10px', padding: '20px', fontSize: '1.4rem' }}
       >
         {submitButtonText}
       </LoadingButton>

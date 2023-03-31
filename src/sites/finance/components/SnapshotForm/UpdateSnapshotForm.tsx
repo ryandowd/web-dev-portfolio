@@ -35,16 +35,15 @@ export const UpdateSnapshotForm = (props: UpdateSnapshotFormProps) => {
         setSnapshotState={setSnapshotState}
         submitFormHandler={submitFormHandler}
       />
-      <Container sx={{ marginTop: '10px' }}>
-        <Button
-          fullWidth
-          variant='contained'
-          color='error'
-          onClick={() => deleteSnapshotHandler(snapshot.snapshotId)}
-        >
-          Delete snapshot
-        </Button>
-      </Container>
+      <Button
+        fullWidth
+        variant='contained'
+        color='error'
+        onClick={() => deleteSnapshotHandler(snapshot.snapshotId)}
+        sx={{ marginTop: '30px', padding: '20px', fontSize: '1.4rem' }}
+      >
+        Delete snapshot
+      </Button>
     </Box>
   );
 };

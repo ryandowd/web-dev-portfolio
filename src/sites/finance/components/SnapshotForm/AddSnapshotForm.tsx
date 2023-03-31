@@ -33,7 +33,14 @@ export const AddSnapshotForm = (props: AddSnapshotFormProps) => {
   }
 
   return (
-    <Box sx={{ margin: '10px 0' }}>
+    <Box
+      sx={{
+        margin: '40px 0',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       <DateLong dateValue={snapshotState.snapshotDate} />
       <SnapshotDatepicker
         snapshot={snapshotState}

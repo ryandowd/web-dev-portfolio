@@ -72,7 +72,6 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
     if (chartRef.current) {
       const myChart = echarts.init(chartRef.current);
 
-      console.log(JSON.stringify(chartOptions));
       // Draw the chart
       myChart.clear();
       myChart.setOption(chartOptions);

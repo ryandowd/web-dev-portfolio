@@ -10,7 +10,7 @@ export default async function handler(
     const client = await connectToDatabase('finance');
     const db = client.db();
 
-    const result = await db.collection('events').deleteOne({ snapshotId });
+    const result = await db.collection('snapshots').deleteOne({ snapshotId });
 
     res.status(200).json({ message: 'Successfully deleted snapshot', result });
   }

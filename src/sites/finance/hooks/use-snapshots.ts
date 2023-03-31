@@ -73,6 +73,9 @@ export const useSnapshots = () => {
         },
       });
     },
+    onSuccess: () => {
+      router.replace('/finance-tracker');
+    },
   });
 
   function createAddSnapshotHandler(AddSnapshot: EventProps) {

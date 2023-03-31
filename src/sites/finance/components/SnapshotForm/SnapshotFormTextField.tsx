@@ -57,6 +57,7 @@ export const SnapshotFormTextField = (props: SnapshotFormTextFieldProps) => {
       label={fieldDetail.name}
       name={field[0]}
       onChange={(event) => formInputChangeHandler(event)}
+      sx={{ margin: 0, padding: 0 }}
     />
   );
 };

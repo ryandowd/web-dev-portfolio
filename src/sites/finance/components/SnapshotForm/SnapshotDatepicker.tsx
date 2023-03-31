@@ -25,7 +25,7 @@ export const SnapshotDatepicker = (props: SnapshotDatepickerProps) => {
   }
 
   return (
-    <Box sx={{ display: 'flex', margin: '20px 0', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', margin: '20px 0 40px', alignItems: 'center' }}>
       <DatePicker
         format={humanDateFormat}
         value={dayjs(snapshot.snapshotDate)}

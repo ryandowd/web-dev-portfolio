@@ -152,7 +152,7 @@ export const SignUpFormCredentials = () => {
           type='submit'
           fullWidth
           loading={signInLoading}
-          loadingPosition='end'
+          // loadingPosition='end'
           variant='contained'
           sx={{ mt: 3, mb: 2 }}
         >

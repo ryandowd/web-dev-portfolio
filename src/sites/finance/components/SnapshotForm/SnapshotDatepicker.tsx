@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { humanDateFormat, dateFormat } from '../../global/constants';
@@ -25,7 +25,14 @@ export const SnapshotDatepicker = (props: SnapshotDatepickerProps) => {
   }
 
   return (
-    <Box sx={{ display: 'flex', margin: '20px 0 40px', alignItems: 'center' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        margin: '20px 0 40px',
+        alignItems: 'center',
+        backgroundColor: '#FFF',
+      }}
+    >
       <DatePicker
         format={humanDateFormat}
         value={dayjs(snapshot.snapshotDate)}

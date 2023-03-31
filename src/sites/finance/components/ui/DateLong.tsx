@@ -11,8 +11,8 @@ export const DateLong = (props: DateLongProps) => {
   dayjs.extend(advancedFormat);
 
   return (
-    <Typography variant='h3' textAlign='center'>
-      <span>New snapshot for </span>
+    <Typography variant='h3' textAlign='center' marginBottom={3} marginTop={4}>
+      <span>Snapshot for </span>
       <strong>{dayjs(dateValue).format('Do MMMM YYYY')}</strong>
     </Typography>
   );

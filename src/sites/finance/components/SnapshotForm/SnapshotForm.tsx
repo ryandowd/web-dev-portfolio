@@ -1,8 +1,9 @@
 import { DeleteForever } from '@mui/icons-material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { LoadingButton } from '@mui/lab';
-import { IconButton } from '@mui/material';
+import { IconButton, Paper, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
+import { useCallback, useEffect, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Snapshot } from '../../global/types';
 import { SnapshotFormField } from './SnapshotFormField';
@@ -23,6 +24,12 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
     setSnapshotState,
     submitFormHandler,
   } = props;
+
+  // const ownerColours = {
+  //   kay: '#ffffff',
+  //   joint: '#efefef',
+  //   ryan: '#dedede',
+  // };
 
   function addAssetRowHandler() {
     // @ts-ignore
@@ -60,49 +67,79 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
     }
   }
 
-  const groupedAssetsByOwner = snapshot?.snapshotAssets?.reduce(
-    (acc: any, asset: any) => {
+  // const snapshotFields = snapshot?.snapshotAssets?.map((asset: any) => {
+  //   const { assetId, difference, ...renderedAssetFields } = asset;
+  //   return (
+  //     <Box
+  //       key={asset.assetName}
+  //       sx={{
+  //         display: 'flex',
+  //         justifyContent: 'center',
+  //         alignItems: 'center',
+  //       }}
+  //     >
+  //       {Object.entries(renderedAssetFields)?.map((field: any) => {
+  //         return (
+  //           <SnapshotFormField
+  //             key={field[0]}
+  //             field={field}
+  //             setSnapshotState={setSnapshotState}
+  //             rowIndex={asset.assetName}
+  //           />
+  //         );
+  //       })}
+  //       <IconButton onClick={() => deleteAssetRowHandler(asset.assetId)}>
+  //         <DeleteForever />
+  //       </IconButton>
+  //     </Box>
+  //   );
+  // });
+
+  const groupedAssetsByOwner = useMemo(() => {
+    return snapshot?.snapshotAssets?.reduce((acc: any, asset: any) => {
       const { assetOwner } = asset;
       if (!acc[assetOwner]) {
         acc[assetOwner] = [];
       }
       acc[assetOwner].push(asset);
       return acc;
-    },
-    {}
-  );
+    }, {});
+  }, [snapshot]);
 
-  const getAssetsByOwner = (ownerName: string) => {
-    return groupedAssetsByOwner[ownerName].map((asset: any, index: number) => {
-      const { assetId, difference, ...renderedAssetFields } = asset;
-      return (
-        <Box
-          key={index}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {Object.entries(renderedAssetFields)?.map((field: any) => {
-            return (
-              <SnapshotFormField
-                key={field[0]}
-                field={field}
-                setSnapshotState={setSnapshotState}
-                rowIndex={index}
+  const getAssetsByOwner = useCallback(
+    (ownerName: string) => {
+      return groupedAssetsByOwner[ownerName].map((asset: any) => {
+        const { assetId, difference, ...renderedAssetFields } = asset;
+        return (
+          <Box
+            key={asset.assetId}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            {Object.entries(renderedAssetFields)?.map((field: any) => {
+              return (
+                <SnapshotFormField
+                  key={field[0]}
+                  field={field}
+                  setSnapshotState={setSnapshotState}
+                  rowIndex={asset.assetId}
+                />
+              );
+            })}
+            <IconButton>
+              <DeleteForever
+                onClick={() => deleteAssetRowHandler(asset.assetId)}
               />
-            );
-          })}
-          <IconButton>
-            <DeleteForever
-              onClick={() => deleteAssetRowHandler(asset.assetId)}
-            />
-          </IconButton>
-        </Box>
-      );
-    });
-  };
+            </IconButton>
+          </Box>
+        );
+      });
+    },
+    [groupedAssetsByOwner]
+  );
 
   return (
     <Container
@@ -119,7 +156,20 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         }}
       >
         {Object.keys(groupedAssetsByOwner).map((ownerName) => {
-          return getAssetsByOwner(ownerName);
+          return (
+            <Paper
+              key={ownerName}
+              sx={{
+                margin: '20px',
+                padding: '20px',
+              }}
+            >
+              <Typography variant='h3' textAlign='center' marginBottom={4}>
+                {`${ownerName[0].toUpperCase()}${ownerName.slice(1)}`}
+              </Typography>
+              {getAssetsByOwner(ownerName)}
+            </Paper>
+          );
         })}
         <Box sx={{ display: 'flex', justifyContent: 'center', margin: '30px' }}>
           <IconButton onClick={addAssetRowHandler}>
@@ -134,7 +184,6 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         fullWidth
         type='submit'
         loading={isLoading}
-        loadingPosition='end'
         variant='contained'
         sx={{ marginTop: '10px', padding: '20px', fontSize: '1.4rem' }}
       >

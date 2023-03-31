@@ -1,5 +1,5 @@
 import { LoadingButton } from '@mui/lab';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
@@ -61,23 +61,24 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>
           Toggle Legend
         </Button>
-        <SnapshotDetailPieChart
+        {/* <SnapshotDetailPieChart
           showLegend={showLegend}
           owners={formatPieChartData(snapshot, 'owners')}
           types={formatPieChartData(snapshot, 'types')}
           currencies={formatPieChartData(snapshot, 'currencies')}
         />
-        <SnapshotAssetBarChart snapshot={snapshot} />
+        <SnapshotAssetBarChart snapshot={snapshot} /> */}
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '20px 0',
+            padding: '20px 0 0',
           }}
         >
+          <DateLong dateValue={snapshotState.snapshotDate} />
           <LoadingButton
-            loadingPosition='end'
+            // loadingPosition='end'
             loading={isUpdateLoading}
             variant='contained'
             onClick={() => setIsEditing(!isEditing)}
@@ -89,7 +90,6 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
               ? 'Exit Update Mode'
               : 'Edit Snapshot'}
           </LoadingButton>
-          <DateLong dateValue={snapshotState.snapshotDate} />
           {isEditing && (
             <SnapshotDatepicker
               snapshot={snapshotState}

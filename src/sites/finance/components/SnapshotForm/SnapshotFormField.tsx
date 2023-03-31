@@ -6,7 +6,7 @@ import { Snapshot, FieldDetails } from '../../global/types';
 
 type SnapshotFormFieldProps = {
   field: [string, string];
-  rowIndex: number;
+  rowIndex: string;
   setSnapshotState: (snapshot: Snapshot) => void;
 };
 

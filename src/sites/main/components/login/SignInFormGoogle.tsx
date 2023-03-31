@@ -18,7 +18,7 @@ export const SignInFormGoogle = () => {
       fullWidth
       startIcon={<Google />}
       loading={signInLoading}
-      loadingPosition='end'
+      // loadingPosition='end'
       variant='contained'
       sx={{ mt: 3, mb: 2 }}
       onClick={signInFormHandler}

@@ -5,7 +5,7 @@ import type { SelectChangeEvent } from '@mui/material';
 type SnapshotFormSelectFieldProps = {
   field: [string, string];
   fieldDetail: FieldDetail;
-  rowIndex: number;
+  rowIndex: string;
   setSnapshotState: (snapshot: Snapshot) => void;
 };
 
@@ -20,17 +20,15 @@ export const SnapshotFormSelectField = (
   ) {
     // @ts-ignore
     setSnapshotState((prevState: Snapshot) => {
-      const updatedAssets = prevState.snapshotAssets.map(
-        (asset: object, index: number) => {
-          if (index === rowIndex) {
-            return {
-              ...asset,
-              [field[0]]: event.target.value,
-            };
-          }
-          return asset;
+      const updatedAssets = prevState.snapshotAssets.map((asset: any) => {
+        if (asset.assetId === rowIndex) {
+          return {
+            ...asset,
+            [field[0]]: event.target.value,
+          };
         }
-      );
+        return asset;
+      });
 
       const updatedSnapshot = {
         ...prevState,

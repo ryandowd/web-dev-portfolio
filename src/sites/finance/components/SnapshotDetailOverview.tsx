@@ -9,10 +9,11 @@ import { SnapshotDetailOverviewTotal } from './SnapshotDetailOverviewTotal';
 
 type SnapshotDetailOverviewProps = {
   snapshot: Snapshot;
+  isTransparent: boolean;
 };
 
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
-  const { snapshot } = props;
+  const { snapshot, isTransparent } = props;
   const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
   const differenceColour = isDifferenceNegative ? 'red' : 'green';
   const differenceIcon = isDifferenceNegative ? (
@@ -20,6 +21,13 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   ) : (
     <ArrowDropUp sx={{ color: differenceColour }} />
   );
+
+  const transparentStyles = isTransparent
+    ? {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+      }
+    : {};
 
   return (
     <Paper
@@ -29,10 +37,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
         margin: '10px',
         width: '100%',
         borderRadius: 0,
-        transition: 'all 0.3s ease-in-out',
-        '&:hover': {
-          transform: 'scale(1.03)',
-        },
+        ...transparentStyles,
       }}
     >
       <Box

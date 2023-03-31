@@ -31,6 +31,8 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
   //   ryan: '#dedede',
   // };
 
+  const ownerNames = ['kay', 'ryan', 'joint'];
+
   function addAssetRowHandler() {
     // @ts-ignore
     setSnapshotState((prevState) => {
@@ -155,7 +157,7 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
           flexDirection: 'column',
         }}
       >
-        {Object.keys(groupedAssetsByOwner).map((ownerName) => {
+        {ownerNames.map((ownerName) => {
           return (
             <Paper
               key={ownerName}

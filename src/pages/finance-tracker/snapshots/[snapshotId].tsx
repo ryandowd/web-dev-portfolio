@@ -77,6 +77,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       snapshot: altFinalSnapshot,
     },
+    revalidate: 5,
   };
 }
 

@@ -18,23 +18,19 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
 
       if (asset.assetCurrency !== 'gbp') {
         assetValue = convertAssetToGBPCurrency(asset).toFixed();
-        console.log('assetValue', assetValue);
       }
 
       return [asset.assetName, assetValue];
     })
-    .filter((asset) => asset[1] > 1000);
+    .filter((asset) => asset[1] > 100);
 
   const legendsData = dataSource.map((source) => source[0]);
 
-  console.log('dataSource', dataSource);
-  console.log('legendsData', legendsData);
-
   const chartOptions = useMemo(
     () => ({
-      legend: {
-        data: legendsData,
-      },
+      // legend: {
+      //   data: legendsData,
+      // },
       label: {
         show: true,
       },
@@ -70,8 +66,6 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
     }),
     [dataSource]
   );
-
-  console.log('123', JSON.stringify(chartOptions));
 
   useEffect(() => {
     if (chartRef.current) {

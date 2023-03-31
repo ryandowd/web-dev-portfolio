@@ -35,6 +35,7 @@ export const SnapshotDetailOverviewTotal = (
             key={index}
             sx={{
               border: `1px solid ${theme.palette.grey[200]}`,
+              backgroundColor: 'white',
               flex: {
                 xs: '0 0 100%',
                 md: '0 0 32%',

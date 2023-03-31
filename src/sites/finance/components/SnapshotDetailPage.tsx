@@ -56,7 +56,7 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
               Total: £{formatNumberWithCommas(snapshot.total)}
             </Typography>
           )} */}
-          <SnapshotDetailOverview snapshot={snapshotState} />
+          <SnapshotDetailOverview snapshot={snapshotState} isTransparent />
         </Box>
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>
           Toggle Legend

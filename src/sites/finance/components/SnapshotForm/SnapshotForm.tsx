@@ -110,6 +110,10 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
 
   const getAssetsByOwner = useCallback(
     (ownerName: string) => {
+      if (!groupedAssetsByOwner[ownerName]) {
+        return null;
+      }
+
       return groupedAssetsByOwner[ownerName].map((asset: any) => {
         const { assetId, difference, ...renderedAssetFields } = asset;
         return (

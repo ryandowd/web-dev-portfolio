@@ -9,7 +9,7 @@ import { SnapshotDetailOverviewTotal } from './SnapshotDetailOverviewTotal';
 
 type SnapshotDetailOverviewProps = {
   snapshot: Snapshot;
-  isTransparent: boolean;
+  isTransparent?: boolean;
 };
 
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {

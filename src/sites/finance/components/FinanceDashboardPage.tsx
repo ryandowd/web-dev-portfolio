@@ -12,8 +12,6 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
   const theme = useTheme();
   const { snapshots } = props;
 
-  console.log('snapshots', snapshots);
-
   return (
     <Container
       component='main'

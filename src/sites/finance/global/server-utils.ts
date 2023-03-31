@@ -25,6 +25,7 @@ export const getAssetTypeTotals = (
   snapshot: Snapshot,
   assetTypeKey: string
 ) => {
+  console.log('snapshot.snapshotAssets', snapshot.snapshotAssets);
   const total = snapshot.snapshotAssets.reduce((assetTypeTotal, asset) => {
     const { assetValue, assetCurrency } = asset;
     const assetKey = asset[assetTypeKey as keyof Snapshot['snapshotAssets'][0]];

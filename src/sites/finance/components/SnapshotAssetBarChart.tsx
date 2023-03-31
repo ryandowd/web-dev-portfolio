@@ -13,8 +13,6 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
   const { snapshot } = props;
   const chartRef = useRef(null);
 
-  console.log('snapshot', snapshot);
-
   const dataSource = snapshot.snapshotAssets
     .map((asset) => {
       let assetValue: string | number = asset.assetValue;

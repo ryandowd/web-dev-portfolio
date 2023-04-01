@@ -16,6 +16,8 @@ import {
   formatPieChartData,
 } from '@/sites/finance/utils';
 import { SnapshotAssetBarChart } from './SnapshotAssetBarChart';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 type SnapshotDetailPageProps = {
   snapshot: Snapshot;
@@ -63,11 +65,11 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         </Button>
         <SnapshotDetailPieChart
           showLegend={showLegend}
-          owners={formatPieChartData(snapshot, 'owners')}
-          types={formatPieChartData(snapshot, 'types')}
-          currencies={formatPieChartData(snapshot, 'currencies')}
+          owners={formatPieChartData(snapshotState, 'owners')}
+          types={formatPieChartData(snapshotState, 'types')}
+          currencies={formatPieChartData(snapshotState, 'currencies')}
         />
-        <SnapshotAssetBarChart snapshot={snapshot} />
+        <SnapshotAssetBarChart snapshot={snapshotState} />
         <Box
           sx={{
             display: 'flex',

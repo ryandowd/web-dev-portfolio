@@ -11,6 +11,7 @@ import {
   getAssetsTotals,
   orderSnapshotsByDate,
 } from '@/sites/finance/global/server-utils';
+import { useEffect } from 'react';
 
 type SnapshotPageProps = {
   snapshot: Snapshot;
@@ -76,8 +77,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return {
     props: {
       snapshot: altFinalSnapshot,
+      snapshotId,
     },
-    revalidate: 5,
+    revalidate: 500,
   };
 }
 

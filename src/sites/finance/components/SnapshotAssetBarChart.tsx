@@ -12,19 +12,19 @@ export const SnapshotAssetBarChart = (props: SnapshotAssetBarChartProps) => {
   const { snapshot } = props;
   const chartRef = useRef(null);
 
-  const dataSource = snapshot.snapshotAssets
-    .map((asset) => {
-      let assetValue: string | number = asset.assetValue;
+  const dataSource = useMemo(() => {
+    return snapshot.snapshotAssets
+      .map((asset) => {
+        let assetValue: string | number = asset.assetValue;
 
-      if (asset.assetCurrency !== 'gbp') {
-        assetValue = convertAssetToGBPCurrency(asset).toFixed();
-      }
+        if (asset.assetCurrency !== 'gbp') {
+          assetValue = convertAssetToGBPCurrency(asset).toFixed();
+        }
 
-      return [asset.assetName, assetValue];
-    })
-    .filter((asset) => asset[1] > 100);
-
-  const legendsData = dataSource.map((source) => source[0]);
+        return [asset.assetName, Number(assetValue)];
+      })
+      .filter((asset) => asset[1] > 100);
+  }, [snapshot]);
 
   const chartOptions = useMemo(
     () => ({

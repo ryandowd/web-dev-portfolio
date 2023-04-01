@@ -66,6 +66,6 @@ export async function getStaticProps() {
     props: {
       snapshots: totalAssetTypeDifferences,
     },
-    revalidate: 5,
+    revalidate: 500,
   };
 }

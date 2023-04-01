@@ -49,6 +49,7 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         component='main'
         sx={{ display: 'flex', flexDirection: 'column', marginBottom: '200px' }}
       >
+        <DateLong dateValue={snapshotState.snapshotDate} />
         <Box sx={{ margin: '20px 0 0' }}>
           {/* {snapshot.total && (
             <Typography
@@ -58,7 +59,7 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
               Total: £{formatNumberWithCommas(snapshot.total)}
             </Typography>
           )} */}
-          <SnapshotDetailOverview snapshot={snapshotState} isTransparent />
+          <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
         <Button onClick={() => setShowLegend((prevState) => !prevState)}>
           Toggle Legend
@@ -78,7 +79,6 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
             padding: '20px 0 0',
           }}
         >
-          <DateLong dateValue={snapshotState.snapshotDate} />
           <LoadingButton
             // loadingPosition='end'
             loading={isUpdateLoading}

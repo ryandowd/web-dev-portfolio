@@ -51,7 +51,7 @@ export const SnapshotDetailOverviewTotal = (
               key={totalTypes[0]}
               sx={{
                 textTransform: 'capitalize',
-                textDecoration: 'underline',
+                // textDecoration: 'underline',
                 textAlign: 'center',
                 paddingBottom: '15px',
                 marginBottom: '20px',

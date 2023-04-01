@@ -3,14 +3,31 @@ import { Container } from '@mui/system';
 import { FinanceDashboardAreaChart } from './FinanceDashboardAreaChart';
 import { Snapshot } from '@/sites/finance/global/types';
 import { SnapshotTotalsList } from './SnapshotTotalsList';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useState } from 'react';
 
 type FinanceDashboardPageProps = {
   snapshots: Snapshot[];
 };
 
 export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
-  const theme = useTheme();
   const { snapshots } = props;
+  const theme = useTheme();
+  const [fetchedSnapshots, getFetchedSnapshots] =
+    useState<Snapshot[]>(snapshots);
+
+  useQuery({
+    queryKey: ['snapshots'],
+    queryFn: async () => {
+      const response = await axios.get('/api/finance/snapshots');
+      return response.data;
+    },
+    onSuccess: (data) => {
+      getFetchedSnapshots(data.snapshots);
+    },
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <Container
@@ -23,7 +40,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
-      <FinanceDashboardAreaChart snapshots={snapshots} />
+      <FinanceDashboardAreaChart snapshots={fetchedSnapshots} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -33,7 +50,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshots={snapshots} />
+      <SnapshotTotalsList snapshots={fetchedSnapshots} />
     </Container>
   );
 };

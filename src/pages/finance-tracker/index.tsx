@@ -8,8 +8,6 @@ import {
   deleteMongoIds,
   orderSnapshotsByDate,
   getTotalAssetTypeDifferences,
-  getAssetsTotals,
-  appendSnapshotTotal,
 } from '@/sites/finance/global/server-utils';
 
 type FinancePageProps = {
@@ -66,6 +64,6 @@ export async function getStaticProps() {
     props: {
       snapshots: totalAssetTypeDifferences,
     },
-    revalidate: 500,
+    revalidate: 5,
   };
 }

@@ -68,7 +68,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     prevSnapshot
   );
 
-  const altFinalSnapshot = {
+  const snapshot = {
     ...currSnapshotWithMonthTotalDifference,
     snapshotTotals: snapshotTotalsWithDifferences,
     snapshotAssets: snapshotAssetsWithDifferences,
@@ -76,10 +76,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   return {
     props: {
-      snapshot: altFinalSnapshot,
-      snapshotId,
+      snapshot,
     },
-    revalidate: 500,
+    revalidate: 5,
   };
 }
 

@@ -25,6 +25,21 @@ export const useSnapshots = () => {
     },
   });
 
+  // // Read
+  // const { isLoading: isLoadingGet } = useQuery({
+  //   queryKey: ['events'],
+  //   queryFn: async () => {
+  //     const response = await axios.get(
+  //       `/api/finance/snapshots/${snapshotId}`
+  //     );
+  //     return response.data;
+  //   },
+  //   onSuccess: (data) => {
+  //     setEvents(data.events);
+  //   },
+  //   refetchOnWindowFocus: false,
+  // });
+
   // Update
   const {
     mutate: updateSnapshotMutate,

@@ -28,9 +28,11 @@ export const authOptions: NextAuthOptions = {
     // session callback is called whenever a session for that particular user is checked
     async session({ session, token }: any) {
       const credentialsExist =
-        process.env.ADMIN_USER_EMAIL && session?.user?.email;
+        process.env.ADMIN_USER_EMAIL ||
+        ('kayvgeorge@gmail.com' && session?.user?.email);
       const credentialsMatch =
-        session?.user?.email === process.env.ADMIN_USER_EMAIL;
+        session?.user?.email === process.env.ADMIN_USER_EMAIL ||
+        session?.user?.email === 'kayvgeorge@gmail.com';
 
       session.user = token.user;
       session.user.role =

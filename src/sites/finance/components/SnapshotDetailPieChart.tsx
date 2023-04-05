@@ -1,24 +1,38 @@
 import { Box } from '@mui/system';
 import * as echarts from 'echarts';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Snapshot } from '../global/types';
+import {
+  formatAssetsForPieChart,
+  formatTotalsForPieChart,
+} from '@/sites/finance/utils';
+import { Button } from '@mui/material';
 
 type SnapshotDetailPieChartProps = {
-  owners: { name: string; value: number }[];
-  types: { name: string; value: number }[];
-  currencies: { name: string; value: number }[];
-  showLegend: boolean;
+  snapshot: Snapshot;
 };
 
 export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
-  const { owners, types, currencies, showLegend } = props;
-  const pieChartRef = useRef(null);
+  const { snapshot } = props;
+  const chartRef = useRef(null);
+  const [showLegend, setShowLegend] = useState(false);
 
-  const pieOptions = useMemo(
+  const owners = formatTotalsForPieChart(snapshot.snapshotTotals, 'owners');
+  const types = formatTotalsForPieChart(snapshot.snapshotTotals, 'types');
+  const currencies = formatTotalsForPieChart(
+    snapshot.snapshotTotals,
+    'currencies'
+  );
+
+  const ryan = formatAssetsForPieChart(snapshot.snapshotAssets).ryan;
+  const kay = formatAssetsForPieChart(snapshot.snapshotAssets).kay;
+
+  const seriesOptions = useMemo(
     () => ({
       type: 'pie',
       label: {
         position: 'outside',
-        formatter: '{name|{b}}\n{percent|{d}%}\n£{value|{c}}',
+        formatter: `{name|{b}}\n{percent|{d}%}\n£{value|{c}}`,
         rich: {
           name: {
             fontSize: '1.3rem',
@@ -44,36 +58,45 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
     []
   );
 
-  const titleOptions = useMemo(
-    () => ({
-      textAlign: 'center',
-      textStyle: {
-        fontSize: 25,
-      },
-    }),
-    []
-  );
+  const titleOptions = {
+    textAlign: 'center',
+    textStyle: {
+      fontSize: 25,
+    },
+  };
 
-  const pieChartOptions = useMemo(
+  const chartOptions = useMemo(
     () => ({
       title: [
         {
           ...titleOptions,
           text: 'Asset',
-          left: '25%',
-          top: '27%',
+          left: '24.5%',
+          top: '13%',
         },
         {
           ...titleOptions,
           text: 'Currency',
-          left: '74.5%',
-          top: '27%',
+          left: '75%',
+          top: '13%',
         },
         {
           ...titleOptions,
           text: 'Owner',
           left: '49.5%',
-          top: '72%',
+          top: '43%',
+        },
+        {
+          ...titleOptions,
+          text: 'Kay',
+          left: '24.5%',
+          top: '78.5%',
+        },
+        {
+          ...titleOptions,
+          text: 'Ryan',
+          left: '74.5%',
+          top: '78.5%',
         },
       ],
       tooltip: {
@@ -102,42 +125,69 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
         : [],
       series: [
         {
-          ...pieOptions,
+          ...seriesOptions,
           name: 'Types',
-          center: ['25.5%', '30%'],
+          center: ['25%', '15%'],
           data: types,
         },
         {
-          ...pieOptions,
+          ...seriesOptions,
+          name: 'Currencies',
+          center: ['75%', '15%'],
+          data: currencies,
+        },
+        {
+          ...seriesOptions,
           name: 'Owners',
-          center: ['50%', '75%'],
+          center: ['50%', '45%'],
           data: owners,
         },
         {
-          ...pieOptions,
+          ...seriesOptions,
           name: 'Currencies',
-          center: ['75%', '30%'],
-          data: currencies,
+          center: ['75%', '80%'],
+          data: ryan,
+        },
+        {
+          ...seriesOptions,
+          name: 'Currencies',
+          center: ['25%', '80%'],
+          data: kay,
         },
       ],
     }),
-    [showLegend, types, owners, currencies, pieOptions, titleOptions]
+    [showLegend, types, owners, currencies, seriesOptions]
   );
 
   useEffect(() => {
-    if (pieChartRef.current) {
-      const myChart = echarts.init(pieChartRef.current);
-      // Draw the chart
+    if (chartRef.current) {
+      const myChart = echarts.init(chartRef.current);
       myChart.clear();
-      myChart.setOption(pieChartOptions);
+      myChart.setOption(chartOptions);
     }
-  }, [pieChartRef, showLegend, pieChartOptions]);
+  }, [chartRef, showLegend, chartOptions]);
 
   return (
     <Box
-      id='main'
-      style={{ width: '100%', height: 800 }}
-      ref={pieChartRef}
-    ></Box>
+      sx={{
+        margin: '20px 0',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <Button
+        variant='contained'
+        onClick={() => setShowLegend((prevState) => !prevState)}
+        sx={{ width: '200px' }}
+      >
+        Toggle Legend
+      </Button>
+      <Box
+        id='main'
+        style={{ width: '100%', height: 1200 }}
+        ref={chartRef}
+      ></Box>
+    </Box>
   );
 };

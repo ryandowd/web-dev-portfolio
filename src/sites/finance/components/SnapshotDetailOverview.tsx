@@ -90,13 +90,24 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                   md: '2.5rem',
                 },
                 padding: '5px 5px 5px 0',
+                color: '#b7b7b7',
+              }}
+            >
+              {dayjs(snapshot.snapshotDate).format('DD')}
+            </Typography>
+            <Typography
+              variant='h5'
+              sx={{
+                fontSize: {
+                  xs: '3rem',
+                  md: '2.5rem',
+                },
+                padding: '5px 5px 5px 0',
                 color: '#424242',
               }}
             >
               {dayjs(snapshot.snapshotDate).format('MMM')}
             </Typography>
-
-            {/* </Box> */}
             <Typography
               variant='h5'
               sx={{

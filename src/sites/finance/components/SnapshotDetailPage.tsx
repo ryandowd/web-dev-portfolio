@@ -1,5 +1,5 @@
 import { LoadingButton } from '@mui/lab';
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
@@ -11,13 +11,9 @@ import { UpdateSnapshotForm } from './SnapshotForm/UpdateSnapshotForm';
 import { DateLong } from './ui/DateLong';
 import { useSnapshots } from '../hooks/use-snapshots';
 import { SnapshotDetailPieChart } from './SnapshotDetailPieChart';
-import {
-  formatNumberWithCommas,
-  formatPieChartData,
-} from '@/sites/finance/utils';
 import { SnapshotAssetBarChart } from './SnapshotAssetBarChart';
-import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { MortgageDepositCalculator } from './MortgageDepositCalculator';
+import { SnapshotDifferenceTotals } from './SnapshotDifferenceTotals';
 
 type SnapshotDetailPageProps = {
   snapshot: Snapshot;
@@ -29,7 +25,6 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
     useSnapshots();
   const [snapshotState, setSnapshotState] = useState<Snapshot>(snapshot);
   const [isEditing, setIsEditing] = useState(false);
-  const [showLegend, setShowLegend] = useState(false);
 
   useEffect(() => {
     if (isUpdateLoading) {
@@ -51,25 +46,11 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
       >
         <DateLong dateValue={snapshotState.snapshotDate} />
         <Box sx={{ margin: '20px 0 0' }}>
-          {/* {snapshot.total && (
-            <Typography
-              variant='h3'
-              sx={{ margin: '30px 0 50px', textAlign: 'center' }}
-            >
-              Total: £{formatNumberWithCommas(snapshot.total)}
-            </Typography>
-          )} */}
           <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
-        <Button onClick={() => setShowLegend((prevState) => !prevState)}>
-          Toggle Legend
-        </Button>
-        <SnapshotDetailPieChart
-          showLegend={showLegend}
-          owners={formatPieChartData(snapshotState, 'owners')}
-          types={formatPieChartData(snapshotState, 'types')}
-          currencies={formatPieChartData(snapshotState, 'currencies')}
-        />
+        <SnapshotDifferenceTotals snapshot={snapshotState} />
+        <SnapshotDetailPieChart snapshot={snapshotState} />
+        <MortgageDepositCalculator snapshot={snapshotState} />
         <SnapshotAssetBarChart snapshot={snapshotState} />
         <Box
           sx={{

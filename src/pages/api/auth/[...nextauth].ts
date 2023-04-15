@@ -31,6 +31,7 @@ export const authOptions: NextAuthOptions = {
       const users = await getAllDocuments(client, 'allowed');
       const allowedUsers = users[0];
 
+      console.log('users', users);
       console.log('allowedUsers', allowedUsers);
 
       if (allowedUsers) {

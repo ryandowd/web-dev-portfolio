@@ -13,8 +13,6 @@ type FinancePageProps = {
 export default function FinancePage(props: FinancePageProps) {
   const { snapshots } = props;
 
-  console.log('snapshots', snapshots);
-
   return (
     <>
       <Head>
@@ -23,8 +21,7 @@ export default function FinancePage(props: FinancePageProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <h1>Hello</h1>
-      {/* <FinanceDashboardPage snapshots={snapshots} /> */}
+      <FinanceDashboardPage snapshots={snapshots} />
     </>
   );
 }

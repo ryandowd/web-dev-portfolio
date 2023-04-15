@@ -14,6 +14,8 @@ type FinanceDashboardPageProps = {
 export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
   const { snapshots } = props;
   const theme = useTheme();
+
+  console.log('FIANNCE PAGE', snapshots);
   const [fetchedSnapshots, getFetchedSnapshots] =
     useState<Snapshot[]>(snapshots);
 
@@ -40,7 +42,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
-      <FinanceDashboardAreaChart snapshots={fetchedSnapshots} />
+      <FinanceDashboardAreaChart snapshots={snapshots} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -50,7 +52,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshots={fetchedSnapshots} />
+      <SnapshotTotalsList snapshots={snapshots} />
     </Container>
   );
 };

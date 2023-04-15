@@ -20,6 +20,8 @@ export const HomePage = () => {
     // @ts-ignore
     session?.user?.role === 'user' || session?.user?.role === 'admin';
 
+  console.log('isAllowedUser', isAllowedUser);
+
   const portfolioItem = (
     <Card>
       <NextLink href='/portfolio'>

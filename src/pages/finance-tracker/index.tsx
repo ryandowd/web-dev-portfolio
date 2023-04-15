@@ -41,10 +41,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 
-  const client = await connectToDatabase('finance');
-  const allSnapshots = await getAllDocuments(client, 'snapshots');
+  // const client = await connectToDatabase('finance');
+  // const allSnapshots = await getAllDocuments(client, 'snapshots');
   // @ts-ignore
-  const transformedSnapshots = transformSnapshots(allSnapshots);
+  // const transformedSnapshots = transformSnapshots(allSnapshots);
 
   client.close();
 

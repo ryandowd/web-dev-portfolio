@@ -11,6 +11,8 @@ type SnapshotPageProps = {
 export default function SnapshotPage(props: SnapshotPageProps) {
   const { snapshot } = props;
 
+  console.log('snapshot', JSON.stringify(snapshot, null, 2));
+
   return <SnapshotDetailPage snapshot={snapshot} />;
 }
 

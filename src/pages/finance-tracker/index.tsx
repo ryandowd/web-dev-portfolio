@@ -46,7 +46,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   console.log(
     'transformedSnapshots',
-    JSON.stringify('transformedSnapshots', transformedSnapshots)
+    JSON.stringify(transformedSnapshots, null, 2)
   );
 
   client.close();

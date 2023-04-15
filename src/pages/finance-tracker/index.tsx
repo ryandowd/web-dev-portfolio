@@ -44,6 +44,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // @ts-ignore
   const transformedSnapshots = transformSnapshots(allSnapshots);
 
+  console.log(
+    'transformedSnapshots',
+    JSON.stringify('transformedSnapshots', transformedSnapshots)
+  );
+
   client.close();
 
   return {

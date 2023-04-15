@@ -31,15 +31,10 @@ export const authOptions: NextAuthOptions = {
       const users = await getAllDocuments(client, 'allowed');
       const allowedUsers = users[0];
 
-      console.log('users', users);
-      console.log('allowedUsers', allowedUsers);
-
       if (allowedUsers) {
         const credentialsMatch = allowedUsers.users.find(
           (user: any) => user.email === session?.user?.email
         );
-
-        console.log('credentialsMatch', credentialsMatch);
 
         if (credentialsMatch) {
           session.user = token.user;

@@ -86,8 +86,6 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
         </TableHead>
         <TableBody>
           {rowsState.map((row: any) => {
-            console.log('row.difference', row.difference);
-            console.log('row.assetValue', row.assetValue);
             const differenceValue =
               row.difference === 'currencychange'
                 ? 'Currency change'

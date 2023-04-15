@@ -21,7 +21,8 @@ export default function FinancePage(props: FinancePageProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <FinanceDashboardPage snapshots={snapshots} />
+      <h1>Hello</h1>
+      {/* <FinanceDashboardPage snapshots={snapshots} /> */}
     </>
   );
 }
@@ -29,24 +30,24 @@ export default function FinancePage(props: FinancePageProps) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   console.log('here');
 
-  const session = await getSession({ req: context.req });
-  const user = session?.user as any;
-  const role = user?.role;
+  // const session = await getSession({ req: context.req });
+  // const user = session?.user as any;
+  // const role = user?.role;
 
-  if (!role) {
-    return {
-      redirect: {
-        destination: '/auth/signin',
-      },
-    };
-  }
+  // if (!role) {
+  //   return {
+  //     redirect: {
+  //       destination: '/auth/signin',
+  //     },
+  //   };
+  // }
 
   // const client = await connectToDatabase('finance');
   // const allSnapshots = await getAllDocuments(client, 'snapshots');
   // @ts-ignore
   // const transformedSnapshots = transformSnapshots(allSnapshots);
 
-  client.close();
+  // client.close();
 
   return {
     props: {

@@ -86,13 +86,15 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
         </TableHead>
         <TableBody>
           {rowsState.map((row: any) => {
+            console.log('row.difference', row.difference);
+            console.log('row.assetValue', row.assetValue);
             const differenceValue =
-              row.difference === 'nomatch'
+              row.difference === 'currencychange'
                 ? 'Currency change'
                 : formatNumberWithCommas(row.difference);
 
             const differenceColour =
-              row.difference === 'nomatch'
+              row.difference === 'currencychange'
                 ? 'rgba(255, 227, 135, 0.6)'
                 : row.difference < 0
                 ? 'rgba(255, 215, 215, 0.6)'

@@ -13,6 +13,8 @@ type FinancePageProps = {
 export default function FinancePage(props: FinancePageProps) {
   const { snapshots } = props;
 
+  console.log('snapshots', snapshots);
+
   return (
     <>
       <Head>
@@ -46,17 +48,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
-
-  console.log('allSnapshots', allSnapshots);
   // @ts-ignore
-  // const transformedSnapshots = transformSnapshots(allSnapshots);
+  const transformedSnapshots = transformSnapshots(allSnapshots);
 
-  // client.close();
+  client.close();
 
   return {
     props: {
-      snapshots: [],
-      // snapshots: transformedSnapshots,
+      snapshots: transformedSnapshots,
     },
   };
 }

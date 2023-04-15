@@ -30,20 +30,24 @@ export default function FinancePage(props: FinancePageProps) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   console.log('here');
 
-  // const session = await getSession({ req: context.req });
-  // const user = session?.user as any;
-  // const role = user?.role;
+  const session = await getSession({ req: context.req });
+  const user = session?.user as any;
+  const role = user?.role;
 
-  // if (!role) {
-  //   return {
-  //     redirect: {
-  //       destination: '/auth/signin',
-  //     },
-  //   };
-  // }
+  console.log('session', session);
 
-  // const client = await connectToDatabase('finance');
-  // const allSnapshots = await getAllDocuments(client, 'snapshots');
+  if (!role) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+      },
+    };
+  }
+
+  const client = await connectToDatabase('finance');
+  const allSnapshots = await getAllDocuments(client, 'snapshots');
+
+  console.log('allSnapshots', allSnapshots);
   // @ts-ignore
   // const transformedSnapshots = transformSnapshots(allSnapshots);
 

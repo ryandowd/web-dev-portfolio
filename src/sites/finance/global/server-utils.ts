@@ -243,7 +243,7 @@ export const transformSnapshots = (snapshots: Snapshot[]) => {
   allSnapshots = appendAssetTypeTotals(allSnapshots);
   allSnapshots = appendSnapshotTotal(allSnapshots);
   allSnapshots = appendMonthTotalDifference(allSnapshots);
-  // allSnapshots = appendAssetTypeTotalsDifferences(allSnapshots);
+  allSnapshots = appendAssetTypeTotalsDifferences(allSnapshots);
 
   return allSnapshots;
 };

@@ -2,16 +2,7 @@ import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 import type { GetStaticPropsContext } from 'next';
 import { Snapshot } from '@/sites/finance/global/types';
 import { SnapshotDetailPage } from '@/sites/finance/components/SnapshotDetailPage';
-import {
-  appendMonthTotalDifference,
-  appendSnapshotTotal,
-  getTotalAssetTypeDifferences,
-  getAssetDifferences,
-  deleteMongoId,
-  getAssetsTotals,
-  orderSnapshotsByDate,
-} from '@/sites/finance/global/server-utils';
-import { useEffect } from 'react';
+import { transformSnapshots } from '@/sites/finance/global/server-utils';
 
 type SnapshotPageProps = {
   snapshot: Snapshot;
@@ -27,52 +18,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const snapshotId = context.params?.snapshotId;
 
   const client = await connectToDatabase('finance');
-  const snapshots = await getAllDocuments(client, 'snapshots');
+  const allSnapshots = await getAllDocuments(client, 'snapshots');
   // @ts-ignore
-  const orderedSnapshots = orderSnapshotsByDate(snapshots);
+  const transformedSnapshots = transformSnapshots(allSnapshots);
+  const snapshot = transformedSnapshots.find(
+    (transformedSnapshot) => transformedSnapshot.snapshotId === snapshotId
+  );
 
   client.close();
-
-  // @ts-ignore
-  const currSnapshotIndex = snapshots.findIndex((currSnapshot: Snapshot) => {
-    return currSnapshot.snapshotId === snapshotId;
-  });
-
-  const currSnapshot = orderedSnapshots[currSnapshotIndex];
-  const currDeleteMongoId = deleteMongoId(currSnapshot);
-  const currSnapshotWithAssetTotals = getAssetsTotals(currDeleteMongoId);
-  const currSnapshotWithTotal = appendSnapshotTotal(
-    currSnapshotWithAssetTotals
-  );
-
-  // @TODO: This is horrible. Figure out a better way to skip over this
-  // if there is no previous snapshot.
-  const prevSnapshot =
-    orderedSnapshots[currSnapshotIndex + 1] || currSnapshotWithTotal;
-
-  const prevSnapshotWithAssetTotals = getAssetsTotals(prevSnapshot);
-  const prevSnapshotTotal = appendSnapshotTotal(prevSnapshotWithAssetTotals);
-
-  const currSnapshotWithMonthTotalDifference = appendMonthTotalDifference(
-    currSnapshotWithTotal,
-    prevSnapshotTotal.total
-  );
-
-  const snapshotTotalsWithDifferences = getTotalAssetTypeDifferences(
-    currSnapshotWithMonthTotalDifference,
-    prevSnapshotWithAssetTotals
-  );
-
-  const snapshotAssetsWithDifferences = getAssetDifferences(
-    currSnapshotWithMonthTotalDifference,
-    prevSnapshot
-  );
-
-  const snapshot = {
-    ...currSnapshotWithMonthTotalDifference,
-    snapshotTotals: snapshotTotalsWithDifferences,
-    snapshotAssets: snapshotAssetsWithDifferences,
-  };
 
   return {
     props: {

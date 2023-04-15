@@ -33,28 +33,6 @@ export const formatTotalsForPieChart = (
   return pieChartData;
 };
 
-// export const groupAssetsByOwner = (assets: any) => {
-//   // console.log('assets', assets);
-//   // let assetsByOwner = {};
-//   // assets.map((asset: any) => {
-//   //   console.log('asset.owner', asset.owner);
-//   // if (!assetsByOwner[asset.owner]) {
-//   //   assetsByOwner[asset.owner] = [];
-//   // }
-//   // assetsByOwner[asset.owner].push(asset);
-//   // return assetsByOwner;
-//   // });
-//   // console.log('assetsByOwner', assetsByOwner);
-//   // return assets.reduce((acc: any, curr: any) => {
-//   //   console.log('curr.owner', curr);
-//   //   if (!acc[curr.owner]) {
-//   //     acc[curr.owner] = [];
-//   //   }
-//   //   acc[curr.owner].push(curr);
-//   //   return acc;
-//   // }, []);
-// };
-
 export const formatAssetsForPieChart = (
   snapshotAssets: any
 ): {

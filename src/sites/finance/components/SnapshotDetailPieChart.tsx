@@ -7,6 +7,7 @@ import {
   formatTotalsForPieChart,
 } from '@/sites/finance/utils';
 import { Button } from '@mui/material';
+import { normaliseSnapshotAssetsToGBP } from '../global/utils';
 
 type SnapshotDetailPieChartProps = {
   snapshot: Snapshot;
@@ -17,6 +18,10 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
   const chartRef = useRef(null);
   const [showLegend, setShowLegend] = useState(false);
 
+  const normalisedAssets = normaliseSnapshotAssetsToGBP(
+    snapshot.snapshotAssets
+  );
+
   const owners = formatTotalsForPieChart(snapshot.snapshotTotals, 'owners');
   const types = formatTotalsForPieChart(snapshot.snapshotTotals, 'types');
   const currencies = formatTotalsForPieChart(
@@ -24,8 +29,8 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
     'currencies'
   );
 
-  const ryan = formatAssetsForPieChart(snapshot.snapshotAssets).ryan;
-  const kay = formatAssetsForPieChart(snapshot.snapshotAssets).kay;
+  const ryan = formatAssetsForPieChart(normalisedAssets).ryan;
+  const kay = formatAssetsForPieChart(normalisedAssets).kay;
 
   const seriesOptions = useMemo(
     () => ({

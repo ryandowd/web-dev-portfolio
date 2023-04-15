@@ -2,7 +2,7 @@ import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { verifyPassword } from '@/utils/auth-util';
-import { connectToDatabase } from '@/utils/db-util';
+import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 import NextAuth from 'next-auth/next';
 
 export const authOptions: NextAuthOptions = {
@@ -27,16 +27,20 @@ export const authOptions: NextAuthOptions = {
     },
     // session callback is called whenever a session for that particular user is checked
     async session({ session, token }: any) {
-      const credentialsExist =
-        process.env.ADMIN_USER_EMAIL ||
-        ('kayvgeorge@gmail.com' && session?.user?.email);
-      const credentialsMatch =
-        session?.user?.email === process.env.ADMIN_USER_EMAIL ||
-        session?.user?.email === 'kayvgeorge@gmail.com';
+      const client = await connectToDatabase('users');
+      const users = await getAllDocuments(client, 'allowed');
+      const allowedUsers = users[0];
 
-      session.user = token.user;
-      session.user.role =
-        credentialsExist && credentialsMatch ? 'admin' : 'user';
+      if (allowedUsers) {
+        const credentialsMatch = allowedUsers.users.find(
+          (user: any) => user.email === session?.user?.email
+        );
+
+        if (credentialsMatch) {
+          session.user = token.user;
+          session.user.role = credentialsMatch.role;
+        }
+      }
 
       return session;
     },

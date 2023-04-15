@@ -66,3 +66,21 @@ export const convertAssetToGBPCurrency = (
     asset.assetValue * exchangeRatesToGBP[asset.assetCurrency.toUpperCase()];
   return assetValueInGBP;
 };
+
+export const normaliseSnapshotAssetsToGBP = (
+  snapshotAssets: SnapshotAssetsField[]
+) => {
+  // @ts-ignore
+  return snapshotAssets.map((asset) => {
+    let assetValue: string | number = asset.assetValue;
+
+    if (asset.assetCurrency !== 'gbp') {
+      assetValue = convertAssetToGBPCurrency(asset).toFixed();
+    }
+
+    return {
+      ...asset,
+      assetValue: Number(assetValue),
+    };
+  });
+};

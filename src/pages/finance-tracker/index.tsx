@@ -2,13 +2,9 @@ import Head from 'next/head';
 import { FinanceDashboardPage } from '@/sites/finance/components/FinanceDashboardPage';
 import { connectToDatabase, getAllDocuments } from '@/utils/db-util';
 import { Snapshot } from '@/sites/finance/global/types';
-import {
-  appendMonthTotalDifferences,
-  appendAllSnaphotTotals,
-  deleteMongoIds,
-  orderSnapshotsByDate,
-  getTotalAssetTypeDifferences,
-} from '@/sites/finance/global/server-utils';
+import { transformSnapshots } from '@/sites/finance/global/server-utils';
+import { getSession } from 'next-auth/react';
+import type { GetServerSidePropsContext } from 'next';
 
 type FinancePageProps = {
   snapshots: Snapshot[];
@@ -30,40 +26,29 @@ export default function FinancePage(props: FinancePageProps) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession({ req: context.req });
+  const user = session?.user as any;
+  const role = user?.role;
+
+  if (!role) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+      },
+    };
+  }
+
   const client = await connectToDatabase('finance');
   const allSnapshots = await getAllDocuments(client, 'snapshots');
-
   // @ts-ignore
-  const deleteSnapshotIds = deleteMongoIds(allSnapshots);
-  const orderedSnapshots = orderSnapshotsByDate(deleteSnapshotIds);
-  const snapshotsWithTotals = appendAllSnaphotTotals(orderedSnapshots);
-
-  const snapshotsWithTotalDifferences =
-    appendMonthTotalDifferences(snapshotsWithTotals);
-
-  const totalAssetTypeDifferences = snapshotsWithTotalDifferences.map(
-    (currSnapshot, snapshotIndex) => {
-      const prevSnapshot = snapshotsWithTotalDifferences[snapshotIndex + 1];
-
-      const snapshotTotalsWithDifferences = getTotalAssetTypeDifferences(
-        currSnapshot,
-        prevSnapshot
-      );
-
-      return {
-        ...currSnapshot,
-        snapshotTotals: snapshotTotalsWithDifferences,
-      };
-    }
-  );
+  const transformedSnapshots = transformSnapshots(allSnapshots);
 
   client.close();
 
   return {
     props: {
-      snapshots: totalAssetTypeDifferences,
+      snapshots: transformedSnapshots,
     },
-    revalidate: 5,
   };
 }

@@ -1,0 +1,3940 @@
+[
+  {
+    "_id": {
+      "$oid": "641edd44f570b06dee41b085"
+    },
+    "snapshotId": "6c5f7013-bfa7-40be-8e79-702d266ea8fb",
+    "snapshotDate": "2022/10/16",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "16550",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12607",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "5162",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "59",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5136",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10232",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12149",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2217.10",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "16847.12",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "9608.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "452.80",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "15279.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "850.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "488.52",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641ee96ff570b06dee41b087"
+    },
+    "snapshotId": "0abb6768-634e-42bb-bf7c-691c10a5f944",
+    "snapshotDate": "2022/08/15",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "16196",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12830",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "2563",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5536",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10004",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12063",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2233.74",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "9346.71",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "9638.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "340.49",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "12329.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "822.59",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "357.44",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eea28f570b06dee41b088"
+    },
+    "snapshotId": "bbc3092d-01f9-4fcb-93ae-91e4d8168675",
+    "snapshotDate": "2022/07/29",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "15503",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12543",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "3321",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-186",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "106",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5876",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "9559",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "11763",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "56",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "8613.11",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "378.09",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "626.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "11406.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "565.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "357.44",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10853.10",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641efd8bf570b06dee41b08f"
+    },
+    "snapshotId": "df382d95-20db-4937-beaa-9bec75179c00",
+    "snapshotDate": "2021/11/28",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "8682",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11957",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4226",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-35",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "1327",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "12117",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "3876",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "1685",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "236",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "3970",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "-61",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "308",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "8942",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "627",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "19062",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "11645",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eff35f570b06dee41b091"
+    },
+    "snapshotId": "53fa702d-8a4d-4752-ab05-a48938c55166",
+    "snapshotDate": "2021/09/30",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "10097",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "10977",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "3142",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-2",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "341",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "11177",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "1755",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "23",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6477",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "588",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "319",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "992.94",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "40",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "541",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "18667.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "2995",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "12358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eeb1df570b06dee41b089"
+    },
+    "snapshotId": "b91f0adc-6f82-4778-aa22-4d0d31a0f78c",
+    "snapshotDate": "2022/06/28",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "15503",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12543",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "3321",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-186",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "106",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5876",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "9559",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "11763",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "56",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "8613.11",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "378.09",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "626.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "11406.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "565.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "357.44",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10853.10",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641ed946f570b06dee41b081"
+    },
+    "snapshotId": "37f6be5d-18eb-4e98-98ed-918ea8170006",
+    "snapshotDate": "2023/02/01",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "18000",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "13900",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "8000",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-200",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "99",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "7500",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12257",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "1000",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "5000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "27000.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "6000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "280",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "20500",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "200",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "300",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641d9f508481dec801ce04d0"
+    },
+    "snapshotId": "c2702239-b268-4056-8650-a554c930dae6",
+    "snapshotDate": "2023/01/31",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "17609",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "13818",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "9036",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "99",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10913",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12257",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "4000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "24481.88",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "7000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "295",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "21000",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "150",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "280",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641edc7bf570b06dee41b084"
+    },
+    "snapshotId": "925888ff-072c-4384-ae10-7c0dfc5415a7",
+    "snapshotDate": "2022/11/04",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "16895",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12789",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "8686",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "159",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10458",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12199",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2150.54",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "13467.72",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "9578.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "375.23",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "16213.37",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "957.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "339.99",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641ee926f570b06dee41b086"
+    },
+    "snapshotId": "9d5a5274-0466-438d-a039-a04261f953aa",
+    "snapshotDate": "2022/09/05",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "16196",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12830",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "2563",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5536",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10004",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12063",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2233.74",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "9346.71",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "9638.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "340.49",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "12329.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "822.59",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "357.44",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eeccff570b06dee41b08b"
+    },
+    "snapshotId": "8396683b-f6f7-4d91-8528-cdaf412527a4",
+    "snapshotDate": "2022/03/29",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "10773",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11614",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4527",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-642",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "703",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "9606",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "266",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "11668",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "429",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6730",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "339",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "360",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "9498",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "172",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "281",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10413",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641edaa2f570b06dee41b082"
+    },
+    "snapshotId": "8bd0198c-a4ed-4107-9c07-623639c8c4de",
+    "snapshotDate": "2022/12/30",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "17000",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "13500",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "9500",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "99",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10700",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12157",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2150",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "22000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "8000",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "295",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "21000",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "270",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641edb30f570b06dee41b083"
+    },
+    "snapshotId": "7239802e-3b43-41b1-b8a6-f6e09783c9a0",
+    "snapshotDate": "2022/11/30",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "16901",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "13179",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "10210",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-185",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "99",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "10458",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12052",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "116",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2150.54",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "18069.90",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "9501.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "301.96",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "21709",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "83.54",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "239.99",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641ef025f570b06dee41b08d"
+    },
+    "snapshotId": "93846d5f-0075-4382-8aa9-2a48073646d6",
+    "snapshotDate": "2022/01/30",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "8682",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11957",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4226",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-35",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "1327",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "12117",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "3876",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "1685",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "236",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6730",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "339",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "360",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "9498",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "172",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "281",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10413",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "11645",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641efca2f570b06dee41b08e"
+    },
+    "snapshotId": "68b0f95c-74db-408c-8a1c-145442d98ff4",
+    "snapshotDate": "2021/12/28",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "8682",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11957",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4226",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-35",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "1327",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "12117",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "3876",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "1685",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "236",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "3970",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "-61",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "308",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "8942",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "627",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "19062",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "11645",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641efe2cf570b06dee41b090"
+    },
+    "snapshotId": "29c38bef-e377-4984-8083-ccc9e9307934",
+    "snapshotDate": "2021/10/29",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "8682",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11957",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4226",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-35",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "1327",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "12117",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "3876",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "1685",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "236",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "3970",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "-61",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "308",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "8942",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "627",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "19062",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "11645",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641efffdf570b06dee41b092"
+    },
+    "snapshotId": "a4a14994-16fb-4561-b826-3703d52c8eb4",
+    "snapshotDate": "2021/08/01",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "8557",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "10468",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4606",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-189",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "12",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "9973",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "72",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "40",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "2775",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "7",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "1082",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "934",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "242.20",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "247",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "512",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "19135.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "2945",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "4d64a104-9b20-43ca-a77f-404d28804084",
+        "assetName": "Caixa Bank",
+        "assetType": "money",
+        "assetValue": "12332",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eeb5af570b06dee41b08a"
+    },
+    "snapshotId": "7eff3b20-dcd1-4861-bb36-baf90ba0081b",
+    "snapshotDate": "2022/04/25",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "14464",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "12314",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4148",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-188",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "7",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "9606",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "7711",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "11763",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "306",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "8613.11",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "378.09",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "626.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "11406.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "565.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "0.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10853.10",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "641eeeaff570b06dee41b08c"
+    },
+    "snapshotId": "840af138-9ed7-44bc-8478-5b5d49a592a2",
+    "snapshotDate": "2022/02/28",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "57",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "10773",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "11614",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "4527",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-642",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "703",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "9606",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "266",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "11668",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "429",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6730",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "10.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "339",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "360",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "9498",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "172",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "281",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ed678fbf-6b18-43e8-8117-592b7d9606f1",
+        "assetName": "Ryans ISA",
+        "assetType": "shares",
+        "assetValue": "10413",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "3b64db91-6399-4e1a-9f50-0e9404851374",
+        "assetName": "Suncorp Joint Account (Old)",
+        "assetType": "money",
+        "assetValue": "3358",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6426819a7be41c750afff8d1"
+    },
+    "snapshotId": "402133ac-f070-48f6-9024-755ac2e74fed",
+    "snapshotDate": "2023/03/03",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "18310",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "13931",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "6650",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "-275",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "99",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay"
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "4918",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "12378",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "2109",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6464.52",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "51994.59",
+        "assetCurrency": "aud",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "5679",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12645",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan"
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "291",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "20639",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "255",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "340.00",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6429283869ba4e0ba59153e2"
+    },
+    "snapshotId": "b60da9fc-9a4e-4328-9019-9a698a3a8f10",
+    "snapshotDate": "2023/04/01",
+    "snapshotAssets": [
+      {
+        "assetId": "7a3ee06b-7892-4647-a109-e6ba4116924b",
+        "assetName": "Santander",
+        "assetType": "money",
+        "assetValue": "100",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 0
+      },
+      {
+        "assetId": "9f33c911-7af7-4a4a-a31f-4c97023aac1d",
+        "assetName": "PayPal",
+        "assetType": "money",
+        "assetValue": "89",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 0
+      },
+      {
+        "assetId": "bd27d27c-5869-422c-9a01-2cdecde1f981",
+        "assetName": "HSBC Loyalty ISA",
+        "assetType": "shares",
+        "assetValue": "9",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 0
+      },
+      {
+        "assetId": "b4aed92b-d1aa-4906-87c9-6c72e6d0b878",
+        "assetName": "HSBC Flex Save",
+        "assetType": "money",
+        "assetValue": "18325",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 15
+      },
+      {
+        "assetId": "fb4149cc-6638-4755-9f34-63aadbf1faab",
+        "assetName": "HSBC Stocks & Shares",
+        "assetType": "shares",
+        "assetValue": "14058",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 127
+      },
+      {
+        "assetId": "b12c84e2-ebf7-4c24-bd5f-c6d0bfa21223",
+        "assetName": "HSBC Current",
+        "assetType": "money",
+        "assetValue": "6123",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": -527
+      },
+      {
+        "assetId": "b33aec3d-1153-4942-91f5-832f637565d4",
+        "assetName": "HSBC Credit Card",
+        "assetType": "money",
+        "assetValue": "0",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 275
+      },
+      {
+        "assetId": "cdc25ba3-9fbb-41c7-a58d-6ad413bc5444",
+        "assetName": "Monzo Splurge",
+        "assetType": "money",
+        "assetValue": "68",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": -31
+      },
+      {
+        "assetId": "29db9d9b-f060-4d8e-b3c9-0f1d52a9d4ac",
+        "assetName": "Bitcoin",
+        "assetType": "crypto",
+        "assetValue": "5439",
+        "assetCurrency": "gbp",
+        "assetOwner": "kay",
+        "difference": 0
+      },
+      {
+        "assetId": "d3a85fed-a7da-42d2-a23f-7b854e8c530d",
+        "assetName": "HSBC Joint Splurge",
+        "assetType": "money",
+        "assetValue": "2923",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": -1995
+      },
+      {
+        "assetId": "60b59a21-3b19-4300-affe-4ade068eff67",
+        "assetName": "HSBC Joint Euro",
+        "assetType": "money",
+        "assetValue": "13962",
+        "assetCurrency": "euro",
+        "assetOwner": "joint",
+        "difference": "nomatch"
+      },
+      {
+        "assetId": "0d935db9-e607-4e2a-85b2-476686c2c458",
+        "assetName": "Monzo Joint Blow",
+        "assetType": "money",
+        "assetValue": "1529",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": -580
+      },
+      {
+        "assetId": "ced769d1-e405-4421-84c5-f4027441aae2",
+        "assetName": "Santander Everyday Current",
+        "assetType": "money",
+        "assetValue": "6464.52",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan",
+        "difference": 0
+      },
+      {
+        "assetId": "0bed68d9-e167-4231-81e1-5288cd1c74fd",
+        "assetName": "Suncorp Everyday Basic Joint",
+        "assetType": "money",
+        "assetValue": "51994.59",
+        "assetCurrency": "aud",
+        "assetOwner": "ryan",
+        "difference": 0
+      },
+      {
+        "assetId": "f599a0b7-8925-43fd-b7b6-5f2fec11e3f0",
+        "assetName": "Monzo Personal",
+        "assetType": "money",
+        "assetValue": "5331.17",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan",
+        "difference": -347.8299999999999
+      },
+      {
+        "assetId": "9754f7b7-4fe6-4aa5-9e48-35d3e65c45de",
+        "assetName": "Aviva (UK Pension)",
+        "assetType": "money",
+        "assetValue": "12571.83",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan",
+        "difference": 0
+      },
+      {
+        "assetId": "49c5c966-cfe9-4a4e-8f2a-5fe0127eaf6f",
+        "assetName": "Kraken",
+        "assetType": "crypto",
+        "assetValue": "155.27",
+        "assetCurrency": "gbp",
+        "assetOwner": "ryan",
+        "difference": 0
+      },
+      {
+        "assetId": "9cba7a17-f3e3-4c0d-8fe2-a536d0bbedb5",
+        "assetName": "(CC) PayPal",
+        "assetType": "business",
+        "assetValue": "1085.59",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": 794.5899999999999
+      },
+      {
+        "assetId": "cf1dce55-b019-4af3-b817-e51a03a1cd30",
+        "assetName": "(CC) Tide",
+        "assetType": "business",
+        "assetValue": "18549",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": -2090
+      },
+      {
+        "assetId": "2ebab990-cb14-48f6-bbc5-c299a0ad15d6",
+        "assetName": "(CC) Wise",
+        "assetType": "business",
+        "assetValue": "241.18",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": -13.819999999999993
+      },
+      {
+        "assetId": "eddd7db9-02e9-4859-bcb3-2c764f299b6c",
+        "assetName": "(CC) Shopify",
+        "assetType": "business",
+        "assetValue": "625.51",
+        "assetCurrency": "gbp",
+        "assetOwner": "joint",
+        "difference": 285.51
+      }
+    ]
+  }
+]

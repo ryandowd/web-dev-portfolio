@@ -1,23 +1,13 @@
-import { Container, Link } from '@mui/material';
+import { Button, Container, Link } from '@mui/material';
 import { SignUpFormCredentials } from '@/sites/main/components/login/SignUpFormCredentials';
 
 export default function SignUpPage() {
   return (
     <Container component='main' maxWidth='xs'>
-      <Link href={'/portfolio'}>Back to home</Link>
+      <Link href={'/portfolio'}>
+        <Button variant='contained'>Back to home</Button>
+      </Link>
       <SignUpFormCredentials />
     </Container>
   );
 }
-
-// import { SignUpForm } from '@/components/Login/SignUpForm';
-// import Link from 'next/link';
-
-// export default function SignupUserForm() {
-//   return (
-//     <>
-//       <Link href='/'>Back to home</Link>
-//       <SignUpForm />
-//     </>
-//   );
-// }

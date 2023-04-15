@@ -4,7 +4,7 @@ import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
 import Link from 'next/link';
 import { ArrowBack } from '@mui/icons-material';
 import { EventUpdateForm } from '@/sites/portfolio/components/EventUpdatePage/EventUpdateForm';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 type EventUpdatePageProps = {
   eventId: string;
@@ -18,8 +18,9 @@ export const EventUpdatePage = (props: EventUpdatePageProps) => {
     <>
       <GlobalNav>
         <Link style={{ color: 'white', display: 'flex' }} href='/portfolio'>
-          <ArrowBack sx={{ mr: 1 }} />
-          Back to Timeline
+          <Button variant='contained' startIcon={<ArrowBack />}>
+            Back to Timeline
+          </Button>
         </Link>
       </GlobalNav>
       <Container component='main' maxWidth='md' sx={{ my: 5 }}>

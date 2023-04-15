@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb';
 import {
   MONGODB_PORTFOLIO_URL,
   MONGODB_FINANCE_URL,
+  MONGODB_USERS_URL,
 } from '@/sites/main/constants';
 
 export async function connectToDatabase(dbType: string) {
@@ -13,6 +14,9 @@ export async function connectToDatabase(dbType: string) {
       break;
     case 'finance':
       dbTypeUrl = MONGODB_FINANCE_URL;
+      break;
+    case 'users':
+      dbTypeUrl = MONGODB_USERS_URL;
       break;
     default:
       dbTypeUrl = MONGODB_PORTFOLIO_URL;

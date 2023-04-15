@@ -16,6 +16,10 @@ import { Container } from '@mui/system';
 export const HomePage = () => {
   const { data: session } = useSession();
 
+  const isAllowedUser =
+    // @ts-ignore
+    session?.user?.role === 'user' || session?.user?.role === 'admin';
+
   const portfolioItem = (
     <Card>
       <NextLink href='/portfolio'>
@@ -43,7 +47,7 @@ export const HomePage = () => {
     </Card>
   );
 
-  const financeItem = session && (
+  const financeItem = isAllowedUser && (
     <Card>
       <NextLink href='/finance-tracker'>
         <CardActionArea>

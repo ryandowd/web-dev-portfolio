@@ -27,6 +27,8 @@ export default function FinancePage(props: FinancePageProps) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  console.log('here');
+
   const session = await getSession({ req: context.req });
   const user = session?.user as any;
   const role = user?.role;
@@ -44,16 +46,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // @ts-ignore
   const transformedSnapshots = transformSnapshots(allSnapshots);
 
-  console.log(
-    'transformedSnapshots',
-    JSON.stringify(transformedSnapshots, null, 2)
-  );
-
   client.close();
 
   return {
     props: {
-      snapshots: transformedSnapshots,
+      snapshots: [],
+      // snapshots: transformedSnapshots,
     },
   };
 }

@@ -54,7 +54,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshots={snapshots} />
+      {/* <SnapshotTotalsList snapshots={snapshots} /> */}
     </Container>
   );
 };

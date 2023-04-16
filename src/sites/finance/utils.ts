@@ -1,6 +1,6 @@
 import { SnapshotTotals } from '@/sites/finance/global/types';
 
-export const formatNumberWithCommas = (value: number) => {
+export const formatNumberWithCommas = (value: number | undefined) => {
   if (!value) {
     return 'N/A';
   }

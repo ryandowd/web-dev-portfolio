@@ -10,6 +10,10 @@ type SnapshotTotalsListProps = {
 export const SnapshotTotalsList = (props: SnapshotTotalsListProps) => {
   const { snapshots } = props;
 
+  console.log('snapshots', snapshots);
+
+  return <h1>Hello</h1>;
+
   return (
     <>
       {snapshots?.map((snapshot) => {

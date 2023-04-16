@@ -21,29 +21,29 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const isDifferenceNegative = (monthDifference || 0) < 0;
 
   console.log('isDifferenceNegative', isDifferenceNegative);
-  // const differenceColour = isDifferenceNegative ? 'red' : 'green';
-  // const differenceIcon = isDifferenceNegative ? (
-  //   <ArrowDropDown sx={{ color: differenceColour }} />
-  // ) : (
-  //   <ArrowDropUp sx={{ color: differenceColour }} />
-  // );
+  const differenceColour = isDifferenceNegative ? 'red' : 'green';
+  const differenceIcon = isDifferenceNegative ? (
+    <ArrowDropDown sx={{ color: differenceColour }} />
+  ) : (
+    <ArrowDropUp sx={{ color: differenceColour }} />
+  );
 
-  // const transparentStyles = isTransparent
-  //   ? {
-  //       backgroundColor: 'transparent',
-  //       boxShadow: 'none',
-  //     }
-  //   : {};
+  const transparentStyles = isTransparent
+    ? {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+      }
+    : {};
 
   return (
     <Paper
-      // key={snapshot.snapshotId}
+      key={snapshotId}
       sx={{
         display: 'flex',
         margin: '10px',
         width: '100%',
         borderRadius: 0,
-        // ...transparentStyles,
+        ...transparentStyles,
       }}
     >
       Hello

@@ -96,7 +96,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#b7b7b7',
               }}
             >
-              {dayjs(snapshotDate).format('DD')}
+              {/* {dayjs(snapshotDate).format('DD')} */}
             </Typography>
             <Typography
               variant='h5'
@@ -109,7 +109,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#424242',
               }}
             >
-              {dayjs(snapshotDate).format('MMM')}
+              {/* {dayjs(snapshotDate).format('MMM')} */}
             </Typography>
             <Typography
               variant='h5'
@@ -122,12 +122,12 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#7f7f7f',
               }}
             >
-              {dayjs(snapshotDate).format('YYYY')}
+              {/* {dayjs(snapshotDate).format('YYYY')} */}
             </Typography>
           </Box>
           {total && (
             <Typography variant='h5' sx={{ fontSize: '2.2rem' }}>
-              £{formatNumberWithCommas(total)}
+              {/* £{formatNumberWithCommas(total)} */}
             </Typography>
           )}
           {monthDifference ? (
@@ -152,7 +152,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                   fontSize: '2rem',
                 }}
               >
-                £{formatNumberWithCommas(monthDifference)}
+                {/* £{formatNumberWithCommas(monthDifference)} */}
               </Typography>
               {differenceIcon}
             </Box>

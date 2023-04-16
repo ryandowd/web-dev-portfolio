@@ -153,7 +153,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
           ) : null}
         </Box>
 
-        {/* <SnapshotDetailOverviewTotal snapshot={snapshot} /> */}
+        <SnapshotDetailOverviewTotal snapshot={snapshot} />
       </Box>
     </Paper>
   );

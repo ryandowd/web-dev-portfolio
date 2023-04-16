@@ -16,6 +16,8 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const { snapshot, isTransparent } = props;
   const { monthDifference, total, snapshotDate, snapshotId } = snapshot;
   console.log({ monthDifference, total, snapshotDate, snapshotId });
+
+  return <h1>Hello</h1>;
   // const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
   // const differenceColour = isDifferenceNegative ? 'red' : 'green';
   // const differenceIcon = isDifferenceNegative ? (

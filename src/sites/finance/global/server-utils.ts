@@ -133,14 +133,13 @@ export const appendMonthTotalDifference = (snapshots: Snapshot[]) => {
   return snapshots.map((snapshot: Snapshot, index: number) => {
     const prevMonthTotal = snapshots[index + 1]?.total;
     const currMonthTotal = snapshot.total;
-
-    if (!currMonthTotal || !prevMonthTotal) {
-      return snapshot;
-    }
+    const noTotals = !currMonthTotal || !prevMonthTotal;
 
     return {
       ...snapshot,
-      monthDifference: Number(currMonthTotal) - Number(prevMonthTotal),
+      monthDifference: noTotals
+        ? 0
+        : Number(currMonthTotal) - Number(prevMonthTotal),
     };
   });
 };

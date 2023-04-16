@@ -17,20 +17,20 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const { monthDifference, total, snapshotDate, snapshotId } = snapshot;
   console.log({ monthDifference, total, snapshotDate, snapshotId });
 
-  const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
-  const differenceColour = isDifferenceNegative ? 'red' : 'green';
-  const differenceIcon = isDifferenceNegative ? (
-    <ArrowDropDown sx={{ color: differenceColour }} />
-  ) : (
-    <ArrowDropUp sx={{ color: differenceColour }} />
-  );
+  // const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
+  // const differenceColour = isDifferenceNegative ? 'red' : 'green';
+  // const differenceIcon = isDifferenceNegative ? (
+  //   <ArrowDropDown sx={{ color: differenceColour }} />
+  // ) : (
+  //   <ArrowDropUp sx={{ color: differenceColour }} />
+  // );
 
-  const transparentStyles = isTransparent
-    ? {
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-      }
-    : {};
+  // const transparentStyles = isTransparent
+  //   ? {
+  //       backgroundColor: 'transparent',
+  //       boxShadow: 'none',
+  //     }
+  //   : {};
 
   return (
     <Paper
@@ -40,7 +40,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
         margin: '10px',
         width: '100%',
         borderRadius: 0,
-        ...transparentStyles,
+        // ...transparentStyles,
       }}
     >
       Hello

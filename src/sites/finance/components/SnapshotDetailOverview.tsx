@@ -14,6 +14,7 @@ type SnapshotDetailOverviewProps = {
 
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const { snapshot, isTransparent } = props;
+  const { monthDifference, total, snapshotDate, snapshotId } = snapshot;
   const isDifferenceNegative = (snapshot.monthDifference || false) < 0;
   const differenceColour = isDifferenceNegative ? 'red' : 'green';
   const differenceIcon = isDifferenceNegative ? (
@@ -41,7 +42,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
       }}
     >
       <Box
-        key={snapshot.snapshotId}
+        key={snapshotId}
         sx={{
           padding: '20px',
           display: {
@@ -93,7 +94,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#b7b7b7',
               }}
             >
-              {dayjs(snapshot.snapshotDate).format('DD')}
+              {dayjs(snapshotDate).format('DD')}
             </Typography>
             <Typography
               variant='h5'
@@ -106,7 +107,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#424242',
               }}
             >
-              {dayjs(snapshot.snapshotDate).format('MMM')}
+              {dayjs(snapshotDate).format('MMM')}
             </Typography>
             <Typography
               variant='h5'
@@ -119,15 +120,15 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                 color: '#7f7f7f',
               }}
             >
-              {dayjs(snapshot.snapshotDate).format('YYYY')}
+              {dayjs(snapshotDate).format('YYYY')}
             </Typography>
           </Box>
-          {snapshot.total && (
+          {total && (
             <Typography variant='h5' sx={{ fontSize: '2.2rem' }}>
-              £{formatNumberWithCommas(snapshot.total)}
+              £{formatNumberWithCommas(total)}
             </Typography>
           )}
-          {snapshot.monthDifference ? (
+          {monthDifference ? (
             <Box
               sx={{
                 display: 'flex',
@@ -149,14 +150,14 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
                   fontSize: '2rem',
                 }}
               >
-                £{formatNumberWithCommas(snapshot.monthDifference)}
+                £{formatNumberWithCommas(monthDifference)}
               </Typography>
               {differenceIcon}
             </Box>
           ) : null}
         </Box>
 
-        <SnapshotDetailOverviewTotal snapshot={snapshot} />
+        {/* <SnapshotDetailOverviewTotal snapshot={snapshot} /> */}
       </Box>
     </Paper>
   );

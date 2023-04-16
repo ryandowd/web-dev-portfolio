@@ -43,7 +43,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
-      <FinanceDashboardAreaChart snapshots={snapshots} />
+      <FinanceDashboardAreaChart snapshots={fetchedSnapshots} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -53,7 +53,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      {/* <SnapshotTotalsList snapshots={snapshots} /> */}
+      <SnapshotTotalsList snapshots={fetchedSnapshots} />
     </Container>
   );
 };

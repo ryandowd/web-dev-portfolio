@@ -23,6 +23,10 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
     <ArrowDropUp sx={{ color: differenceColour }} />
   );
 
+  console.log({ monthDifference, total, snapshotDate, snapshotId });
+
+  return <h1>Hello</h1>;
+
   const transparentStyles = isTransparent
     ? {
         backgroundColor: 'transparent',

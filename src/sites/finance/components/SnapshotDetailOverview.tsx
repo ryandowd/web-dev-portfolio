@@ -21,11 +21,11 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const isDifferenceNegative = (monthDifference || 0) < 0;
 
   const differenceColour = isDifferenceNegative ? 'red' : 'green';
-  // const differenceIcon = isDifferenceNegative ? (
-  //   <ArrowDropDown sx={{ color: differenceColour }} />
-  // ) : (
-  //   <ArrowDropUp sx={{ color: differenceColour }} />
-  // );
+  const differenceIcon = isDifferenceNegative ? (
+    <ArrowDropDown sx={{ color: differenceColour }} />
+  ) : (
+    <ArrowDropUp sx={{ color: differenceColour }} />
+  );
 
   // const transparentStyles = isTransparent
   //   ? {

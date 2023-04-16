@@ -1,5 +1,7 @@
 import { Snapshot } from '@/sites/finance/global/types';
 import { Box } from '@mui/system';
+import Link from 'next/link';
+import { SnapshotDetailOverview } from './SnapshotDetailOverview';
 
 type SnapshotTotalsListProps = {
   snapshots: Snapshot[];
@@ -25,9 +27,9 @@ export const SnapshotTotalsList = (props: SnapshotTotalsListProps) => {
               },
             }}
           >
-            {/* <Link href={`/finance-tracker/snapshots/${snapshot.snapshotId}`}>
+            <Link href={`/finance-tracker/snapshots/${snapshot.snapshotId}`}>
               <SnapshotDetailOverview snapshot={snapshot} />
-            </Link> */}
+            </Link>
           </Box>
         );
       })}

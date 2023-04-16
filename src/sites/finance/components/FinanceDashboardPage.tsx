@@ -15,23 +15,23 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
   const { snapshots } = props;
   const theme = useTheme();
 
-  const [fetchedSnapshots, getFetchedSnapshots] =
-    useState<Snapshot[]>(snapshots);
+  // const [fetchedSnapshots, getFetchedSnapshots] =
+  //   useState<Snapshot[]>(snapshots);
 
-  useQuery({
-    queryKey: ['snapshots'],
-    queryFn: async () => {
-      const response = await axios.get('/api/finance/snapshots');
-      return response.data;
-    },
-    onSuccess: (data) => {
-      getFetchedSnapshots(data.snapshots);
-    },
-    refetchOnWindowFocus: false,
-  });
+  // useQuery({
+  //   queryKey: ['snapshots'],
+  //   queryFn: async () => {
+  //     const response = await axios.get('/api/finance/snapshots');
+  //     return response.data;
+  //   },
+  //   onSuccess: (data) => {
+  //     getFetchedSnapshots(data.snapshots);
+  //   },
+  //   refetchOnWindowFocus: false,
+  // });
 
   console.log('FIANNCE PAGE snapshots', snapshots);
-  console.log('FIANNCE PAGE fetchedSnapshots', fetchedSnapshots);
+  // console.log('FIANNCE PAGE fetchedSnapshots', fetchedSnapshots);
 
   return (
     <Container

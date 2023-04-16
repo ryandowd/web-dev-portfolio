@@ -4,6 +4,7 @@ import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import ErrorBoundary from '@/sites/main/components/ui/ErrorBoundary';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { theme } from '@/styles/theme';
 
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <CssBaseline />
         <SessionProvider session={pageProps.session}>
           <QueryClientProvider client={queryClient}>
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
             <ReactQueryDevtools />
           </QueryClientProvider>
         </SessionProvider>

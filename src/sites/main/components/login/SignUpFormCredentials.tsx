@@ -5,10 +5,8 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
 
 import LoadingButton from '@mui/lab/LoadingButton';
-import {
-  LockOutlined as LockOutlinedIcon,
-  Visibility as VisibilityIcon,
-} from '@mui/icons-material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import {
   Avatar,

@@ -7,7 +7,8 @@ import { TimelineCardContent } from '@/sites/portfolio/components/Timeline/Timel
 import { TimelineCardJoiner } from './TimelineCardJoiner';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { DeleteForever, Edit } from '@mui/icons-material';
+import DeleteForever from '@mui/icons-material/DeleteForever';
+import Edit from '@mui/icons-material/Edit';
 
 interface TimelineCardProps {
   event: EventProps;

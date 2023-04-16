@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
 
 import { formatNumberWithCommas } from '@/sites/finance/utils';
-import { ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
+import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import { Typography, Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import { Snapshot } from '@/sites/finance/global/types';
@@ -149,7 +150,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
               >
                 £{formatNumberWithCommas(monthDifference)}
               </Typography>
-              {/* {differenceIcon} */}
+              {differenceIcon}
             </Box>
           ) : null}
         </Box>

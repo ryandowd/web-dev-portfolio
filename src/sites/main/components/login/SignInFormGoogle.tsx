@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { LoadingButton } from '@mui/lab';
-import { Google } from '@mui/icons-material';
+import GoogleIcon from '@mui/icons-material/Google';
 
 export const SignInFormGoogle = () => {
   const [signInLoading, setSignInLoading] = useState(false);
@@ -16,9 +16,8 @@ export const SignInFormGoogle = () => {
   return (
     <LoadingButton
       fullWidth
-      startIcon={<Google />}
+      startIcon={<GoogleIcon />}
       loading={signInLoading}
-      // loadingPosition='end'
       variant='contained'
       sx={{ mt: 3, mb: 2 }}
       onClick={signInFormHandler}

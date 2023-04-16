@@ -1,5 +1,6 @@
 import { Button, IconButton } from '@mui/material';
-import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
+import ArrowDownward from '@mui/icons-material/ArrowDownward';
+import ArrowUpward from '@mui/icons-material/ArrowUpward';
 
 type TableSortProps = {
   handler: (sortBy: string, isDescending?: boolean) => void;

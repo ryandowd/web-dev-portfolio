@@ -1,6 +1,6 @@
-import { Box } from '@mui/material';
-import Link from 'next/link';
-import { SnapshotDetailOverview } from './SnapshotDetailOverview';
+// import { Box } from '@mui/material';
+// import Link from 'next/link';
+// import { SnapshotDetailOverview } from './SnapshotDetailOverview';
 import { Snapshot } from '@/sites/finance/global/types';
 
 type SnapshotTotalsListProps = {

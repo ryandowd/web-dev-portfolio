@@ -34,7 +34,7 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
 
   return (
     <Paper
-      key={snapshot.snapshotId}
+      // key={snapshot.snapshotId}
       sx={{
         display: 'flex',
         margin: '10px',

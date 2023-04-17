@@ -11,7 +11,9 @@ type SnapshotAssetBarChartProps = {
   snapshot: Snapshot;
 };
 
-export const SnapshotDifferenceTotals = (props: SnapshotAssetBarChartProps) => {
+export const SnapshotDifferenceTotalsChart = (
+  props: SnapshotAssetBarChartProps
+) => {
   const { snapshot } = props;
   const chartRef = useRef(null);
 

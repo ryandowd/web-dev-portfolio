@@ -65,15 +65,14 @@ export const formatAssetsForPieChart = (
 };
 
 export const formatAssetDifferencesForBarChart = (snapshotAssets: any) => {
-  let assetIncomeAndExpenses = {};
+  let assetIncomeAndExpenses = {
+    income: [],
+    expenses: [],
+  };
 
   // @ts-ignore
   snapshotAssets.forEach((ownerAssets) => {
-    // @ts-ignore
-    if (!assetIncomeAndExpenses['income']) {
-      // @ts-ignore
-      assetIncomeAndExpenses['income'] = [];
-    } else if (Number(ownerAssets.difference) > 0) {
+    if (Number(ownerAssets.difference) > 0) {
       // @ts-ignore
       assetIncomeAndExpenses['income'].push({
         name: ownerAssets.assetName.toUpperCase(),
@@ -82,11 +81,7 @@ export const formatAssetDifferencesForBarChart = (snapshotAssets: any) => {
       });
     }
 
-    // @ts-ignore
-    if (!assetIncomeAndExpenses['expenses']) {
-      // @ts-ignore
-      assetIncomeAndExpenses['expenses'] = [];
-    } else if (Number(ownerAssets.difference) < 0) {
+    if (Number(ownerAssets.difference) < 0) {
       // @ts-ignore
       assetIncomeAndExpenses['expenses'].push({
         name: ownerAssets.assetName.toUpperCase(),

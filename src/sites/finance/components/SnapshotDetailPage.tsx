@@ -13,7 +13,7 @@ import { useSnapshots } from '../hooks/use-snapshots';
 import { SnapshotDetailPieChart } from './SnapshotDetailPieChart';
 import { SnapshotAssetBarChart } from './SnapshotAssetBarChart';
 import { MortgageDepositCalculator } from './MortgageDepositCalculator';
-import { SnapshotDifferenceTotals } from './SnapshotDifferenceTotals';
+import { SnapshotDifferenceTotalsChart } from './SnapshotDifferenceTotalsChart';
 
 type SnapshotDetailPageProps = {
   snapshot: Snapshot;
@@ -48,7 +48,7 @@ export const SnapshotDetailPage = (props: SnapshotDetailPageProps) => {
         <Box sx={{ margin: '20px 0 0' }}>
           <SnapshotDetailOverview snapshot={snapshotState} />
         </Box>
-        <SnapshotDifferenceTotals snapshot={snapshotState} />
+        <SnapshotDifferenceTotalsChart snapshot={snapshotState} />
         <SnapshotDetailPieChart snapshot={snapshotState} />
         <MortgageDepositCalculator snapshot={snapshotState} />
         <SnapshotAssetBarChart snapshot={snapshotState} />

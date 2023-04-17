@@ -68,9 +68,8 @@ export const SnapshotDetailOverviewTotal = (
                 // @ts-ignore
                 total[1].current || total[1]
               )}`;
-              const diffenceValue = isNaN(total[1].difference)
-                ? 'N/A'
-                : `${formatNumberWithCommas(total[1].difference)}`;
+
+              const diffenceValue = formatNumberWithCommas(total[1].difference);
 
               return (
                 <Box

@@ -161,7 +161,16 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
         },
       ],
     }),
-    [showLegend, types, owners, currencies, seriesOptions]
+    [
+      showLegend,
+      types,
+      owners,
+      currencies,
+      seriesOptions,
+      kay,
+      ryan,
+      titleOptions,
+    ]
   );
 
   useEffect(() => {

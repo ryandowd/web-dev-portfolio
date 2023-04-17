@@ -8,7 +8,6 @@ type SnapshotTotalsListProps = {
 };
 
 export const SnapshotTotalsList = (props: SnapshotTotalsListProps) => {
-  console.log('props', props);
   const { snapshots } = props;
   return (
     <>

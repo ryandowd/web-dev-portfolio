@@ -16,7 +16,6 @@ type SnapshotDetailOverviewProps = {
 export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
   const { snapshot, isTransparent } = props;
   const { monthDifference, total, snapshotDate, snapshotId } = snapshot;
-  console.log({ monthDifference, total, snapshotDate, snapshotId });
 
   // @TODO - Fix this
   const isDifferenceNegative = (monthDifference || 0) < 0;

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { EventProps } from '@/sites/portfolio/types';
 import { Snapshot } from '@/sites/finance/global/types';
 
 export const useSnapshots = () => {
@@ -14,9 +13,9 @@ export const useSnapshots = () => {
     isLoading: isCreateLoading,
     isSuccess: isCreateSuccess,
   } = useMutation({
-    mutationFn: async (AddSnapshot: EventProps) => {
+    mutationFn: async (newSnapshot: Snapshot) => {
       const response = await axios.post('/api/finance/snapshots', {
-        AddSnapshot,
+        newSnapshot,
       });
       return response.data;
     },
@@ -47,6 +46,12 @@ export const useSnapshots = () => {
     isSuccess: isUpdateSuccess,
   } = useMutation({
     mutationFn: async (updatedSnapshot: Snapshot) => {
+      const trimmedSnapshot = {
+        snapshotAssets: updatedSnapshot.snapshotAssets,
+        snapshotDate: updatedSnapshot.snapshotDate,
+        snapshotId: updatedSnapshot.snapshotId,
+      };
+
       const response = await axios.put(
         `/api/finance/snapshots/${updatedSnapshot.snapshotId}`,
         {
@@ -80,8 +85,8 @@ export const useSnapshots = () => {
     },
   });
 
-  function createAddSnapshotHandler(AddSnapshot: EventProps) {
-    createSnapshotMutate(AddSnapshot);
+  function createAddSnapshotHandler(newSnapshot: Snapshot) {
+    createSnapshotMutate(newSnapshot);
 
     // setSnapshots((prevState) => {
     //   return [AddSnapshot, ...prevState];

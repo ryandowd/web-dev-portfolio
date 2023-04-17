@@ -7,17 +7,23 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    const AddSnapshot = req.body.AddSnapshot;
+    const newSnapshot = req.body.newSnapshot;
     const client = await connectToDatabase('finance');
     const db = client.db();
 
-    await db.collection('snapshots').insertOne({ ...AddSnapshot });
+    const trimmedSnapshot = {
+      snapshotAssets: newSnapshot.snapshotAssets,
+      snapshotDate: newSnapshot.snapshotDate,
+      snapshotId: newSnapshot.snapshotId,
+    };
+
+    await db.collection('snapshots').insertOne({ ...trimmedSnapshot });
 
     client.close();
 
     res.status(201).json({
       message: 'Successfully updated',
-      AddSnapshot,
+      newSnapshot,
     });
   }
 

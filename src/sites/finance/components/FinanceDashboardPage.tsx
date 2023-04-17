@@ -7,31 +7,38 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
 
-type FinanceDashboardPageProps = {
-  snapshots: Snapshot[];
-};
-
-export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
-  const { snapshots } = props;
+export const FinanceDashboardPage = () => {
   const theme = useTheme();
 
-  // const [fetchedSnapshots, getFetchedSnapshots] =
-  //   useState<Snapshot[]>(snapshots);
+  const [fetchedSnapshots, getFetchedSnapshots] = useState<Snapshot[]>([]);
 
-  // useQuery({
-  //   queryKey: ['snapshots'],
-  //   queryFn: async () => {
-  //     const response = await axios.get('/api/finance/snapshots');
-  //     return response.data;
-  //   },
-  //   onSuccess: (data) => {
-  //     getFetchedSnapshots(data.snapshots);
-  //   },
-  //   refetchOnWindowFocus: false,
-  // });
+  useQuery({
+    queryKey: ['snapshots'],
+    queryFn: async () => {
+      const response = await axios.get('/api/finance/snapshots');
+      return response.data;
+    },
+    onSuccess: (data) => {
+      getFetchedSnapshots(data.snapshots);
+    },
+    refetchOnWindowFocus: false,
+  });
 
-  console.log('FIANNCE PAGE snapshots', snapshots);
-  // console.log('FIANNCE PAGE fetchedSnapshots', fetchedSnapshots);
+  if (!fetchedSnapshots.length) {
+    return (
+      <Container
+        component='main'
+        sx={{
+          backgroundColor: theme.palette.background.default,
+          marginBottom: '100px',
+        }}
+      >
+        <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
+          Loading...
+        </Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container
@@ -44,7 +51,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
       <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
         Finance Dashboard
       </Typography>
-      <FinanceDashboardAreaChart snapshots={snapshots} />
+      <FinanceDashboardAreaChart snapshots={fetchedSnapshots} />
       <Box sx={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
         <Button
           variant='contained'
@@ -54,7 +61,7 @@ export const FinanceDashboardPage = (props: FinanceDashboardPageProps) => {
           Add new snapshot
         </Button>
       </Box>
-      <SnapshotTotalsList snapshots={snapshots} />
+      <SnapshotTotalsList snapshots={fetchedSnapshots} />
     </Container>
   );
 };

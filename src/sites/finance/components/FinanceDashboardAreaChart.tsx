@@ -26,10 +26,8 @@ export const FinanceDashboardAreaChart = (
     })
     .reverse();
 
-  const owners = ['Ryan', 'Kay', 'Joint'];
-
   // @ts-ignore
-  const ownersArray = owners.map((owner) => {
+  const ownersArray = ['Ryan', 'Kay', 'Joint'].map((owner) => {
     const _owner = owner.toLowerCase();
     return {
       name: _owner,
@@ -73,7 +71,7 @@ export const FinanceDashboardAreaChart = (
         },
       },
       legend: {
-        data: ['Totals', ...owners],
+        data: ['Totals', 'Ryan', 'Kay', 'Joint'],
       },
       tooltip: {
         trigger: 'axis',
@@ -94,7 +92,7 @@ export const FinanceDashboardAreaChart = (
         ...chartStacks,
       ],
     }),
-    [totals, dates, chartStacks, owners]
+    [totals, dates, chartStacks]
   );
 
   useEffect(() => {

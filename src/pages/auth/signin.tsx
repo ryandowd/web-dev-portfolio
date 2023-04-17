@@ -1,4 +1,4 @@
-import { Container, Link, Box, Divider } from '@mui/material';
+import { Container, Link, Box, Divider, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { SignInFormCredentials } from '@/sites/main/components/login/SignInFormCredentials';
 import { SignInFormGoogle } from '@/sites/main/components/login/SignInFormGoogle';
@@ -12,8 +12,12 @@ export default function SignInPage() {
           href={'/portfolio'}
           sx={{ display: 'flex', color: '#fff', textDecoration: 'none' }}
         >
-          <ArrowBackIcon sx={{ mr: 1 }} />
-          Back to home
+          <Button
+            startIcon={<ArrowBackIcon sx={{ mr: 1 }} />}
+            variant='contained'
+          >
+            Back to home
+          </Button>
         </Link>
       </GlobalNav>
       <Container component='main' maxWidth='xs'>

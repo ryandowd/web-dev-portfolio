@@ -6,12 +6,12 @@ import { transformSnapshots } from '@/sites/finance/global/server-utils';
 import { getSession } from 'next-auth/react';
 import type { GetServerSidePropsContext } from 'next';
 
-type FinancePageProps = {
-  snapshots: Snapshot[];
-};
+// type FinancePageProps = {
+//   snapshots: Snapshot[];
+// };
 
-export default function FinancePage(props: FinancePageProps) {
-  const { snapshots } = props;
+export default function FinancePage() {
+  // const { snapshots } = props;
 
   return (
     <>
@@ -21,19 +21,15 @@ export default function FinancePage(props: FinancePageProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <FinanceDashboardPage snapshots={snapshots} />
+      <FinanceDashboardPage />
     </>
   );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  console.log('here');
-
   const session = await getSession({ req: context.req });
   const user = session?.user as any;
   const role = user?.role;
-
-  console.log('session', session);
 
   if (!role) {
     return {
@@ -43,16 +39,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 
-  const client = await connectToDatabase('finance');
-  const allSnapshots = await getAllDocuments(client, 'snapshots');
-  // @ts-ignore
-  const transformedSnapshots = transformSnapshots(allSnapshots);
+  // const client = await connectToDatabase('finance');
+  // const allSnapshots = await getAllDocuments(client, 'snapshots');
+  // // @ts-ignore
+  // const transformedSnapshots = transformSnapshots(allSnapshots);
 
-  client.close();
+  // client.close();
 
   return {
-    props: {
-      snapshots: transformedSnapshots,
-    },
+    props: {},
   };
 }

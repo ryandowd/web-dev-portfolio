@@ -22,9 +22,15 @@ export default async function handler(
     const client = await connectToDatabase('finance');
     const db = client.db();
 
+    const trimmedSnapshot = {
+      snapshotAssets: updatedSnapshot.snapshotAssets,
+      snapshotDate: updatedSnapshot.snapshotDate,
+      snapshotId: updatedSnapshot.snapshotId,
+    };
+
     const result = await db
       .collection('snapshots')
-      .updateOne({ snapshotId }, { $set: { ...updatedSnapshot } });
+      .updateOne({ snapshotId }, { $set: { ...trimmedSnapshot } });
 
     res.status(200).json({ message: 'Successfully updated event', result });
   }

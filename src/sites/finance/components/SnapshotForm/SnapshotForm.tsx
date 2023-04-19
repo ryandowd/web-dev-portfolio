@@ -25,12 +25,6 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
     submitFormHandler,
   } = props;
 
-  // const ownerColours = {
-  //   kay: '#ffffff',
-  //   joint: '#efefef',
-  //   ryan: '#dedede',
-  // };
-
   const ownerNames = ['kay', 'ryan', 'joint'];
 
   function addAssetRowHandler() {
@@ -68,34 +62,6 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
       });
     }
   }
-
-  // const snapshotFields = snapshot?.snapshotAssets?.map((asset: any) => {
-  //   const { assetId, difference, ...renderedAssetFields } = asset;
-  //   return (
-  //     <Box
-  //       key={asset.assetName}
-  //       sx={{
-  //         display: 'flex',
-  //         justifyContent: 'center',
-  //         alignItems: 'center',
-  //       }}
-  //     >
-  //       {Object.entries(renderedAssetFields)?.map((field: any) => {
-  //         return (
-  //           <SnapshotFormField
-  //             key={field[0]}
-  //             field={field}
-  //             setSnapshotState={setSnapshotState}
-  //             rowIndex={asset.assetName}
-  //           />
-  //         );
-  //       })}
-  //       <IconButton onClick={() => deleteAssetRowHandler(asset.assetId)}>
-  //         <DeleteForever />
-  //       </IconButton>
-  //     </Box>
-  //   );
-  // });
 
   const groupedAssetsByOwner = useMemo(() => {
     return snapshot?.snapshotAssets?.reduce((acc: any, asset: any) => {

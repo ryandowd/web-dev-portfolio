@@ -2,7 +2,7 @@ import { SnapshotTotals } from '@/sites/finance/global/types';
 
 export const formatNumberWithCommas = (value: number | undefined) => {
   if (!value) {
-    return 'N/A';
+    return 0;
   }
 
   const isFractional = Number(value) % 1 != 0;

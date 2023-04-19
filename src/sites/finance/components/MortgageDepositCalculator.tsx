@@ -44,6 +44,25 @@ export const MortgageDepositCalculator = (
     return curr.checked ? acc + curr.value : acc;
   }, 0);
 
+  const calculatorOwnerTotals = chosenAssets.reduce((totals, asset) => {
+    // @ts-ignore
+    if (!totals[asset.owner]) {
+      return {
+        ...totals,
+        [asset.owner]: asset.checked ? asset.value : 0,
+      };
+    }
+
+    return {
+      ...totals,
+      [asset.owner]: asset.checked
+        ? // @ts-ignore
+          totals[asset.owner] + asset.value
+        : // @ts-ignore
+          totals[asset.owner],
+    };
+  }, {});
+
   function changeChosenAssetsHandler(event: any, name: string) {
     setChosenAssets((prevAssets) => {
       const updatedState = prevAssets.map((asset) => {
@@ -138,7 +157,12 @@ export const MortgageDepositCalculator = (
                     margin: '10px 0',
                   }}
                 >
-                  {owner}
+                  <span>{owner}</span>
+                  <span>
+                    {' '}
+                    {/* @ts-ignore */}
+                    (£{formatNumberWithCommas(calculatorOwnerTotals[owner])})
+                  </span>
                 </Typography>
                 <FormControl>
                   {ownersAssets[owner].map((asset: any) => {

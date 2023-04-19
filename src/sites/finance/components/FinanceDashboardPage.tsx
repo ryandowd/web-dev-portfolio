@@ -3,6 +3,7 @@ import { Container } from '@mui/system';
 import { FinanceDashboardAreaChart } from './FinanceDashboardAreaChart';
 import { Snapshot } from '@/sites/finance/global/types';
 import { SnapshotTotalsList } from './SnapshotTotalsList';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
@@ -26,17 +27,18 @@ export const FinanceDashboardPage = () => {
 
   if (!fetchedSnapshots.length) {
     return (
-      <Container
-        component='main'
+      <Box
         sx={{
-          backgroundColor: theme.palette.background.default,
-          marginBottom: '100px',
+          position: 'absolute',
+          left: 'calc(50% - 20px)',
+          top: 'calc(50% - 20px)',
+          width: '40px',
+          height: '40px',
+          transform: 'scale(3)',
         }}
       >
-        <Typography variant='h3' sx={{ margin: '20px 0', textAlign: 'center' }}>
-          Loading...
-        </Typography>
-      </Container>
+        <CircularProgress />
+      </Box>
     );
   }
 

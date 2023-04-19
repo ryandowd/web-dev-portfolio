@@ -1,10 +1,20 @@
-import { Container, Link, Box, Divider, Button } from '@mui/material';
+import { useState } from 'react';
+import {
+  Container,
+  Link,
+  Box,
+  Divider,
+  Button,
+  Typography,
+} from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { SignInFormCredentials } from '@/sites/main/components/login/SignInFormCredentials';
 import { SignInFormGoogle } from '@/sites/main/components/login/SignInFormGoogle';
 import { GlobalNav } from '@/sites/main/components/ui/GlobalNav';
 
 export default function SignInPage() {
+  const [showCredentialsForm, setShowCredentialsForm] =
+    useState<boolean>(false);
   return (
     <>
       <GlobalNav>
@@ -21,11 +31,20 @@ export default function SignInPage() {
         </Link>
       </GlobalNav>
       <Container component='main' maxWidth='xs'>
-        <SignInFormCredentials />
-        <Divider sx={{ mt: 4, mb: 2 }} />
-        <Box sx={{ textAlign: 'center' }}>OR</Box>
-        <SignInFormGoogle />
-        <Box sx={{ mb: 10 }} />
+        <Box sx={{ mt: 6, mb: 6 }}>
+          <SignInFormGoogle />
+        </Box>
+        <Typography sx={{ textAlign: 'center' }}>OR</Typography>
+        {!showCredentialsForm && (
+          <Button
+            sx={{ textAlign: 'center', mt: 6, width: '100%' }}
+            onClick={() => setShowCredentialsForm(true)}
+            variant='outlined'
+          >
+            Sign in with credentials
+          </Button>
+        )}
+        {showCredentialsForm && <SignInFormCredentials />}
       </Container>
     </>
   );

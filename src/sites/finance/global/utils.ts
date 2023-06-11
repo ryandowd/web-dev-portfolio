@@ -39,16 +39,6 @@ export const sortByNumber = (
   return sortedArray;
 };
 
-export const sortArrayByValue = (
-  array: SnapshotAssetsField[],
-  valueKey: string
-) => {
-  const thingy = array[0][valueKey as keyof SnapshotAssetsField] as any;
-  return isNaN(thingy)
-    ? sortByString(array, valueKey)
-    : sortByNumber(array, valueKey);
-};
-
 export const convertAssetToCurrentCurrency = (
   asset: SnapshotAssetsField
 ): number => {

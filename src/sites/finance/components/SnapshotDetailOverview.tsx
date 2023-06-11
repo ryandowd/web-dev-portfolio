@@ -149,7 +149,6 @@ export const SnapshotDetailOverview = (props: SnapshotDetailOverviewProps) => {
               >
                 £{formatNumberWithCommas(monthDifference)}
               </Typography>
-              {/* {differenceIcon} */}
             </Box>
           ) : null}
         </Box>

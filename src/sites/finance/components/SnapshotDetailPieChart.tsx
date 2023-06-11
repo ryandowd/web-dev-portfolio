@@ -63,12 +63,15 @@ export const SnapshotDetailPieChart = (props: SnapshotDetailPieChartProps) => {
     []
   );
 
-  const titleOptions = {
-    textAlign: 'center',
-    textStyle: {
-      fontSize: 25,
-    },
-  };
+  const titleOptions = useMemo(
+    () => ({
+      textAlign: 'center',
+      textStyle: {
+        fontSize: 25,
+      },
+    }),
+    []
+  );
 
   const chartOptions = useMemo(
     () => ({

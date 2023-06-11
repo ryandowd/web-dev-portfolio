@@ -77,7 +77,7 @@ export const SnapshotDifferenceTotalsChart = (
         colorBy: 'data',
       },
     }),
-    [snapshotDifferences, dataSourceXAxis, totals]
+    [dataSourceXAxis, totals]
   );
 
   useEffect(() => {

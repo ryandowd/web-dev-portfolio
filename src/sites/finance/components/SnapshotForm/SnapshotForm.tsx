@@ -110,7 +110,7 @@ export const SnapshotForm = (props: SnapshotFormProps) => {
         );
       });
     },
-    [groupedAssetsByOwner]
+    [groupedAssetsByOwner, deleteAssetRowHandler, setSnapshotState]
   );
 
   return (

@@ -1,4 +1,5 @@
 import {
+  Container,
   Paper,
   Table,
   TableBody,
@@ -36,7 +37,7 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
 
   const ownersAssetsTables = Object.keys(rowsGroupedByOwner).map((owner) => {
     return (
-      <TableContainer component={Paper} sx={{ marginY: 6 }}>
+      <TableContainer component={Paper} sx={{ marginY: 6 }} key={owner}>
         <Typography
           variant={'h3'}
           sx={{ textTransform: 'uppercase', textAlign: 'center', marginY: 3 }}
@@ -144,5 +145,5 @@ export const SnapshotDetailTable = (props: SnapshotDetailTableProps) => {
     );
   });
 
-  return ownersAssetsTables;
+  return <Container>{ownersAssetsTables}</Container>;
 };
